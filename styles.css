@@ -1,0 +1,878 @@
+:root {
+  color-scheme: dark;
+  --ink: #10100f;
+  --charcoal: #191816;
+  --paper: #f3eee4;
+  --muted: #bdb3a5;
+  --line: rgba(243, 238, 228, 0.18);
+  --brass: #c6a15b;
+  --moss: #53685a;
+  --clay: #a65f47;
+  --white: #fffaf0;
+  --shadow: 0 24px 90px rgba(0, 0, 0, 0.42);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  align-items: center;
+  backdrop-filter: blur(18px);
+  background: rgba(16, 16, 15, 0.7);
+  border-bottom: 1px solid rgba(243, 238, 228, 0.12);
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  left: 0;
+  padding: 16px clamp(18px, 4vw, 56px);
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: background 180ms ease, padding 180ms ease;
+  z-index: 20;
+}
+
+.site-header.is-scrolled {
+  background: rgba(16, 16, 15, 0.9);
+  padding-block: 12px;
+}
+
+.brand,
+.nav,
+.header-links,
+.hero-actions,
+.contact-links,
+.footer,
+.form-row {
+  align-items: center;
+  display: flex;
+}
+
+.brand {
+  font-family: "Space Grotesk", Inter, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  gap: 10px;
+}
+
+.brand-mark {
+  display: grid;
+  height: 38px;
+  place-items: center;
+  width: 38px;
+}
+
+.brand-mark svg {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.brand-mark circle:first-child {
+  fill: var(--paper);
+}
+
+.brand-mark g {
+  fill: none;
+  stroke: var(--ink);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3.2;
+}
+
+.brand-mark g circle {
+  fill: none;
+}
+
+.brand-mark g circle:last-of-type {
+  fill: var(--ink);
+  stroke: 0;
+}
+
+.nav {
+  color: var(--muted);
+  gap: clamp(14px, 3vw, 34px);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.nav a:hover,
+.contact-links a:hover {
+  color: var(--white);
+}
+
+.header-action,
+.header-social,
+.button {
+  border: 1px solid rgba(243, 238, 228, 0.22);
+  font-weight: 800;
+  min-height: 44px;
+}
+
+.header-links {
+  gap: 10px;
+}
+
+.header-action,
+.header-social {
+  display: grid;
+  padding: 10px 18px;
+  place-items: center;
+}
+
+.header-social {
+  color: var(--muted);
+}
+
+.header-social:hover {
+  color: var(--white);
+}
+
+.header-action {
+  background: rgba(243, 238, 228, 0.08);
+}
+
+.hero {
+  min-height: 94vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-image,
+.hero-shade {
+  inset: 0;
+  position: absolute;
+}
+
+.hero-image {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.hero-shade {
+  background:
+    linear-gradient(90deg, rgba(16, 16, 15, 0.94) 0%, rgba(16, 16, 15, 0.66) 42%, rgba(16, 16, 15, 0.1) 100%),
+    linear-gradient(0deg, rgba(16, 16, 15, 0.92) 0%, rgba(16, 16, 15, 0) 42%);
+}
+
+.hero-content {
+  max-width: 760px;
+  padding: 22vh clamp(18px, 6vw, 84px) 210px;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  color: var(--brass);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Space Grotesk", Inter, sans-serif;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+h1 {
+  font-size: clamp(4rem, 13vw, 10.5rem);
+  margin-bottom: 22px;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 4.4rem);
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+.hero-copy {
+  color: rgba(243, 238, 228, 0.84);
+  font-size: clamp(1rem, 2vw, 1.26rem);
+  max-width: 640px;
+}
+
+.hero-actions {
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.button {
+  cursor: pointer;
+  display: inline-grid;
+  padding: 13px 20px;
+  place-items: center;
+}
+
+.button.primary {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.button.secondary {
+  background: rgba(16, 16, 15, 0.28);
+  color: var(--paper);
+}
+
+.button.full {
+  width: 100%;
+}
+
+.hero-panel {
+  backdrop-filter: blur(18px);
+  background: rgba(18, 18, 16, 0.72);
+  border: 1px solid rgba(243, 238, 228, 0.18);
+  box-shadow: 0 18px 80px rgba(0, 0, 0, 0.28);
+  bottom: 34px;
+  color: var(--paper);
+  display: grid;
+  font-size: 0.9rem;
+  font-weight: 800;
+  gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+  left: clamp(18px, 6vw, 84px);
+  max-width: 860px;
+  position: absolute;
+  right: clamp(18px, 6vw, 84px);
+  z-index: 3;
+}
+
+.hero-panel span {
+  display: grid;
+  gap: 4px;
+  padding: 18px 20px;
+  position: relative;
+}
+
+.hero-panel span::before {
+  background: var(--brass);
+  content: "";
+  height: 9px;
+  left: 20px;
+  position: absolute;
+  top: 0;
+  width: 42px;
+}
+
+.hero-panel span::after {
+  background: rgba(243, 238, 228, 0.14);
+  bottom: 16px;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 16px;
+  width: 1px;
+}
+
+.hero-panel small {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.hero-panel span:last-child {
+  border-right: 0;
+}
+
+.hero-panel span:last-child::after {
+  display: none;
+}
+
+.section-pad {
+  padding: clamp(70px, 10vw, 132px) clamp(18px, 6vw, 84px);
+}
+
+.intro {
+  background: var(--paper);
+  color: var(--ink);
+  display: grid;
+  gap: 34px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+}
+
+.intro .eyebrow {
+  color: var(--clay);
+}
+
+.intro p:last-child {
+  color: rgba(16, 16, 15, 0.72);
+  font-size: 1.08rem;
+  margin: 42px 0 0;
+}
+
+.section-heading {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 0.95fr) minmax(260px, 0.55fr);
+  margin-bottom: 42px;
+}
+
+.section-heading.compact {
+  display: block;
+}
+
+.section-heading p {
+  color: var(--muted);
+  margin-top: 16px;
+}
+
+.portfolio-feature {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  margin: -10px 0 34px;
+}
+
+.portfolio-feature button {
+  background: #181715;
+  border: 1px solid var(--line);
+  color: var(--paper);
+  cursor: zoom-in;
+  display: grid;
+  font: inherit;
+  min-height: 100%;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  text-align: left;
+}
+
+.portfolio-feature img {
+  filter: saturate(0.9) contrast(1.06);
+  height: 100%;
+  object-fit: cover;
+  transition: filter 180ms ease, transform 260ms ease;
+  width: 100%;
+}
+
+.portfolio-feature button:hover img {
+  filter: saturate(1) contrast(1.12) brightness(1.04);
+  transform: scale(1.025);
+}
+
+.feature-main {
+  min-height: 620px;
+}
+
+.feature-main span,
+.feature-stack span {
+  background: linear-gradient(0deg, rgba(16, 16, 15, 0.94), rgba(16, 16, 15, 0));
+  bottom: 0;
+  font-family: "Space Grotesk", Inter, sans-serif;
+  font-size: clamp(1.35rem, 3vw, 2.6rem);
+  font-weight: 700;
+  left: 0;
+  line-height: 1;
+  padding: 72px 24px 22px;
+  position: absolute;
+  right: 0;
+}
+
+.feature-main small {
+  color: var(--brass);
+  display: block;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.feature-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.feature-stack button {
+  min-height: 301px;
+}
+
+.feature-stack span {
+  font-size: 1.35rem;
+  padding: 58px 18px 16px;
+}
+
+.portfolio-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 16px;
+}
+
+.filter-button {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 800;
+  min-height: 42px;
+  padding: 10px 14px;
+}
+
+.filter-button.is-active,
+.filter-button:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.portfolio-status {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 22px;
+}
+
+.gallery {
+  display: grid;
+  gap: 18px;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.tattoo-card {
+  background: #181715;
+  border: 1px solid var(--line);
+  cursor: zoom-in;
+  display: grid;
+  min-height: 330px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tattoo-card.is-large {
+  grid-column: span 2;
+  grid-row: span 2;
+  min-height: 680px;
+}
+
+.tattoo-card.is-wide {
+  grid-column: span 2;
+  min-height: 330px;
+}
+
+.tattoo-card.is-tall {
+  grid-row: span 2;
+  min-height: 680px;
+}
+
+.tattoo-card img {
+  height: 100%;
+  object-fit: cover;
+  transition: filter 180ms ease, transform 220ms ease;
+  width: 100%;
+}
+
+.tattoo-card:hover img {
+  filter: contrast(1.06) brightness(1.04);
+  transform: scale(1.025);
+}
+
+.tattoo-card figcaption {
+  background: linear-gradient(0deg, rgba(16, 16, 15, 0.92), rgba(16, 16, 15, 0));
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  padding: 52px 18px 16px;
+  position: absolute;
+  right: 0;
+  transform: translateY(8px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.tattoo-card:hover figcaption,
+.tattoo-card:focus-within figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tattoo-card strong,
+.tattoo-card span {
+  display: block;
+}
+
+.tattoo-card strong {
+  font-family: "Space Grotesk", Inter, sans-serif;
+  font-size: 1rem;
+}
+
+.tattoo-card span {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  margin-top: 2px;
+  text-transform: uppercase;
+}
+
+.studio {
+  background: #171817;
+  display: grid;
+  gap: 44px;
+  grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1.1fr);
+}
+
+.studio-copy p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
+.studio-showcase {
+  display: grid;
+  gap: 14px;
+}
+
+.studio-showcase > img {
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  object-fit: cover;
+  width: 100%;
+}
+
+.studio-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.metric {
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 58px 1fr;
+  padding: 22px;
+}
+
+.metric span {
+  color: var(--brass);
+  font-family: "Space Grotesk", Inter, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  grid-row: span 2;
+}
+
+.metric strong {
+  font-size: 1.05rem;
+}
+
+.metric p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.process {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.process .eyebrow {
+  color: var(--clay);
+}
+
+.steps {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 34px;
+}
+
+.steps article {
+  border-top: 2px solid var(--ink);
+  padding-top: 22px;
+}
+
+.steps span {
+  color: var(--clay);
+  display: block;
+  font-family: "Space Grotesk", Inter, sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.steps p {
+  color: rgba(16, 16, 15, 0.68);
+}
+
+.contact {
+  background:
+    linear-gradient(90deg, rgba(83, 104, 90, 0.16), transparent 46%),
+    var(--ink);
+  display: grid;
+  gap: 42px;
+  grid-template-columns: minmax(0, 0.82fr) minmax(320px, 0.78fr);
+}
+
+.contact-copy p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+.contact-links {
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.contact-links a {
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-weight: 800;
+  padding: 12px 14px;
+}
+
+.contact-form {
+  background: rgba(243, 238, 228, 0.06);
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 18px;
+  padding: clamp(18px, 4vw, 32px);
+}
+
+label {
+  color: var(--muted);
+  display: grid;
+  font-size: 0.82rem;
+  font-weight: 800;
+  gap: 8px;
+  text-transform: uppercase;
+}
+
+input,
+textarea {
+  background: rgba(16, 16, 15, 0.62);
+  border: 1px solid rgba(243, 238, 228, 0.18);
+  color: var(--paper);
+  font: inherit;
+  min-height: 48px;
+  padding: 13px 14px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--brass);
+  outline: 0;
+}
+
+.form-row {
+  align-items: stretch;
+  gap: 14px;
+}
+
+.form-row label {
+  flex: 1;
+}
+
+.form-note {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-bottom: 0;
+}
+
+.lightbox {
+  align-items: center;
+  background: rgba(10, 10, 9, 0.88);
+  border: 0;
+  color: var(--paper);
+  display: none;
+  inset: 0;
+  justify-content: center;
+  max-height: none;
+  max-width: none;
+  padding: clamp(18px, 4vw, 44px);
+  position: fixed;
+  width: 100%;
+  z-index: 40;
+}
+
+.lightbox[open] {
+  display: flex;
+}
+
+.lightbox::backdrop {
+  background: rgba(10, 10, 9, 0.9);
+}
+
+.lightbox img {
+  max-height: 82vh;
+  object-fit: contain;
+  width: auto;
+}
+
+.lightbox button {
+  background: var(--paper);
+  border: 0;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  min-height: 42px;
+  padding: 10px 14px;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+}
+
+.footer {
+  background: #0c0c0b;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  gap: 18px;
+  justify-content: space-between;
+  padding: 22px clamp(18px, 6vw, 84px);
+}
+
+.footer a {
+  color: var(--paper);
+  font-weight: 800;
+}
+
+@media (max-width: 860px) {
+  .nav {
+    display: none;
+  }
+
+  .hero {
+    min-height: 920px;
+  }
+
+  .hero-content {
+    padding-top: 170px;
+    padding-bottom: 270px;
+  }
+
+  .hero-panel,
+  .intro,
+  .section-heading,
+  .portfolio-feature,
+  .studio,
+  .steps,
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-panel {
+    left: 18px;
+    right: 18px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tattoo-card.is-large,
+  .tattoo-card.is-wide,
+  .tattoo-card.is-tall {
+    grid-column: span 1;
+    grid-row: span 1;
+    min-height: 420px;
+  }
+
+  .feature-main,
+  .feature-stack button {
+    min-height: 360px;
+  }
+
+  .form-row,
+  .footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 540px) {
+  .site-header {
+    gap: 12px;
+  }
+
+  .brand span:last-child,
+  .header-social {
+    display: none;
+  }
+
+  .header-action {
+    padding-inline: 14px;
+  }
+
+  .hero {
+    min-height: 880px;
+  }
+
+  h1 {
+    font-size: clamp(3.2rem, 18vw, 5rem);
+  }
+
+  .hero-panel {
+    font-size: 0.8rem;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-panel span {
+    border-bottom: 1px solid rgba(243, 238, 228, 0.12);
+    border-right: 0;
+    padding: 14px 16px;
+  }
+
+  .hero-panel span::before {
+    left: 16px;
+    width: 34px;
+  }
+
+  .hero-panel span::after {
+    display: none;
+  }
+
+  .section-pad {
+    padding-block: 62px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .tattoo-card {
+    min-height: 410px;
+  }
+
+  .tattoo-card figcaption {
+    opacity: 1;
+    transform: none;
+  }
+}
