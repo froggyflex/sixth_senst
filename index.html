@@ -3,228 +3,120 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="sixth_sense is a modern tattoo studio in Kos Town, focused on fine line, linework, and black and grey tattoo work."
-    />
+    <meta name="description" content="sixth_sense tattoo studio in Kos. Fine line, black and grey, lettering, realism, and custom tattoo work." />
     <title>sixth_sense tattoo studio | Kos</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="sixth_sense home">
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="sixth_sense home">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 64 64" role="img">
-            <circle cx="32" cy="32" r="30" /> 
-            <g>
-              <path d="M14 32c4.5-7.5 10.5-11.2 18-11.2S45.5 24.5 50 32c-4.5 7.5-10.5 11.2-18 11.2S18.5 39.5 14 32Z" />
-              <circle cx="32" cy="32" r="7.2" />
-              <circle cx="34.4" cy="29.1" r="2.2" />
-              <path d="M32 12v7M22.8 15.2l2.7 6.4M14.8 21.2l5 5M49.2 21.2l-5 5M41.2 15.2l-2.7 6.4M32 45v7M22.8 48.8l2.7-6.4M14.8 42.8l5-5M49.2 42.8l-5-5M41.2 48.8l-2.7-6.4" />
-            </g>
+          <svg viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="30" />
+            <path d="M14 32c4.4-7.2 10.4-10.8 18-10.8S45.6 24.8 50 32c-4.4 7.2-10.4 10.8-18 10.8S18.4 39.2 14 32Z" />
+            <circle cx="32" cy="32" r="7" />
+            <circle cx="34.2" cy="29.4" r="2" />
+            <path d="M32 13v6M22.8 16l2.4 5.6M15.6 22l4.4 4.4M48.4 22 44 26.4M41.2 16l-2.4 5.6M32 45v6M22.8 48l2.4-5.6M15.6 42l4.4-4.4M48.4 42 44 37.6M41.2 48l-2.4-5.6" />
           </svg>
         </span>
         <span>sixth_sense</span>
       </a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="#work">Work</a>
-        <a href="#studio">Studio</a>
-        <a href="#process">Process</a>
-        <a href="#contact">Contact</a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" id="site-nav" data-nav aria-label="Primary navigation">
+        <a class="is-active" href="./index.html">Home</a>
+        <a href="./portfolio.html">Portfolio</a>
+        <a href="./studio.html">Studio</a>
+        <a href="./contact.html">Contact</a>
+        <a href="https://www.instagram.com/sixthsensetattoostudio/" target="_blank" rel="noreferrer">Instagram</a>
       </nav>
-      <div class="header-links">
-        <a class="header-social" href="https://www.instagram.com/sixthsensetattoostudio/" target="_blank" rel="noreferrer">Instagram</a>
-        <a class="header-action" href="https://linktr.ee/sixthsensetattoostudio" target="_blank" rel="noreferrer">Book</a>
-      </div>
     </header>
 
-    <main id="top">
-      <section class="hero" aria-label="sixth_sense tattoo studio">
-        <img class="hero-image" src="./assets/portfolio/studio-interior.webp" alt="sixth_sense tattoo studio interior in Kos" />
-        <div class="hero-shade"></div>
-        <div class="hero-content">
-          <p class="eyebrow">Kos Town tattoo studio</p>
-          <h1>sixth_sense</h1>
-          <p class="hero-copy">
-            Fine line, linework, and black and grey tattoo work for people who want a calm consultation,
-            a sharp design, and a studio experience that feels considered from the first message.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#contact">Start a tattoo idea</a>
-            <a class="button secondary" href="#work">View the work</a>
-          </div>
-        </div>
-        <div class="hero-panel" aria-label="Studio highlights">
-          <span>
-            <small>Location</small>
-            Kanari 42, Kos
-          </span>
-          <span>
-            <small>Style</small>
-            Custom pieces
-          </span>
-          <span>
-            <small>Booking</small>
-            WhatsApp booking
-          </span>
-        </div>
-      </section>
-
-      <section class="intro section-pad">
-        <div class="intro-text">
-          <p class="eyebrow">Different by design</p>
-          <h2>A boutique tattoo presence for visitors and locals in Kos.</h2>
-        </div>
-        <p>
-          The site is built to feel more editorial than directory-like: strong visuals, direct booking,
-          and enough detail to help a first-time client feel comfortable before they walk in.
-        </p>
-      </section>
-
-      <section id="work" class="work section-pad" aria-labelledby="work-title">
-        <div class="section-heading">
-          <p class="eyebrow">Portfolio</p>
-          <h2 id="work-title">Selected work</h2>
-          <p>Curated black and grey realism, mythology, script, fine line, and small tattoos, arranged like a studio portfolio rather than a feed.</p>
-        </div>
-        <div class="portfolio-feature" aria-label="Featured tattoo work">
-          <button class="feature-main" type="button" data-open-image="./assets/portfolio/large-back-piece.jpg" data-title="Large back piece">
-            <img src="./assets/portfolio/large-back-piece.jpg" alt="Large black and grey back piece" loading="lazy" />
-            <span>
-              <small>Featured</small>
-              Large scale black and grey realism
-            </span>
-          </button>
-          <div class="feature-stack">
-            <button type="button" data-open-image="./assets/portfolio/medusa-portrait.jpg" data-title="Medusa portrait">
-              <img src="./assets/portfolio/medusa-portrait.jpg" alt="Medusa portrait tattoo" loading="lazy" />
-              <span>Mythology portrait</span>
-            </button>
-            <button type="button" data-open-image="./assets/portfolio/floral-fine-line.jpg" data-title="Fine line floral">
-              <img src="./assets/portfolio/floral-fine-line.jpg" alt="Fine line floral tattoo" loading="lazy" />
-              <span>Fine line detail</span>
-            </button>
-          </div>
-        </div>
-        <div class="portfolio-toolbar" aria-label="Filter portfolio">
-          <button class="filter-button is-active" type="button" data-filter="featured">Featured</button>
-          <button class="filter-button" type="button" data-filter="realism">Realism</button>
-          <button class="filter-button" type="button" data-filter="mythology">Mythology</button>
-          <button class="filter-button" type="button" data-filter="lettering">Lettering</button>
-          <button class="filter-button" type="button" data-filter="fineline">Fine line</button>
-          <button class="filter-button" type="button" data-filter="all">All</button>
-        </div>
-        <p class="portfolio-status" data-portfolio-status></p>
-        <div class="gallery" data-gallery aria-live="polite">
-        </div>
-      </section>
-
-      <section id="studio" class="studio section-pad" aria-labelledby="studio-title">
-        <div class="studio-copy">
-          <p class="eyebrow">The studio</p>
-          <h2 id="studio-title">Clean, composed, and ready for serious small details.</h2>
-          <p>
-            The real studio photo gives visitors a clear sense of the space: bright, tidy, and calm. The portfolio
-            then brings the contrast, with bold black and grey work balanced by fine line and personal pieces.
-          </p>
-        </div>
-        <div class="studio-showcase">
-          <img src="./assets/portfolio/studio-interior.webp" alt="Reception and interior of sixth_sense tattoo studio" loading="lazy" />
-          <div class="studio-grid">
-            <div class="metric">
-              <span>01</span>
-              <strong>Consultation first</strong>
-              <p>Ideas, references, placement, size, and travel dates are clarified before the session.</p>
-            </div>
-            <div class="metric">
-              <span>02</span>
-              <strong>Custom-ready</strong>
-              <p>Built around fine line, black and grey, linework, realism, and walk-in-friendly ideas.</p>
-            </div>
-            <div class="metric">
-              <span>03</span>
-              <strong>Aftercare clarity</strong>
-              <p>Simple guidance for healing in Kos, including sun, swimming, and first-week care.</p>
+    <main>
+      <section class="hero section">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Tattoo studio in Kos</p>
+            <h1>Custom tattoo work in a calm, minimal studio.</h1>
+            <p>
+              Fine line, black and grey realism, mythology, lettering, and personal pieces designed with clear placement and proportion.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="./contact.html">Book consultation</a>
+              <a class="button secondary" href="./portfolio.html">View portfolio</a>
             </div>
           </div>
+          <figure class="hero-image">
+            <img src="./assets/portfolio/studio-workroom-02.jpg" alt="Clean tattoo room at sixth_sense studio in Kos" />
+          </figure>
         </div>
       </section>
 
-      <section id="process" class="process section-pad" aria-labelledby="process-title">
-        <div class="section-heading compact">
-          <p class="eyebrow">Process</p>
-          <h2 id="process-title">From idea to appointment</h2>
-        </div>
-        <div class="steps">
+      <section class="section intro-band">
+        <div class="container essentials">
           <article>
-            <span>1</span>
-            <h3>Send the idea</h3>
-            <p>Share references, placement, approximate size, and when you are in Kos.</p>
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 38V14h24v24M17 20h14M17 26h14M8 38h32" /></svg>
+            <h2>Kanari 42, Kos</h2>
+            <p>A clean studio space in Kos Town for appointments, walk-in ideas, and travelling clients.</p>
           </article>
           <article>
-            <span>2</span>
-            <h3>Shape the design</h3>
-            <p>The concept is adjusted for body flow, detail level, and how the tattoo will age.</p>
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 13h28v22H10zM16 29l6-7 5 5 4-4 5 6" /></svg>
+            <h2>Custom pieces</h2>
+            <p>Work is adjusted around body flow, scale, detail level, and the final placement.</p>
           </article>
           <article>
-            <span>3</span>
-            <h3>Confirm the session</h3>
-            <p>You get the practical details before arriving: timing, prep, payment, and aftercare.</p>
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 14h20v15H19l-5 5V14zM19 20h10M19 25h7" /></svg>
+            <h2>Easy booking</h2>
+            <p>Send your idea, references, dates in Kos, and preferred placement through WhatsApp.</p>
           </article>
         </div>
       </section>
 
-      <section id="contact" class="contact section-pad" aria-labelledby="contact-title">
-        <div class="contact-copy">
-          <p class="eyebrow">Contact</p>
-          <h2 id="contact-title">Start with a clear message.</h2>
-          <p>
-            Use the form to prepare a WhatsApp message with the details that matter. You can also open the public
-            Linktree or map listing directly.
-          </p>
-          <div class="contact-links">
-            <a href="https://www.instagram.com/sixthsensetattoostudio/" target="_blank" rel="noreferrer">Instagram</a>
-            <a href="https://wa.me/306948087681" target="_blank" rel="noreferrer">WhatsApp</a>
-            <a href="https://linktr.ee/sixthsensetattoostudio" target="_blank" rel="noreferrer">Public links</a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Sixth%20Sense%20Tattoo%20Studio%20Kanari%2042%20Kos" target="_blank" rel="noreferrer">Map</a>
+      <section class="section">
+        <div class="container section-heading">
+          <p class="eyebrow">Selected work</p>
+          <h2>A focused preview of the portfolio.</h2>
+          <a href="./portfolio.html">See all work</a>
+        </div>
+        <div class="container preview-grid">
+          <figure>
+            <img src="./assets/portfolio/large-back-piece.jpg" alt="Large black and grey back piece tattoo" />
+            <figcaption>Black and grey realism</figcaption>
+          </figure>
+          <figure>
+            <img src="./assets/portfolio/medusa-portrait.jpg" alt="Medusa portrait tattoo" />
+            <figcaption>Mythology</figcaption>
+          </figure>
+          <figure>
+            <img src="./assets/portfolio/floral-fine-line.jpg" alt="Fine line floral tattoo" />
+            <figcaption>Fine line</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section studio-preview">
+        <div class="container studio-preview-grid">
+          <img src="./assets/portfolio/studio-workroom-01.jpg" alt="sixth_sense studio interior with private stations" />
+          <div>
+            <p class="eyebrow">The studio</p>
+            <h2>Quiet, clean, and practical.</h2>
+            <p>
+              A minimal workroom with private stations, clear lighting, and a calm atmosphere for consultation, tattooing, and aftercare guidance.
+            </p>
+            <a class="button secondary" href="./studio.html">View studio</a>
           </div>
         </div>
-
-        <form class="contact-form" data-contact-form>
-          <label>
-            Name
-            <input name="name" autocomplete="name" placeholder="Your name" required />
-          </label>
-          <label>
-            Tattoo idea
-            <textarea name="idea" rows="4" placeholder="Style, placement, size, references..." required></textarea>
-          </label>
-          <div class="form-row">
-            <label>
-              Date in Kos
-              <input name="date" placeholder="Example: 18 June" />
-            </label>
-            <label>
-              Contact
-              <input name="contact" autocomplete="tel email" placeholder="Phone or email" />
-            </label>
-          </div>
-          <button class="button primary full" type="submit">Prepare WhatsApp message</button>
-          <p class="form-note" data-form-note>Attach reference images in WhatsApp after the message opens.</p>
-        </form>
       </section>
     </main>
 
     <footer class="footer">
-      <span>sixth_sense tattoo studio</span>
-      <a href="https://www.instagram.com/sixthsensetattoostudio/" target="_blank" rel="noreferrer">@sixthsensetattoostudio</a>
-      <span>Konstantinou Kanari 42, Kos 853 00</span>
+      <div class="container footer-inner">
+        <span>sixth_sense tattoo studio</span>
+        <a href="https://www.instagram.com/sixthsensetattoostudio/" target="_blank" rel="noreferrer">@sixthsensetattoostudio</a>
+        <span>Konstantinou Kanari 42, Kos 853 00</span>
+      </div>
     </footer>
 
     <script src="./script.js"></script>

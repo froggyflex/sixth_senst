@@ -4,6 +4,8 @@ const note = document.querySelector("[data-form-note]");
 const gallery = document.querySelector("[data-gallery]");
 const filters = document.querySelectorAll("[data-filter]");
 const portfolioStatus = document.querySelector("[data-portfolio-status]");
+const menuToggle = document.querySelector("[data-menu-toggle]");
+const nav = document.querySelector("[data-nav]");
 
 const portfolioItems = [
   { file: "large-back-piece.jpg", title: "Large back piece", category: "realism", featured: true },
@@ -75,8 +77,17 @@ const updateHeader = () => {
   header.classList.toggle("is-scrolled", window.scrollY > 12);
 };
 
-window.addEventListener("scroll", updateHeader, { passive: true });
-updateHeader();
+if (header) {
+  window.addEventListener("scroll", updateHeader, { passive: true });
+  updateHeader();
+}
+
+if (menuToggle && nav) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("is-open");
+    menuToggle.setAttribute("aria-expanded", isOpen.toString());
+  });
+}
 
 const lightbox = document.createElement("dialog");
 lightbox.className = "lightbox";
@@ -91,31 +102,9 @@ lightbox.addEventListener("click", (event) => {
   }
 });
 
-document.querySelectorAll("[data-open-image]").forEach((button) => {
-  button.addEventListener("click", () => {
-    lightboxImage.src = button.dataset.openImage;
-    lightboxImage.alt = button.dataset.title;
-    lightbox.showModal();
-  });
-});
+const renderGallery = (filter = "all") => {
+  if (!gallery || !portfolioStatus) return;
 
-const getCardClass = (item, index, filter) => {
-  if (filter === "all") {
-    return index % 11 === 0 ? "is-large" : index % 7 === 0 ? "is-wide" : index % 5 === 0 ? "is-tall" : "";
-  }
-
-  if (filter === "featured") {
-    return index === 0 ? "is-large" : index === 3 || index === 6 ? "is-wide" : index === 4 ? "is-tall" : "";
-  }
-
-  if (item.category === "lettering" || item.category === "fineline") {
-    return index === 0 ? "is-wide" : "";
-  }
-
-  return index === 0 ? "is-large" : index === 4 ? "is-wide" : "";
-};
-
-const renderGallery = (filter = "featured") => {
   const items = portfolioItems.filter((item) => {
     if (filter === "all") return true;
     if (filter === "featured") return item.featured;
@@ -123,10 +112,10 @@ const renderGallery = (filter = "featured") => {
   });
 
   const label = filter === "all" ? "All work" : filter === "featured" ? "Featured selection" : categoryLabels[filter];
-  portfolioStatus.textContent = `${label} · ${items.length} pieces`;
+  portfolioStatus.textContent = `${label} - ${items.length} pieces`;
 
-  gallery.innerHTML = items.map((item, index) => `
-    <figure class="tattoo-card ${getCardClass(item, index, filter)}">
+  gallery.innerHTML = items.map((item) => `
+    <figure class="tattoo-card">
       <img src="./assets/portfolio/${item.file}" alt="${item.title}" loading="lazy" />
       <figcaption>
         <strong>${item.title}</strong>
@@ -144,34 +133,40 @@ const renderGallery = (filter = "featured") => {
   });
 };
 
-filters.forEach((button) => {
-  button.addEventListener("click", () => {
-    filters.forEach((item) => item.classList.remove("is-active"));
-    button.classList.add("is-active");
-    renderGallery(button.dataset.filter);
+if (gallery) {
+  filters.forEach((button) => {
+    button.addEventListener("click", () => {
+      filters.forEach((item) => item.classList.remove("is-active"));
+      button.classList.add("is-active");
+      renderGallery(button.dataset.filter);
+    });
   });
-});
 
-renderGallery();
+  renderGallery();
+}
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+if (form) {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-  const data = new FormData(form);
-  const name = data.get("name")?.toString().trim();
-  const idea = data.get("idea")?.toString().trim();
-  const date = data.get("date")?.toString().trim();
-  const contact = data.get("contact")?.toString().trim();
+    const data = new FormData(form);
+    const name = data.get("name")?.toString().trim();
+    const idea = data.get("idea")?.toString().trim();
+    const date = data.get("date")?.toString().trim();
+    const contact = data.get("contact")?.toString().trim();
 
-  const lines = [
-    "Hello sixth_sense, I would like to discuss a tattoo idea.",
-    name ? `Name: ${name}` : "",
-    idea ? `Idea: ${idea}` : "",
-    date ? `Date in Kos: ${date}` : "",
-    contact ? `My contact: ${contact}` : "",
-  ].filter(Boolean);
+    const lines = [
+      "Hello sixth_sense, I would like to discuss a tattoo idea.",
+      name ? `Name: ${name}` : "",
+      idea ? `Idea: ${idea}` : "",
+      date ? `Date in Kos: ${date}` : "",
+      contact ? `My contact: ${contact}` : "",
+    ].filter(Boolean);
 
-  const url = `https://wa.me/306948087681?text=${encodeURIComponent(lines.join("\n"))}`;
-  note.textContent = "Opening WhatsApp. Add reference images there before sending.";
-  window.open(url, "_blank", "noopener,noreferrer");
-});
+    const url = `https://wa.me/306948087681?text=${encodeURIComponent(lines.join("\n"))}`;
+    if (note) {
+      note.textContent = "Opening WhatsApp. Add reference images there before sending.";
+    }
+    window.open(url, "_blank", "noopener,noreferrer");
+  });
+}
