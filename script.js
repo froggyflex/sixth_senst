@@ -163,7 +163,7 @@ if (form) {
       contact ? `My contact: ${contact}` : "",
     ].filter(Boolean);
 
-    const url = `https://wa.me/306948087681?text=${encodeURIComponent(lines.join("\n"))}`;
+    const url = `https://wa.me/306948087671?text=${encodeURIComponent(lines.join("\n"))}`;
     if (note) {
       note.textContent = "Opening WhatsApp. Add reference images there before sending.";
     }

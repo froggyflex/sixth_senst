@@ -35,6 +35,7 @@ out/
 
 # npm cache directory
 .npm
+.npm-cache/
 *.tgz
 
 # yarn v2
