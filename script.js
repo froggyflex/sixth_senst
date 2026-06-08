@@ -64,6 +64,27 @@ const portfolioItems = [
   { file: "shell-small.jpg", title: "Small shell", category: "fineline" },
   { file: "small-eye-back.jpg", title: "Small eye", category: "fineline" },
   { file: "portrait-detail-closeup.jpg", title: "Portrait detail", category: "realism" },
+  { file: "domka/viber_image_2026-06-08_21-28-57-439.jpg", title: "Tiny turtle linework", category: "fineline", artist: "domka" },
+  { file: "domka/viber_image_2026-06-08_21-28-59-261.jpg", title: "Tiny heart and flower", category: "fineline", artist: "domka" },
+  { file: "domka/viber_image_2026-06-08_21-29-01-005.jpg", title: "Ornamental lower back", category: "fineline", artist: "domka" },
+  { file: "domka/viber_image_2026-06-08_21-29-03-144.jpg", title: "Tiny cocktail glass", category: "fineline", artist: "domka" },
+  { file: "domka/viber_image_2026-06-08_21-29-03-555.jpg", title: "Small red line detail", category: "fineline", artist: "domka" },
+  { file: "domka/viber_image_2026-06-08_21-29-05-825.jpg", title: "Gemini symbol", category: "fineline", artist: "domka" },
+  { file: "domka/viber_image_2026-06-08_21-29-06-319.jpg", title: "Fine line sun", category: "fineline", artist: "domka" },
+  { file: "kostas/viber_image_2026-06-08_21-31-16-195.jpg", title: "Medusa hand piece", category: "mythology", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-23-197.jpg", title: "Wolf realism", category: "realism", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-23-534.jpg", title: "Zeus panel", category: "mythology", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-23-764.jpg", title: "Medusa portrait detail", category: "mythology", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-24-011.jpg", title: "Theatre mask sleeve", category: "realism", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-24-293.jpg", title: "Spartan helmet detail", category: "mythology", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-24-537.jpg", title: "Mythology sleeve detail", category: "mythology", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-24-773.jpg", title: "Dark portrait forearm", category: "realism", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-25-251.jpg", title: "Lion realism", category: "realism", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-36-49-039.jpg", title: "Warrior forearm", category: "mythology", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-37-08-710.jpg", title: "Dark portrait realism", category: "realism", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-37-09-057.jpg", title: "Full sleeve realism", category: "realism", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-37-09-514.jpg", title: "Dark mask piece", category: "realism", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-37-09-915.jpg", title: "Dark realism leg piece", category: "realism", artist: "kostas" },
 ];
 
 const categoryLabels = {
@@ -71,6 +92,11 @@ const categoryLabels = {
   mythology: "Mythology",
   lettering: "Lettering",
   fineline: "Fine line",
+};
+
+const artistLabels = {
+  kostas: "Kostas",
+  domka: "Dominika",
 };
 
 const updateHeader = () => {
@@ -108,10 +134,11 @@ const renderGallery = (filter = "all") => {
   const items = portfolioItems.filter((item) => {
     if (filter === "all") return true;
     if (filter === "featured") return item.featured;
+    if (artistLabels[filter]) return item.artist === filter;
     return item.category === filter;
   });
 
-  const label = filter === "all" ? "All work" : filter === "featured" ? "Featured selection" : categoryLabels[filter];
+  const label = filter === "all" ? "All work" : filter === "featured" ? "Featured selection" : artistLabels[filter] || categoryLabels[filter];
   portfolioStatus.textContent = `${label} - ${items.length} pieces`;
 
   gallery.innerHTML = items.map((item) => `
@@ -119,7 +146,7 @@ const renderGallery = (filter = "all") => {
       <img src="./assets/portfolio/${item.file}" alt="${item.title}" loading="lazy" />
       <figcaption>
         <strong>${item.title}</strong>
-        <span>${categoryLabels[item.category]}</span>
+        <span>${[categoryLabels[item.category], artistLabels[item.artist]].filter(Boolean).join(" / ")}</span>
       </figcaption>
     </figure>
   `).join("");
@@ -156,7 +183,7 @@ if (form) {
     const contact = data.get("contact")?.toString().trim();
 
     const lines = [
-      "Hello sixth_sense, I would like to discuss a tattoo idea.",
+      "Hello Sixth Sense, I would like to discuss a tattoo idea.",
       name ? `Name: ${name}` : "",
       idea ? `Idea: ${idea}` : "",
       date ? `Date in Kos: ${date}` : "",

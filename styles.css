@@ -789,6 +789,24 @@ figcaption {
   padding-bottom: 0;
 }
 
+.pricing-copy {
+  border-top: 1px solid var(--line);
+  margin-top: 34px;
+  padding-top: 28px;
+}
+
+.pricing-copy p {
+  font-size: 0.98rem;
+  margin-bottom: 14px;
+}
+
+.pricing-copy strong {
+  color: var(--ink);
+  display: block;
+  font-size: 1rem;
+  margin-top: 18px;
+}
+
 .contact-links {
   flex-wrap: wrap;
   gap: 10px;

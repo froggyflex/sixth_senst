@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 
-const assetModules = import.meta.glob("../assets/portfolio/*", {
+const assetModules = import.meta.glob("../assets/portfolio/**/*", {
   eager: true,
   query: "?url",
   import: "default",
@@ -66,6 +66,27 @@ const portfolioItems = [
   { file: "shell-small.jpg", title: "Small shell", category: "fineline" },
   { file: "small-eye-back.jpg", title: "Small eye", category: "fineline" },
   { file: "portrait-detail-closeup.jpg", title: "Portrait detail", category: "realism" },
+  { file: "domka/viber_image_2026-06-08_21-28-57-439.jpg", title: "Tiny turtle linework", category: "fineline", artist: "domka" },
+  { file: "domka/viber_image_2026-06-08_21-28-59-261.jpg", title: "Tiny heart and flower", category: "fineline", artist: "domka" },
+  { file: "domka/viber_image_2026-06-08_21-29-01-005.jpg", title: "Ornamental lower back", category: "fineline", artist: "domka" },
+  { file: "domka/viber_image_2026-06-08_21-29-03-144.jpg", title: "Tiny cocktail glass", category: "fineline", artist: "domka" },
+  { file: "domka/viber_image_2026-06-08_21-29-03-555.jpg", title: "Small red line detail", category: "fineline", artist: "domka" },
+  { file: "domka/viber_image_2026-06-08_21-29-05-825.jpg", title: "Gemini symbol", category: "fineline", artist: "domka" },
+  { file: "domka/viber_image_2026-06-08_21-29-06-319.jpg", title: "Fine line sun", category: "fineline", artist: "domka" },
+  { file: "kostas/viber_image_2026-06-08_21-31-16-195.jpg", title: "Medusa hand piece", category: "mythology", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-23-197.jpg", title: "Wolf realism", category: "realism", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-23-534.jpg", title: "Zeus panel", category: "mythology", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-23-764.jpg", title: "Medusa portrait detail", category: "mythology", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-24-011.jpg", title: "Theatre mask sleeve", category: "realism", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-24-293.jpg", title: "Spartan helmet detail", category: "mythology", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-24-537.jpg", title: "Mythology sleeve detail", category: "mythology", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-24-773.jpg", title: "Dark portrait forearm", category: "realism", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-31-25-251.jpg", title: "Lion realism", category: "realism", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-36-49-039.jpg", title: "Warrior forearm", category: "mythology", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-37-08-710.jpg", title: "Dark portrait realism", category: "realism", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-37-09-057.jpg", title: "Full sleeve realism", category: "realism", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-37-09-514.jpg", title: "Dark mask piece", category: "realism", artist: "kostas" },
+  { file: "kostas/viber_image_2026-06-08_21-37-09-915.jpg", title: "Dark realism leg piece", category: "realism", artist: "kostas" },
 ];
 
 const categoryLabels = {
@@ -75,11 +96,16 @@ const categoryLabels = {
   fineline: "Fine line",
 };
 
+const artistLabels = {
+  kostas: "Kostas",
+  domka: "Dominika",
+};
+
 const titles = {
-  "/": "sixth_sense tattoo studio | Kos",
-  "/portfolio": "Portfolio | sixth_sense tattoo studio",
-  "/studio": "Studio | sixth_sense tattoo studio",
-  "/contact": "Contact | sixth_sense tattoo studio",
+  "/": "Sixth Sense Tattoo Studio | Kos",
+  "/portfolio": "Portfolio | Sixth Sense Tattoo Studio",
+  "/studio": "Studio | Sixth Sense Tattoo Studio",
+  "/contact": "Contact | Sixth Sense Tattoo Studio",
 };
 
 function asset(file) {
@@ -137,9 +163,9 @@ function App() {
 function Header({ route, menuOpen, setMenuOpen, navigate }) {
   return (
     <header className="site-header">
-      <a className="brand" href="/" aria-label="sixth_sense home" onClick={(event) => routeClick(event, "/", navigate)}>
+      <a className="brand" href="/" aria-label="Sixth Sense home" onClick={(event) => routeClick(event, "/", navigate)}>
         <BrandMark />
-        <span>sixth_sense</span>
+        <span>Sixth Sense</span>
       </a>
       <button
         className="menu-toggle"
@@ -210,7 +236,7 @@ function HomePage({ navigate }) {
             </div>
             <p className="eyebrow">Tattoo studio in Kos</p>
             <h1>Minimal custom tattoos in Kos.</h1>
-            <p>sixth_sense creates fine line, black and grey realism, mythology, lettering, and personal pieces with careful placement, calm consultation, and a clean private studio.</p>
+            <p>Sixth Sense Tattoo is a professional tattoo studio in Kos, Greece, specializing in Fine Line and Black & Grey Realism tattoos. Known as one of the leading Fine Line tattoo studios on the island, we create custom, high-quality artwork in a clean, safe, and welcoming environment for clients from around the world.</p>
             <div className="actions">
               <a className="button primary" href="/contact" onClick={(event) => routeClick(event, "/contact", navigate)}>Book consultation</a>
               <a className="button secondary" href="/portfolio" onClick={(event) => routeClick(event, "/portfolio", navigate)}>View portfolio</a>
@@ -299,27 +325,27 @@ function ArtistsSection() {
         <ArtistCard
           href="https://www.instagram.com/constantine.tatt/"
           photo="Screenshot_2.png"
-          alt="Constantine tattoo artist portrait"
+          alt="Kostas tattoo artist portrait"
           handle="@constantine.tatt"
-          name="Constantine"
-          description="Black and grey realism, mythology, and large scale detail work."
+          name="Kostas - Founder"
+          description="Kostas is the founder of Sixth Sense Tattoo and specializes in black & grey realism, surrealism, and custom large-scale tattoo projects. With a passion for detail, contrast, and storytelling, he creates tattoos designed to remain bold, readable, and timeless for years to come. From portraits and mythology to dark fantasy and custom concepts, every piece is tailored to the client and crafted with precision."
           works={[
-            ["medusa-portrait.jpg", "Medusa portrait tattoo by Constantine"],
-            ["lion-family-sleeve.jpg", "Lion family sleeve tattoo by Constantine"],
-            ["zeus-forearm.jpg", "Zeus forearm tattoo by Constantine"],
+            ["medusa-portrait.jpg", "Medusa portrait tattoo by Kostas"],
+            ["lion-family-sleeve.jpg", "Lion family sleeve tattoo by Kostas"],
+            ["zeus-forearm.jpg", "Zeus forearm tattoo by Kostas"],
           ]}
         />
         <ArtistCard
           href="https://www.instagram.com/domka_tattoo/"
           photo="Screenshot_1.png"
-          alt="Domka tattoo artist portrait"
+          alt="Dominika tattoo artist portrait"
           handle="@domka_tattoo"
-          name="Domka"
-          description="Fine line, ornamental pieces, script, and delicate custom tattoos."
+          name="Dominika - Fine Line Specialist"
+          description="Dominika specializes in fine line, delicate, and elegant tattoo designs. Her work focuses on clean lines, minimalistic compositions, floral elements, ornamental details, and subtle custom pieces that complement the body's natural flow. Her attention to detail and refined approach make her the perfect choice for clients seeking sophisticated and timeless fine line tattoos."
           works={[
-            ["floral-fine-line.jpg", "Fine line floral tattoo by Domka"],
-            ["moth-lower-back.jpg", "Moth lower back tattoo by Domka"],
-            ["cherub-archer-line.jpg", "Fine line cherub tattoo by Domka"],
+            ["floral-fine-line.jpg", "Fine line floral tattoo by Dominika"],
+            ["moth-lower-back.jpg", "Moth lower back tattoo by Dominika"],
+            ["cherub-archer-line.jpg", "Fine line cherub tattoo by Dominika"],
           ]}
         />
       </div>
@@ -348,7 +374,7 @@ function StudioPreview({ navigate }) {
   return (
     <section className="section studio-preview">
       <div className="container studio-preview-grid">
-        <img src={asset("studio-workroom-01.jpg")} alt="sixth_sense studio interior with private stations" />
+        <img src={asset("studio-workroom-01.jpg")} alt="Sixth Sense studio interior with private stations" />
         <div>
           <p className="eyebrow">The studio</p>
           <h2>Designed for focused appointments.</h2>
@@ -382,15 +408,20 @@ function PortfolioPage() {
   const items = useMemo(() => {
     if (filter === "all") return portfolioItems;
     if (filter === "featured") return portfolioItems.filter((item) => item.featured);
+    if (artistLabels[filter]) return portfolioItems.filter((item) => item.artist === filter);
     return portfolioItems.filter((item) => item.category === filter);
   }, [filter]);
-  const label = filter === "all" ? "All work" : filter === "featured" ? "Featured selection" : categoryLabels[filter];
+  const label = filter === "all" ? "All work" : filter === "featured" ? "Featured selection" : artistLabels[filter] || categoryLabels[filter];
+  const filterLabel = (key) => {
+    if (key === "fineline") return "Fine line";
+    return artistLabels[key] || key[0].toUpperCase() + key.slice(1);
+  };
 
   return (
     <main className="page">
       <section className="container page-title">
         <p className="eyebrow">Tattoo portfolio</p>
-        <h1>Custom tattoos by sixth_sense.</h1>
+        <h1>Custom tattoos by Sixth Sense.</h1>
         <p>Black and grey realism, mythology, lettering, fine line, and symbolic custom work. Filter the collection or open any piece for a closer client view.</p>
       </section>
       <section className="container category-strip" aria-label="Portfolio categories">
@@ -401,9 +432,9 @@ function PortfolioPage() {
       </section>
       <section className="container work-section" aria-label="Tattoo portfolio">
         <div className="portfolio-toolbar" aria-label="Filter portfolio">
-          {["all", "realism", "mythology", "lettering", "fineline", "featured"].map((key) => (
+          {["all", "realism", "mythology", "lettering", "fineline", "kostas", "domka", "featured"].map((key) => (
             <button key={key} className={`filter-button${filter === key ? " is-active" : ""}`} type="button" onClick={() => setFilter(key)}>
-              {key === "fineline" ? "Fine line" : key[0].toUpperCase() + key.slice(1)}
+              {filterLabel(key)}
             </button>
           ))}
         </div>
@@ -412,7 +443,10 @@ function PortfolioPage() {
           {items.map((item) => (
             <figure className="tattoo-card" key={item.file} onClick={() => setLightboxItem(item)}>
               <img src={asset(item.file)} alt={item.title} loading="lazy" />
-              <figcaption><strong>{item.title}</strong><span>{categoryLabels[item.category]}</span></figcaption>
+              <figcaption>
+                <strong>{item.title}</strong>
+                <span>{[categoryLabels[item.category], artistLabels[item.artist]].filter(Boolean).join(" / ")}</span>
+              </figcaption>
             </figure>
           ))}
         </div>
@@ -436,9 +470,9 @@ function StudioPage() {
         <p>Neutral materials, private stations, and practical lighting keep the attention on the tattoo.</p>
       </section>
       <section className="container studio-gallery">
-        <img src={asset("studio-workroom-01.jpg")} alt="sixth_sense tattoo studio workroom with private stations" />
-        <img src={asset("studio-workroom-02.jpg")} alt="Tattoo bed and clean setup inside sixth_sense studio" />
-        <img src={asset("studio-interior.webp")} alt="Reception area of sixth_sense tattoo studio" />
+        <img src={asset("studio-workroom-01.jpg")} alt="Sixth Sense tattoo studio workroom with private stations" />
+        <img src={asset("studio-workroom-02.jpg")} alt="Tattoo bed and clean setup inside Sixth Sense studio" />
+        <img src={asset("studio-interior.webp")} alt="Reception area of Sixth Sense tattoo studio" />
       </section>
       <section className="container info-list">
         <article><span>01</span><h2>Consultation</h2><p>Send references, placement, size, and dates in Kos before the session.</p></article>
@@ -456,7 +490,7 @@ function ContactPage() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const lines = [
-      "Hello sixth_sense, I would like to discuss a tattoo idea.",
+      "Hello Sixth Sense, I would like to discuss a tattoo idea.",
       data.get("name")?.toString().trim() ? `Name: ${data.get("name").toString().trim()}` : "",
       data.get("idea")?.toString().trim() ? `Idea: ${data.get("idea").toString().trim()}` : "",
       data.get("date")?.toString().trim() ? `Date in Kos: ${data.get("date").toString().trim()}` : "",
@@ -473,6 +507,13 @@ function ContactPage() {
           <p className="eyebrow">Contact</p>
           <h1>Send the idea. Keep it simple.</h1>
           <p>Include style, placement, approximate size, references, and the dates you are in Kos.</p>
+          <div className="pricing-copy">
+            <p className="eyebrow">Pricing</p>
+            <p>Every tattoo is unique, and prices vary depending on the design, size, placement, and level of detail involved.</p>
+            <p>Whether you're looking for a delicate fine line tattoo, a meaningful holiday souvenir, or a large custom realism piece, we'll be happy to discuss your ideas and provide a free, no-obligation quote.</p>
+            <p>Contact us with your inspiration, and we'll help create a tattoo that fits both your vision and your budget.</p>
+            <strong>Minimum appointment charge: €70.</strong>
+          </div>
           <div className="contact-links">
             <a href={studioInstagram} target="_blank" rel="noreferrer">Instagram @sixthsense.tattoo</a>
             <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp +30 694 808 7671</a>
@@ -498,7 +539,7 @@ function Footer({ route, navigate }) {
   return (
     <footer className="footer">
       <div className="container footer-inner">
-        <span>sixth_sense tattoo studio</span>
+        <span>Sixth Sense Tattoo Studio</span>
         {route === "/" || route === "/contact" ? (
           <a href={studioInstagram} target="_blank" rel="noreferrer">@sixthsense.tattoo</a>
         ) : (

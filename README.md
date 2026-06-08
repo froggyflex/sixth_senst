@@ -1,4 +1,4 @@
-# sixth_sense website
+# Sixth Sense website
 
 Install dependencies and run the Vite dev server to view the site.
 
