@@ -708,16 +708,39 @@ figcaption {
   color: var(--white);
 }
 
+.portfolio-meta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
 .portfolio-status {
   color: var(--muted);
   font-size: 0.86rem;
-  margin-bottom: 28px;
+  margin-bottom: 0;
+}
+
+.portfolio-meta a {
+  color: var(--wood);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .gallery {
   display: grid;
   gap: 38px 22px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.load-more-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
 }
 
 .tattoo-card {

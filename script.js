@@ -4,8 +4,13 @@ const note = document.querySelector("[data-form-note]");
 const gallery = document.querySelector("[data-gallery]");
 const filters = document.querySelectorAll("[data-filter]");
 const portfolioStatus = document.querySelector("[data-portfolio-status]");
+const loadMoreRow = document.querySelector("[data-load-more-row]");
+const loadMoreButton = document.querySelector("[data-load-more]");
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const nav = document.querySelector("[data-nav]");
+const portfolioBatchSize = 18;
+let currentFilter = "all";
+let visibleCount = portfolioBatchSize;
 
 const portfolioItems = [
   { file: "large-back-piece.jpg", title: "Large back piece", category: "realism", featured: true },
@@ -20,7 +25,6 @@ const portfolioItems = [
   { file: "geometric-cosmos-leg.jpg", title: "Geometric cosmos", category: "fineline", featured: true },
   { file: "clown-dark-realism.jpg", title: "Dark realism", category: "realism", featured: true },
   { file: "moth-lower-back.jpg", title: "Moth lower back", category: "fineline", featured: true },
-  { file: "skull-architecture-sleeve.jpg", title: "Skull and architecture", category: "realism" },
   { file: "zeus-fineline-circle.jpg", title: "Zeus fine line", category: "mythology" },
   { file: "chicano-lettering-forearm.jpg", title: "Chicano lettering", category: "lettering" },
   { file: "zeus-forearm.jpg", title: "Zeus forearm", category: "mythology" },
@@ -34,18 +38,14 @@ const portfolioItems = [
   { file: "panther-chest.jpg", title: "Panther chest piece", category: "realism" },
   { file: "lion-shoulder.jpg", title: "Lion shoulder", category: "realism" },
   { file: "realistic-eye-forearm.jpg", title: "Realistic eye", category: "realism" },
-  { file: "zeus-dark-forearm.jpg", title: "Zeus dark forearm", category: "mythology" },
   { file: "lion-family-shoulder.jpg", title: "Lion family shoulder", category: "realism" },
   { file: "greek-god-forearm.jpg", title: "Greek god forearm", category: "mythology" },
   { file: "dove-sacred-sleeve.jpg", title: "Sacred sleeve", category: "realism" },
-  { file: "lion-closeup-forearm.jpg", title: "Lion close-up", category: "realism" },
   { file: "brothers-eye-sleeve.jpg", title: "Eye sleeve", category: "realism" },
   { file: "money-forearm.jpg", title: "Money forearm", category: "realism" },
   { file: "eagle-eye-sleeve.jpg", title: "Eagle and eye sleeve", category: "realism" },
   { file: "angel-playing-cards.jpg", title: "Angel and cards", category: "realism" },
-  { file: "lion-red-eye.jpg", title: "Lion detail", category: "realism" },
   { file: "rose-script-closeup.jpg", title: "Rose and script", category: "realism" },
-  { file: "theatre-masks-thigh.jpg", title: "Theatre masks", category: "realism" },
   { file: "eye-shoulder-piece.jpg", title: "Eye shoulder", category: "realism" },
   { file: "skeleton-linework.jpg", title: "Skeleton linework", category: "fineline" },
   { file: "goat-shoulder.jpg", title: "Goat shoulder", category: "realism" },
@@ -63,7 +63,6 @@ const portfolioItems = [
   { file: "swallow-rose.jpg", title: "Swallow and rose", category: "fineline" },
   { file: "shell-small.jpg", title: "Small shell", category: "fineline" },
   { file: "small-eye-back.jpg", title: "Small eye", category: "fineline" },
-  { file: "portrait-detail-closeup.jpg", title: "Portrait detail", category: "realism" },
   { file: "domka/viber_image_2026-06-08_21-28-57-439.jpg", title: "Tiny turtle linework", category: "fineline", artist: "domka" },
   { file: "domka/viber_image_2026-06-08_21-28-59-261.jpg", title: "Tiny heart and flower", category: "fineline", artist: "domka" },
   { file: "domka/viber_image_2026-06-08_21-29-01-005.jpg", title: "Ornamental lower back", category: "fineline", artist: "domka" },
@@ -76,14 +75,12 @@ const portfolioItems = [
   { file: "kostas/viber_image_2026-06-08_21-31-23-534.jpg", title: "Zeus panel", category: "mythology", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-31-23-764.jpg", title: "Medusa portrait detail", category: "mythology", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-31-24-011.jpg", title: "Theatre mask sleeve", category: "realism", artist: "kostas" },
-  { file: "kostas/viber_image_2026-06-08_21-31-24-293.jpg", title: "Spartan helmet detail", category: "mythology", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-31-24-537.jpg", title: "Mythology sleeve detail", category: "mythology", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-31-24-773.jpg", title: "Dark portrait forearm", category: "realism", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-31-25-251.jpg", title: "Lion realism", category: "realism", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-36-49-039.jpg", title: "Warrior forearm", category: "mythology", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-37-08-710.jpg", title: "Dark portrait realism", category: "realism", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-37-09-057.jpg", title: "Full sleeve realism", category: "realism", artist: "kostas" },
-  { file: "kostas/viber_image_2026-06-08_21-37-09-514.jpg", title: "Dark mask piece", category: "realism", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-37-09-915.jpg", title: "Dark realism leg piece", category: "realism", artist: "kostas" },
 ];
 
@@ -128,8 +125,9 @@ lightbox.addEventListener("click", (event) => {
   }
 });
 
-const renderGallery = (filter = "all") => {
+const renderGallery = (filter = currentFilter) => {
   if (!gallery || !portfolioStatus) return;
+  currentFilter = filter;
 
   const items = portfolioItems.filter((item) => {
     if (filter === "all") return true;
@@ -137,13 +135,14 @@ const renderGallery = (filter = "all") => {
     if (artistLabels[filter]) return item.artist === filter;
     return item.category === filter;
   });
+  const visibleItems = items.slice(0, visibleCount);
 
   const label = filter === "all" ? "All work" : filter === "featured" ? "Featured selection" : artistLabels[filter] || categoryLabels[filter];
-  portfolioStatus.textContent = `${label} - ${items.length} pieces`;
+  portfolioStatus.textContent = `${label} - showing ${visibleItems.length} of ${items.length} pieces`;
 
-  gallery.innerHTML = items.map((item) => `
+  gallery.innerHTML = visibleItems.map((item) => `
     <figure class="tattoo-card">
-      <img src="./assets/portfolio/${item.file}" alt="${item.title}" loading="lazy" />
+      <img src="./assets/portfolio/${item.file}" alt="${item.title}" loading="lazy" decoding="async" />
       <figcaption>
         <strong>${item.title}</strong>
         <span>${[categoryLabels[item.category], artistLabels[item.artist]].filter(Boolean).join(" / ")}</span>
@@ -153,11 +152,15 @@ const renderGallery = (filter = "all") => {
 
   gallery.querySelectorAll(".tattoo-card").forEach((card, index) => {
     card.addEventListener("click", () => {
-      lightboxImage.src = `./assets/portfolio/${items[index].file}`;
-      lightboxImage.alt = items[index].title;
+      lightboxImage.src = `./assets/portfolio/${visibleItems[index].file}`;
+      lightboxImage.alt = visibleItems[index].title;
       lightbox.showModal();
     });
   });
+
+  if (loadMoreRow) {
+    loadMoreRow.hidden = visibleCount >= items.length;
+  }
 };
 
 if (gallery) {
@@ -165,9 +168,17 @@ if (gallery) {
     button.addEventListener("click", () => {
       filters.forEach((item) => item.classList.remove("is-active"));
       button.classList.add("is-active");
+      visibleCount = portfolioBatchSize;
       renderGallery(button.dataset.filter);
     });
   });
+
+  if (loadMoreButton) {
+    loadMoreButton.addEventListener("click", () => {
+      visibleCount += portfolioBatchSize;
+      renderGallery(currentFilter);
+    });
+  }
 
   renderGallery();
 }

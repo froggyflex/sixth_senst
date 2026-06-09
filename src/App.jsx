@@ -8,6 +8,7 @@ const assetModules = import.meta.glob("../assets/portfolio/**/*", {
 
 const studioInstagram = "https://www.instagram.com/sixthsense.tattoo/";
 const whatsappUrl = "https://wa.me/306948087671";
+const portfolioBatchSize = 18;
 
 const portfolioItems = [
   { file: "large-back-piece.jpg", title: "Large back piece", category: "realism", featured: true },
@@ -22,7 +23,6 @@ const portfolioItems = [
   { file: "geometric-cosmos-leg.jpg", title: "Geometric cosmos", category: "fineline", featured: true },
   { file: "clown-dark-realism.jpg", title: "Dark realism", category: "realism", featured: true },
   { file: "moth-lower-back.jpg", title: "Moth lower back", category: "fineline", featured: true },
-  { file: "skull-architecture-sleeve.jpg", title: "Skull and architecture", category: "realism" },
   { file: "zeus-fineline-circle.jpg", title: "Zeus fine line", category: "mythology" },
   { file: "chicano-lettering-forearm.jpg", title: "Chicano lettering", category: "lettering" },
   { file: "zeus-forearm.jpg", title: "Zeus forearm", category: "mythology" },
@@ -36,18 +36,14 @@ const portfolioItems = [
   { file: "panther-chest.jpg", title: "Panther chest piece", category: "realism" },
   { file: "lion-shoulder.jpg", title: "Lion shoulder", category: "realism" },
   { file: "realistic-eye-forearm.jpg", title: "Realistic eye", category: "realism" },
-  { file: "zeus-dark-forearm.jpg", title: "Zeus dark forearm", category: "mythology" },
   { file: "lion-family-shoulder.jpg", title: "Lion family shoulder", category: "realism" },
   { file: "greek-god-forearm.jpg", title: "Greek god forearm", category: "mythology" },
   { file: "dove-sacred-sleeve.jpg", title: "Sacred sleeve", category: "realism" },
-  { file: "lion-closeup-forearm.jpg", title: "Lion close-up", category: "realism" },
   { file: "brothers-eye-sleeve.jpg", title: "Eye sleeve", category: "realism" },
   { file: "money-forearm.jpg", title: "Money forearm", category: "realism" },
   { file: "eagle-eye-sleeve.jpg", title: "Eagle and eye sleeve", category: "realism" },
   { file: "angel-playing-cards.jpg", title: "Angel and cards", category: "realism" },
-  { file: "lion-red-eye.jpg", title: "Lion detail", category: "realism" },
   { file: "rose-script-closeup.jpg", title: "Rose and script", category: "realism" },
-  { file: "theatre-masks-thigh.jpg", title: "Theatre masks", category: "realism" },
   { file: "eye-shoulder-piece.jpg", title: "Eye shoulder", category: "realism" },
   { file: "skeleton-linework.jpg", title: "Skeleton linework", category: "fineline" },
   { file: "goat-shoulder.jpg", title: "Goat shoulder", category: "realism" },
@@ -65,7 +61,6 @@ const portfolioItems = [
   { file: "swallow-rose.jpg", title: "Swallow and rose", category: "fineline" },
   { file: "shell-small.jpg", title: "Small shell", category: "fineline" },
   { file: "small-eye-back.jpg", title: "Small eye", category: "fineline" },
-  { file: "portrait-detail-closeup.jpg", title: "Portrait detail", category: "realism" },
   { file: "domka/viber_image_2026-06-08_21-28-57-439.jpg", title: "Tiny turtle linework", category: "fineline", artist: "domka" },
   { file: "domka/viber_image_2026-06-08_21-28-59-261.jpg", title: "Tiny heart and flower", category: "fineline", artist: "domka" },
   { file: "domka/viber_image_2026-06-08_21-29-01-005.jpg", title: "Ornamental lower back", category: "fineline", artist: "domka" },
@@ -78,14 +73,12 @@ const portfolioItems = [
   { file: "kostas/viber_image_2026-06-08_21-31-23-534.jpg", title: "Zeus panel", category: "mythology", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-31-23-764.jpg", title: "Medusa portrait detail", category: "mythology", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-31-24-011.jpg", title: "Theatre mask sleeve", category: "realism", artist: "kostas" },
-  { file: "kostas/viber_image_2026-06-08_21-31-24-293.jpg", title: "Spartan helmet detail", category: "mythology", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-31-24-537.jpg", title: "Mythology sleeve detail", category: "mythology", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-31-24-773.jpg", title: "Dark portrait forearm", category: "realism", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-31-25-251.jpg", title: "Lion realism", category: "realism", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-36-49-039.jpg", title: "Warrior forearm", category: "mythology", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-37-08-710.jpg", title: "Dark portrait realism", category: "realism", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-37-09-057.jpg", title: "Full sleeve realism", category: "realism", artist: "kostas" },
-  { file: "kostas/viber_image_2026-06-08_21-37-09-514.jpg", title: "Dark mask piece", category: "realism", artist: "kostas" },
   { file: "kostas/viber_image_2026-06-08_21-37-09-915.jpg", title: "Dark realism leg piece", category: "realism", artist: "kostas" },
 ];
 
@@ -235,7 +228,7 @@ function HomePage({ navigate }) {
               <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp +30 694 808 7671</a>
             </div>
             <p className="eyebrow">Tattoo studio in Kos</p>
-            <h1>Minimal custom tattoos in Kos.</h1>
+            <h1>Fine lines and realistic tattoos in Kos.</h1>
             <p>Sixth Sense Tattoo is a professional tattoo studio in Kos, Greece, specializing in Fine Line and Black & Grey Realism tattoos. Known as one of the leading Fine Line tattoo studios on the island, we create custom, high-quality artwork in a clean, safe, and welcoming environment for clients from around the world.</p>
             <div className="actions">
               <a className="button primary" href="/contact" onClick={(event) => routeClick(event, "/contact", navigate)}>Book consultation</a>
@@ -251,7 +244,6 @@ function HomePage({ navigate }) {
       </section>
 
       <Essentials />
-      <SelectedWork navigate={navigate} />
       <ArtistsSection />
       <StudioPreview navigate={navigate} />
       <BookingPanel navigate={navigate} />
@@ -404,6 +396,7 @@ function BookingPanel({ navigate }) {
 
 function PortfolioPage() {
   const [filter, setFilter] = useState("all");
+  const [visibleCount, setVisibleCount] = useState(portfolioBatchSize);
   const [lightboxItem, setLightboxItem] = useState(null);
   const items = useMemo(() => {
     if (filter === "all") return portfolioItems;
@@ -411,10 +404,16 @@ function PortfolioPage() {
     if (artistLabels[filter]) return portfolioItems.filter((item) => item.artist === filter);
     return portfolioItems.filter((item) => item.category === filter);
   }, [filter]);
+  const visibleItems = items.slice(0, visibleCount);
+  const hasMoreItems = visibleCount < items.length;
   const label = filter === "all" ? "All work" : filter === "featured" ? "Featured selection" : artistLabels[filter] || categoryLabels[filter];
   const filterLabel = (key) => {
     if (key === "fineline") return "Fine line";
     return artistLabels[key] || key[0].toUpperCase() + key.slice(1);
+  };
+  const chooseFilter = (key) => {
+    setFilter(key);
+    setVisibleCount(portfolioBatchSize);
   };
 
   return (
@@ -433,16 +432,19 @@ function PortfolioPage() {
       <section className="container work-section" aria-label="Tattoo portfolio">
         <div className="portfolio-toolbar" aria-label="Filter portfolio">
           {["all", "realism", "mythology", "lettering", "fineline", "kostas", "domka", "featured"].map((key) => (
-            <button key={key} className={`filter-button${filter === key ? " is-active" : ""}`} type="button" onClick={() => setFilter(key)}>
+            <button key={key} className={`filter-button${filter === key ? " is-active" : ""}`} type="button" onClick={() => chooseFilter(key)}>
               {filterLabel(key)}
             </button>
           ))}
         </div>
-        <p className="portfolio-status">{label} - {items.length} pieces</p>
+        <div className="portfolio-meta">
+          <p className="portfolio-status">{label} - showing {visibleItems.length} of {items.length} pieces</p>
+          <a href={studioInstagram} target="_blank" rel="noreferrer">More daily work on Instagram @sixthsense.tattoo</a>
+        </div>
         <div className="gallery" aria-live="polite">
-          {items.map((item) => (
+          {visibleItems.map((item) => (
             <figure className="tattoo-card" key={item.file} onClick={() => setLightboxItem(item)}>
-              <img src={asset(item.file)} alt={item.title} loading="lazy" />
+              <img src={asset(item.file)} alt={item.title} loading="lazy" decoding="async" />
               <figcaption>
                 <strong>{item.title}</strong>
                 <span>{[categoryLabels[item.category], artistLabels[item.artist]].filter(Boolean).join(" / ")}</span>
@@ -450,6 +452,13 @@ function PortfolioPage() {
             </figure>
           ))}
         </div>
+        {hasMoreItems && (
+          <div className="load-more-row">
+            <button className="button secondary" type="button" onClick={() => setVisibleCount((count) => Math.min(count + portfolioBatchSize, items.length))}>
+              Load more
+            </button>
+          </div>
+        )}
       </section>
       {lightboxItem && (
         <div className="lightbox is-open" role="dialog" aria-modal="true" onClick={() => setLightboxItem(null)}>
