@@ -10,82 +10,26 @@ const studioInstagram = "https://www.instagram.com/sixthsense.tattoo/";
 const whatsappUrl = "https://wa.me/306948087671";
 const portfolioBatchSize = 18;
 
+function artistPortfolioItems(folder, titlePrefix, category, artist) {
+  return Object.keys(assetModules)
+    .filter((path) => path.includes(`../assets/portfolio/${folder}/`))
+    .sort()
+    .map((path, index) => ({
+      file: path.replace("../assets/portfolio/", ""),
+      title: `${titlePrefix} ${String(index + 1).padStart(2, "0")}`,
+      category,
+      artist,
+      featured: index < 6,
+    }));
+}
+
 const portfolioItems = [
-  { file: "large-back-piece.jpg", title: "Large back piece", category: "realism", featured: true },
-  { file: "lion-family-sleeve.jpg", title: "Lion family sleeve", category: "realism", featured: true },
-  { file: "medusa-portrait.jpg", title: "Medusa portrait", category: "mythology", featured: true },
-  { file: "large-eye-shoulder.jpg", title: "Eye shoulder piece", category: "realism", featured: true },
-  { file: "architecture-sleeve-front.jpg", title: "Architecture sleeve", category: "realism", featured: true },
-  { file: "spartan-shoulder.jpg", title: "Spartan shoulder", category: "mythology", featured: true },
-  { file: "floral-fine-line.jpg", title: "Fine line floral", category: "fineline", featured: true },
-  { file: "script-quote-forearm.jpg", title: "Script quote", category: "lettering", featured: true },
-  { file: "hand-face-surreal.jpg", title: "Surreal hand piece", category: "realism", featured: true },
-  { file: "geometric-cosmos-leg.jpg", title: "Geometric cosmos", category: "fineline", featured: true },
-  { file: "clown-dark-realism.jpg", title: "Dark realism", category: "realism", featured: true },
-  { file: "moth-lower-back.jpg", title: "Moth lower back", category: "fineline", featured: true },
-  { file: "zeus-fineline-circle.jpg", title: "Zeus fine line", category: "mythology" },
-  { file: "chicano-lettering-forearm.jpg", title: "Chicano lettering", category: "lettering" },
-  { file: "zeus-forearm.jpg", title: "Zeus forearm", category: "mythology" },
-  { file: "rapid-football-crest.jpg", title: "Football crest", category: "realism" },
-  { file: "name-date-script.jpg", title: "Name and date", category: "lettering" },
-  { file: "dark-portrait-sleeve.jpg", title: "Dark portrait sleeve", category: "realism" },
-  { file: "spartan-helmet.jpg", title: "Spartan helmet", category: "mythology" },
-  { file: "rose-forearm.jpg", title: "Rose forearm", category: "fineline" },
-  { file: "time-scene-sleeve.jpg", title: "Time scene sleeve", category: "realism" },
-  { file: "playing-card-portrait.jpg", title: "Playing card portrait", category: "realism" },
-  { file: "panther-chest.jpg", title: "Panther chest piece", category: "realism" },
-  { file: "lion-shoulder.jpg", title: "Lion shoulder", category: "realism" },
-  { file: "realistic-eye-forearm.jpg", title: "Realistic eye", category: "realism" },
-  { file: "lion-family-shoulder.jpg", title: "Lion family shoulder", category: "realism" },
-  { file: "greek-god-forearm.jpg", title: "Greek god forearm", category: "mythology" },
-  { file: "dove-sacred-sleeve.jpg", title: "Sacred sleeve", category: "realism" },
-  { file: "brothers-eye-sleeve.jpg", title: "Eye sleeve", category: "realism" },
-  { file: "money-forearm.jpg", title: "Money forearm", category: "realism" },
-  { file: "eagle-eye-sleeve.jpg", title: "Eagle and eye sleeve", category: "realism" },
-  { file: "angel-playing-cards.jpg", title: "Angel and cards", category: "realism" },
-  { file: "rose-script-closeup.jpg", title: "Rose and script", category: "realism" },
-  { file: "eye-shoulder-piece.jpg", title: "Eye shoulder", category: "realism" },
-  { file: "skeleton-linework.jpg", title: "Skeleton linework", category: "fineline" },
-  { file: "goat-shoulder.jpg", title: "Goat shoulder", category: "realism" },
-  { file: "cherubs-leg.jpg", title: "Cherubs leg", category: "realism" },
-  { file: "skull-bird-leg.jpg", title: "Skull and bird", category: "realism" },
-  { file: "dark-creature-leg.jpg", title: "Dark creature", category: "realism" },
-  { file: "large-script-forearm.jpg", title: "Large script", category: "lettering" },
-  { file: "map-compass-linework.jpg", title: "Map compass", category: "fineline" },
-  { file: "olive-branches-back.jpg", title: "Olive branches", category: "fineline" },
-  { file: "number-224.jpg", title: "Number mark", category: "lettering" },
-  { file: "cherub-archer-line.jpg", title: "Cherub archer", category: "fineline" },
-  { file: "sun-moon-stars.jpg", title: "Sun, moon, stars", category: "fineline" },
-  { file: "peach-stamp-line.jpg", title: "Small stamp", category: "fineline" },
-  { file: "small-leopard-line.jpg", title: "Small leopard", category: "fineline" },
-  { file: "swallow-rose.jpg", title: "Swallow and rose", category: "fineline" },
-  { file: "shell-small.jpg", title: "Small shell", category: "fineline" },
-  { file: "small-eye-back.jpg", title: "Small eye", category: "fineline" },
-  { file: "domka/viber_image_2026-06-08_21-28-57-439.jpg", title: "Tiny turtle linework", category: "fineline", artist: "domka" },
-  { file: "domka/viber_image_2026-06-08_21-28-59-261.jpg", title: "Tiny heart and flower", category: "fineline", artist: "domka" },
-  { file: "domka/viber_image_2026-06-08_21-29-01-005.jpg", title: "Ornamental lower back", category: "fineline", artist: "domka" },
-  { file: "domka/viber_image_2026-06-08_21-29-03-144.jpg", title: "Tiny cocktail glass", category: "fineline", artist: "domka" },
-  { file: "domka/viber_image_2026-06-08_21-29-03-555.jpg", title: "Small red line detail", category: "fineline", artist: "domka" },
-  { file: "domka/viber_image_2026-06-08_21-29-05-825.jpg", title: "Gemini symbol", category: "fineline", artist: "domka" },
-  { file: "domka/viber_image_2026-06-08_21-29-06-319.jpg", title: "Fine line sun", category: "fineline", artist: "domka" },
-  { file: "kostas/viber_image_2026-06-08_21-31-16-195.jpg", title: "Medusa hand piece", category: "mythology", artist: "kostas" },
-  { file: "kostas/viber_image_2026-06-08_21-31-23-197.jpg", title: "Wolf realism", category: "realism", artist: "kostas" },
-  { file: "kostas/viber_image_2026-06-08_21-31-23-534.jpg", title: "Zeus panel", category: "mythology", artist: "kostas" },
-  { file: "kostas/viber_image_2026-06-08_21-31-23-764.jpg", title: "Medusa portrait detail", category: "mythology", artist: "kostas" },
-  { file: "kostas/viber_image_2026-06-08_21-31-24-011.jpg", title: "Theatre mask sleeve", category: "realism", artist: "kostas" },
-  { file: "kostas/viber_image_2026-06-08_21-31-24-537.jpg", title: "Mythology sleeve detail", category: "mythology", artist: "kostas" },
-  { file: "kostas/viber_image_2026-06-08_21-31-24-773.jpg", title: "Dark portrait forearm", category: "realism", artist: "kostas" },
-  { file: "kostas/viber_image_2026-06-08_21-31-25-251.jpg", title: "Lion realism", category: "realism", artist: "kostas" },
-  { file: "kostas/viber_image_2026-06-08_21-36-49-039.jpg", title: "Warrior forearm", category: "mythology", artist: "kostas" },
-  { file: "kostas/viber_image_2026-06-08_21-37-08-710.jpg", title: "Dark portrait realism", category: "realism", artist: "kostas" },
-  { file: "kostas/viber_image_2026-06-08_21-37-09-057.jpg", title: "Full sleeve realism", category: "realism", artist: "kostas" },
-  { file: "kostas/viber_image_2026-06-08_21-37-09-915.jpg", title: "Dark realism leg piece", category: "realism", artist: "kostas" },
+  ...artistPortfolioItems("kostas", "Kostas black & grey", "realism", "kostas"),
+  ...artistPortfolioItems("domka", "Dominika fine line", "fineline", "domka"),
 ];
 
 const categoryLabels = {
   realism: "Black & grey realism",
-  mythology: "Mythology",
-  lettering: "Lettering",
   fineline: "Fine line",
 };
 
@@ -421,17 +365,17 @@ function PortfolioPage() {
       <section className="container page-title">
         <p className="eyebrow">Tattoo portfolio</p>
         <h1>Custom tattoos by Sixth Sense.</h1>
-        <p>Black and grey realism, mythology, lettering, fine line, and symbolic custom work. Filter the collection or open any piece for a closer client view.</p>
+        <p>Fine line and black & grey realism work by Dominika and Kostas. Filter the collection or open any piece for a closer client view.</p>
       </section>
       <section className="container category-strip" aria-label="Portfolio categories">
         <article><span>01</span><strong>Black and grey realism</strong></article>
-        <article><span>02</span><strong>Mythology</strong></article>
-        <article><span>03</span><strong>Lettering</strong></article>
-        <article><span>04</span><strong>Fine line</strong></article>
+        <article><span>02</span><strong>Fine line</strong></article>
+        <article><span>03</span><strong>Kostas</strong></article>
+        <article><span>04</span><strong>Dominika</strong></article>
       </section>
       <section className="container work-section" aria-label="Tattoo portfolio">
         <div className="portfolio-toolbar" aria-label="Filter portfolio">
-          {["all", "realism", "mythology", "lettering", "fineline", "kostas", "domka", "featured"].map((key) => (
+          {["all", "realism", "fineline", "kostas", "domka", "featured"].map((key) => (
             <button key={key} className={`filter-button${filter === key ? " is-active" : ""}`} type="button" onClick={() => chooseFilter(key)}>
               {filterLabel(key)}
             </button>
