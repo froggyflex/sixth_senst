@@ -1016,10 +1016,51 @@ textarea:focus {
   font-weight: 600;
 }
 
+.whatsapp-widget {
+  align-items: center;
+  background: #25d366;
+  border: 1px solid rgba(15, 15, 15, 0.12);
+  border-radius: 999px;
+  bottom: calc(18px + env(safe-area-inset-bottom));
+  box-shadow: 0 14px 34px rgba(15, 15, 15, 0.22);
+  color: #0f0f0f;
+  display: none;
+  gap: 10px;
+  min-height: 52px;
+  padding: 8px 16px 8px 8px;
+  position: fixed;
+  right: 18px;
+  z-index: 35;
+}
+
+.whatsapp-widget span {
+  align-items: center;
+  background: var(--white);
+  border-radius: 50%;
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 800;
+  height: 36px;
+  justify-content: center;
+  letter-spacing: 0;
+  width: 36px;
+}
+
+.whatsapp-widget strong {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 @media (max-width: 920px) {
   .site-header {
     min-height: 70px;
     padding-inline: 22px;
+  }
+
+  .whatsapp-widget {
+    display: inline-flex;
   }
 
   .menu-toggle {

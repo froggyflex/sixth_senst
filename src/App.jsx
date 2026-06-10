@@ -8,6 +8,7 @@ const assetModules = import.meta.glob("../assets/portfolio/**/*", {
 
 const studioInstagram = "https://www.instagram.com/sixthsense.tattoo/";
 const whatsappUrl = "https://wa.me/306948087671";
+const whatsappWidgetUrl = `${whatsappUrl}?text=${encodeURIComponent("Hello Sixth Sense, I would like to discuss a tattoo idea.")}`;
 const googleBusinessUrl = "https://www.google.com/maps/search/?api=1&query=Sixth%20Sense%20Tattoo%20Kos%20Konstantinou%20Kanari%2042";
 const portfolioBatchSize = 18;
 
@@ -94,6 +95,7 @@ function App() {
       <Header route={route} menuOpen={menuOpen} setMenuOpen={setMenuOpen} navigate={navigate} />
       {page}
       <Footer route={route} navigate={navigate} />
+      <WhatsAppWidget />
     </>
   );
 }
@@ -525,6 +527,15 @@ function Footer({ route, navigate }) {
         <span>Konstantinou Kanari 42, Kos 853 00</span>
       </div>
     </footer>
+  );
+}
+
+function WhatsAppWidget() {
+  return (
+    <a className="whatsapp-widget" href={whatsappWidgetUrl} target="_blank" rel="noreferrer" aria-label="Chat with Sixth Sense on WhatsApp">
+      <span aria-hidden="true">WA</span>
+      <strong>WhatsApp</strong>
+    </a>
   );
 }
 
