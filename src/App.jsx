@@ -8,6 +8,7 @@ const assetModules = import.meta.glob("../assets/portfolio/**/*", {
 
 const studioInstagram = "https://www.instagram.com/sixthsense.tattoo/";
 const whatsappUrl = "https://wa.me/306948087671";
+const googleBusinessUrl = "https://www.google.com/maps/search/?api=1&query=Sixth%20Sense%20Tattoo%20Kos%20Konstantinou%20Kanari%2042";
 const portfolioBatchSize = 18;
 
 function artistPortfolioItems(folder, titlePrefix, category, artist) {
@@ -189,6 +190,7 @@ function HomePage({ navigate }) {
 
       <Essentials />
       <ArtistsSection />
+      <GoogleReviewsSection />
       <StudioPreview navigate={navigate} />
       <BookingPanel navigate={navigate} />
     </main>
@@ -303,6 +305,28 @@ function ArtistCard({ href, photo, alt, handle, name, description, works }) {
         <span className="portfolio-link">Open portfolio</span>
       </div>
     </a>
+  );
+}
+
+function GoogleReviewsSection() {
+  return (
+    <section className="section reviews-section">
+      <div className="container reviews-grid">
+        <div>
+          <p className="eyebrow">Google reviews</p>
+          <h2>Trusted by clients visiting Kos.</h2>
+          <p>Sixth Sense Tattoo Kos is rated highly by clients on Google, with reviews connected to the studio's official business profile.</p>
+          <a className="button secondary" href={googleBusinessUrl} target="_blank" rel="noreferrer">Read Google reviews</a>
+        </div>
+        <div className="google-rating-card" aria-label="Google rating for Sixth Sense Tattoo Kos">
+          <span className="review-source">Google</span>
+          <strong>4.9</strong>
+          <span className="review-stars" aria-label="4.9 out of 5 stars">★★★★★</span>
+          <p>Based on 194 Google reviews</p>
+          <small>Sixth Sense Tattoo Kos</small>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -470,7 +494,7 @@ function ContactPage() {
           <div className="contact-links">
             <a href={studioInstagram} target="_blank" rel="noreferrer">Instagram @sixthsense.tattoo</a>
             <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp +30 694 808 7671</a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Sixth%20Sense%20Tattoo%20Studio%20Kanari%2042%20Kos" target="_blank" rel="noreferrer">Map</a>
+            <a href={googleBusinessUrl} target="_blank" rel="noreferrer">Map</a>
           </div>
         </div>
         <form className="contact-form" onSubmit={submit}>

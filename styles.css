@@ -589,6 +589,61 @@ figcaption {
   width: 100%;
 }
 
+.reviews-section {
+  background: var(--white);
+}
+
+.reviews-grid {
+  align-items: center;
+  display: grid;
+  gap: clamp(34px, 7vw, 90px);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.45fr);
+}
+
+.reviews-grid h2 {
+  max-width: 660px;
+}
+
+.reviews-grid p {
+  max-width: 620px;
+}
+
+.google-rating-card {
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+  padding: clamp(22px, 4vw, 34px);
+}
+
+.google-rating-card strong {
+  color: var(--ink);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 300;
+  line-height: 0.95;
+}
+
+.review-source,
+.google-rating-card small {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.review-stars {
+  color: var(--wood);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+}
+
+.google-rating-card p {
+  color: var(--ink);
+  font-weight: 700;
+  margin: 4px 0 10px;
+}
+
 .booking-panel {
   background: var(--ink);
   color: var(--white);
@@ -994,6 +1049,7 @@ textarea:focus {
 
   .hero-grid,
   .studio-preview-grid,
+  .reviews-grid,
   .contact-layout {
     grid-template-columns: 1fr;
   }
