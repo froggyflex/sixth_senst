@@ -644,6 +644,272 @@ figcaption {
   margin: 4px 0 10px;
 }
 
+.section-intro {
+  margin-bottom: 0;
+  max-width: 660px;
+}
+
+.artist-profiles {
+  display: grid;
+  gap: clamp(38px, 6vw, 76px);
+}
+
+.artist-profile {
+  background: var(--white);
+  border: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+  overflow: hidden;
+}
+
+.artist-profile.is-reversed .artist-media {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.artist-profile.is-reversed .artist-profile-details {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.artist-media {
+  background: var(--ink);
+  min-height: 640px;
+  overflow: hidden;
+  position: relative;
+}
+
+.artist-media video {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.artist-index {
+  align-items: center;
+  background: rgba(255, 253, 248, 0.94);
+  color: var(--ink);
+  display: flex;
+  font-size: 0.68rem;
+  font-weight: 700;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: 0.12em;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 48px;
+}
+
+.artist-profile-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(30px, 5vw, 62px);
+}
+
+.artist-title-row,
+.artist-actions,
+.review-card-top,
+.reviews-footer {
+  align-items: center;
+  display: flex;
+}
+
+.artist-title-row {
+  align-items: start;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.artist-role,
+.artist-profile .artist-handle,
+.artist-profile .portfolio-link {
+  color: var(--wood);
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.artist-profile-details h3 {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1;
+  margin: 12px 0 24px;
+}
+
+.artist-profile-details > p {
+  margin-bottom: 24px;
+}
+
+.artist-specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0 0 30px;
+  padding: 0;
+}
+
+.artist-specialties li {
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 8px 11px;
+  text-transform: uppercase;
+}
+
+.artist-profile .top-works {
+  margin: 0 0 24px;
+}
+
+.artist-actions {
+  flex-wrap: wrap;
+  gap: 14px 22px;
+}
+
+.artist-profile .artist-actions a:hover {
+  color: var(--ink);
+}
+
+.artist-profile .muted-link {
+  color: var(--muted);
+}
+
+.client-reviews-section {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.reviews-heading {
+  align-items: end;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  display: grid;
+  gap: clamp(34px, 7vw, 90px);
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding-bottom: clamp(34px, 5vw, 58px);
+}
+
+.reviews-copy h2 {
+  color: var(--white);
+  max-width: 660px;
+}
+
+.reviews-copy > p:last-child {
+  color: rgba(255, 255, 255, 0.68);
+  max-width: 620px;
+}
+
+.google-rating-summary {
+  display: grid;
+  gap: 5px;
+  justify-items: end;
+  min-width: 210px;
+}
+
+.google-rating-summary > div {
+  align-items: baseline;
+  display: flex;
+  gap: 8px;
+}
+
+.google-rating-summary strong {
+  color: var(--white);
+  font-size: clamp(3.8rem, 8vw, 6.5rem);
+  font-weight: 300;
+  line-height: 0.95;
+}
+
+.google-rating-summary > div span,
+.client-reviews-section .review-source {
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.google-rating-summary > p {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 4px 0 0;
+  text-transform: uppercase;
+}
+
+.review-cards {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(34px, 5vw, 58px);
+}
+
+.review-card {
+  background: #171717;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  flex-direction: column;
+  min-height: 310px;
+  padding: clamp(24px, 4vw, 38px);
+}
+
+.review-card-top {
+  justify-content: space-between;
+}
+
+.review-card-top > span:last-child {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.review-card blockquote {
+  color: var(--white);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.45;
+  margin: 36px 0;
+}
+
+.review-card footer {
+  display: grid;
+  gap: 2px;
+  margin-top: auto;
+}
+
+.review-card footer strong {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.review-card footer span,
+.reviews-footer p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.72rem;
+}
+
+.reviews-footer {
+  gap: 24px;
+  justify-content: space-between;
+  padding-top: 28px;
+}
+
+.reviews-footer p {
+  margin: 0;
+}
+
+.review-button {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--white);
+}
+
 .booking-panel {
   background: var(--ink);
   color: var(--white);
@@ -1146,6 +1412,45 @@ textarea:focus {
   .artists-grid {
     grid-template-columns: 1fr;
   }
+
+  .artist-profile,
+  .artist-profile.is-reversed {
+    grid-template-columns: 1fr;
+  }
+
+  .artist-profile.is-reversed .artist-media,
+  .artist-profile.is-reversed .artist-profile-details {
+    grid-column: 1;
+  }
+
+  .artist-profile.is-reversed .artist-media {
+    grid-row: 1;
+  }
+
+  .artist-profile.is-reversed .artist-profile-details {
+    grid-row: 2;
+  }
+
+  .artist-media {
+    min-height: 560px;
+  }
+
+  .reviews-heading {
+    align-items: start;
+    grid-template-columns: 1fr;
+  }
+
+  .google-rating-summary {
+    justify-items: start;
+  }
+
+  .review-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card {
+    min-height: 260px;
+  }
 }
 
 @media (max-width: 580px) {
@@ -1187,6 +1492,16 @@ textarea:focus {
   .artist-photo {
     aspect-ratio: 4 / 3;
     height: auto;
+  }
+
+  .artist-media {
+    min-height: 480px;
+  }
+
+  .artist-title-row,
+  .reviews-footer {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .form-row,

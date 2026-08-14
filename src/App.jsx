@@ -6,6 +6,12 @@ const assetModules = import.meta.glob("../assets/portfolio/**/*", {
   import: "default",
 });
 
+const introVideoModules = import.meta.glob("../intro_videos/*.mp4", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
 const studioInstagram = "https://www.instagram.com/sixthsense.tattoo/";
 const whatsappUrl = "https://wa.me/306948087671";
 const whatsappWidgetUrl = `${whatsappUrl}?text=${encodeURIComponent("Hello Sixth Sense, I would like to discuss a tattoo idea.")}`;
@@ -49,6 +55,10 @@ const titles = {
 
 function asset(file) {
   return assetModules[`../assets/portfolio/${file}`];
+}
+
+function introVideo(file) {
+  return introVideoModules[`../intro_videos/${file}`];
 }
 
 function normalizePath(pathname) {
@@ -191,8 +201,8 @@ function HomePage({ navigate }) {
       </section>
 
       <Essentials />
-      <ArtistsSection />
-      <GoogleReviewsSection />
+      <ArtistProfilesSection navigate={navigate} />
+      <ClientReviewsSection />
       <StudioPreview navigate={navigate} />
       <BookingPanel navigate={navigate} />
     </main>
@@ -248,6 +258,150 @@ function PreviewImage({ file, alt, label }) {
       <img src={asset(file)} alt={alt} />
       <figcaption>{label}</figcaption>
     </figure>
+  );
+}
+
+function ArtistProfilesSection({ navigate }) {
+  return (
+    <section className="section artists-section artist-profiles-section">
+      <div className="container section-heading">
+        <div>
+          <p className="eyebrow">Artists</p>
+          <h2>Two artists. Two distinct approaches.</h2>
+          <p className="section-intro">Meet the people behind the work, see how each artist thinks, and find the style that feels right for your idea.</p>
+        </div>
+        <a href={studioInstagram} target="_blank" rel="noreferrer">Studio Instagram</a>
+      </div>
+      <div className="container artist-profiles">
+        <ArtistProfile
+          number="01"
+          href="https://www.instagram.com/constantine.tatt/"
+          video="goddointro.mp4"
+          poster="Screenshot_2.png"
+          videoLabel="Introduction to Kostas, founder and black and grey tattoo artist"
+          handle="@constantine.tatt"
+          name="Kostas"
+          role="Founder · Black & grey realism"
+          description="Kostas is the founder of Sixth Sense Tattoo and specializes in black & grey realism, surrealism, and custom large-scale tattoo projects. With a passion for detail, contrast, and storytelling, he creates tattoos designed to remain bold, readable, and timeless for years to come. From portraits and mythology to dark fantasy and custom concepts, every piece is tailored to the client and crafted with precision."
+          specialties={["Realism", "Surrealism", "Large-scale", "Custom concepts"]}
+          works={[
+            ["medusa-portrait.jpg", "Medusa portrait tattoo by Kostas"],
+            ["lion-family-sleeve.jpg", "Lion family sleeve tattoo by Kostas"],
+            ["zeus-forearm.jpg", "Zeus forearm tattoo by Kostas"],
+          ]}
+          navigate={navigate}
+        />
+        <ArtistProfile
+          number="02"
+          reverse
+          href="https://www.instagram.com/domka_tattoo/"
+          video="domkaintro.mp4"
+          poster="Screenshot_1.png"
+          videoLabel="Introduction to Dominika, fine line tattoo specialist"
+          handle="@domka_tattoo"
+          name="Dominika"
+          role="Fine line specialist"
+          description="Dominika specializes in fine line, delicate, and elegant tattoo designs. Her work focuses on clean lines, minimalistic compositions, floral elements, ornamental details, and subtle custom pieces that complement the body's natural flow. Her attention to detail and refined approach make her the perfect choice for clients seeking sophisticated and timeless fine line tattoos."
+          specialties={["Fine line", "Floral", "Ornamental", "Minimal"]}
+          works={[
+            ["floral-fine-line.jpg", "Fine line floral tattoo by Dominika"],
+            ["moth-lower-back.jpg", "Moth lower back tattoo by Dominika"],
+            ["cherub-archer-line.jpg", "Fine line cherub tattoo by Dominika"],
+          ]}
+          navigate={navigate}
+        />
+      </div>
+    </section>
+  );
+}
+
+function ArtistProfile({ number, href, video, poster, videoLabel, handle, name, role, description, specialties, works, reverse = false, navigate }) {
+  return (
+    <article className={`artist-profile${reverse ? " is-reversed" : ""}`}>
+      <div className="artist-media">
+        <video autoPlay muted loop playsInline controls preload="metadata" poster={asset(poster)} aria-label={videoLabel}>
+          <source src={introVideo(video)} type="video/mp4" />
+        </video>
+        <span className="artist-index">{number}</span>
+      </div>
+      <div className="artist-profile-details">
+        <div className="artist-title-row">
+          <div>
+            <span className="artist-role">{role}</span>
+            <h3>{name}</h3>
+          </div>
+          <a className="artist-handle" href={href} target="_blank" rel="noreferrer">{handle}</a>
+        </div>
+        <p>{description}</p>
+        <ul className="artist-specialties" aria-label={`${name} specialties`}>
+          {specialties.map((specialty) => <li key={specialty}>{specialty}</li>)}
+        </ul>
+        <div className="top-works" aria-label={`${name} top works`}>
+          {works.map(([file, imageAlt]) => <img key={file} src={asset(file)} alt={imageAlt} />)}
+        </div>
+        <div className="artist-actions">
+          <a className="portfolio-link" href="/portfolio" onClick={(event) => routeClick(event, "/portfolio", navigate)}>View studio portfolio</a>
+          <a className="portfolio-link muted-link" href={href} target="_blank" rel="noreferrer">Open Instagram</a>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function ClientReviewsSection() {
+  const reviews = [
+    {
+      quote: "They reassured me and explained everything very well to me.",
+      name: "N. C.",
+      detail: "First tattoo · Fine line",
+    },
+    {
+      quote: "Very relaxed but super professional. He knows exactly what he's doing.",
+      name: "Richard K.",
+      detail: "Google review",
+    },
+    {
+      quote: "Clean & hygienic, very gentle. Would return in a heartbeat!",
+      name: "N. D.",
+      detail: "Google review",
+    },
+  ];
+
+  return (
+    <section className="section client-reviews-section">
+      <div className="container reviews-heading">
+        <div className="reviews-copy">
+          <p className="eyebrow">Google reviews</p>
+          <h2>Loved by clients from Kos and beyond.</h2>
+          <p>Professional guidance, precise work, and a clean, welcoming studio are the details clients mention again and again.</p>
+        </div>
+        <div className="google-rating-summary" aria-label="Google rating for Sixth Sense Tattoo Kos">
+          <span className="review-source">Google rating</span>
+          <div><strong>4.9</strong><span>/ 5</span></div>
+          <span className="review-stars" aria-label="4.9 out of 5 stars">★★★★★</span>
+          <p>196 public ratings</p>
+        </div>
+      </div>
+      <div className="container review-cards">
+        {reviews.map((review, index) => (
+          <article className="review-card" key={review.name}>
+            <div className="review-card-top">
+              <span className="review-stars" aria-hidden="true">★★★★★</span>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+            </div>
+            <blockquote>“{review.quote}”</blockquote>
+            <footer>
+              <strong>{review.name}</strong>
+              <span>{review.detail}</span>
+            </footer>
+          </article>
+        ))}
+      </div>
+      <div className="container reviews-footer">
+        <p>Selected public feedback. Visit Google to read the full review history.</p>
+        <a className="button review-button" href={googleBusinessUrl} target="_blank" rel="noreferrer">Read all Google reviews</a>
+      </div>
+    </section>
   );
 }
 
