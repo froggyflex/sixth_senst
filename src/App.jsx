@@ -213,18 +213,29 @@ function Essentials() {
   return (
     <section className="section intro-band">
       <div className="container essentials">
-        <article>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 38V14h24v24M17 20h14M17 26h14M8 38h32" /></svg>
-          <h2>Kanari 42, Kos</h2>
-          <p>A clean studio space in Kos Town for appointments, walk-in ideas, and travelling clients.</p>
+        <article className="location-essential">
+          <div className="essential-icon location-pin" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M36 20c0 9-12 20-12 20S12 29 12 20a12 12 0 1 1 24 0Z" /><circle cx="24" cy="20" r="4" /></svg>
+          </div>
+          <span className="location-kicker">Find us in Kos Town</span>
+          <h2>Konstantinou Kanari 42</h2>
+          <address>Kos 853 00, Greece</address>
+          <a className="location-directions" href={googleBusinessUrl} target="_blank" rel="noreferrer" aria-label="Open Sixth Sense Tattoo location in Google Maps">
+            <span>Open in Google Maps</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5" /></svg>
+          </a>
         </article>
         <article>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 13h28v22H10zM16 29l6-7 5 5 4-4 5 6" /></svg>
+          <div className="essential-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M10 13h28v22H10zM16 29l6-7 5 5 4-4 5 6" /></svg>
+          </div>
           <h2>Custom pieces</h2>
           <p>Work is adjusted around body flow, scale, detail level, and the final placement.</p>
         </article>
         <article>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 14h20v15H19l-5 5V14zM19 20h10M19 25h7" /></svg>
+          <div className="essential-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M14 14h20v15H19l-5 5V14zM19 20h10M19 25h7" /></svg>
+          </div>
           <h2>Easy booking</h2>
           <p>Send your idea, references, dates in Kos, and preferred placement through WhatsApp.</p>
         </article>

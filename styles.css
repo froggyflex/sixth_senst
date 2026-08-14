@@ -450,18 +450,88 @@ p {
   border-right: 0;
 }
 
-.essentials svg {
+.essential-icon {
+  align-items: center;
+  border: 1px solid var(--line);
+  display: flex;
   height: 34px;
+  justify-content: center;
   margin-bottom: 28px;
   width: 34px;
 }
 
-.essentials path {
+.essential-icon svg {
+  height: 22px;
+  width: 22px;
+}
+
+.essentials path,
+.essentials circle {
   fill: none;
   stroke: var(--ink);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.8;
+}
+
+.location-essential {
+  position: relative;
+}
+
+.location-essential .location-pin {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.location-essential .location-pin path,
+.location-essential .location-pin circle {
+  stroke: var(--white);
+}
+
+.location-kicker {
+  color: var(--wood);
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.location-essential h2 {
+  margin-bottom: 6px;
+}
+
+.location-essential address {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-style: normal;
+}
+
+.location-directions {
+  align-items: center;
+  color: var(--ink);
+  display: inline-flex;
+  font-size: 0.68rem;
+  font-weight: 700;
+  gap: 10px;
+  letter-spacing: 0.1em;
+  margin-top: 22px;
+  text-transform: uppercase;
+}
+
+.location-directions svg {
+  height: 18px;
+  transition: transform 180ms ease;
+  width: 18px;
+}
+
+.location-directions:hover {
+  color: var(--wood);
+}
+
+.location-directions:hover svg {
+  transform: translateX(4px);
 }
 
 .section-heading {
