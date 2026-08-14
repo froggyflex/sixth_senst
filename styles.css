@@ -152,6 +152,34 @@ textarea {
   color: var(--white);
 }
 
+.language-switcher {
+  align-items: center;
+  border-left: 1px solid var(--line);
+  display: flex;
+  gap: 2px;
+  margin-left: 2px;
+  padding-left: 12px;
+}
+
+.language-switcher button {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.62rem;
+  font-weight: 700;
+  height: 30px;
+  letter-spacing: 0.08em;
+  padding: 0;
+  width: 30px;
+}
+
+.language-switcher button:hover,
+.language-switcher button.is-active {
+  background: var(--ink);
+  color: var(--white);
+}
+
 .menu-toggle {
   background: transparent;
   border: 0;
@@ -1010,6 +1038,111 @@ figcaption {
   color: var(--white);
 }
 
+.booking-panel-grid {
+  align-items: stretch;
+  display: grid;
+  gap: clamp(36px, 8vw, 110px);
+  grid-template-columns: minmax(0, 1fr) minmax(330px, 0.56fr);
+}
+
+.booking-panel-copy {
+  align-self: center;
+  max-width: 700px;
+}
+
+.booking-panel-copy h2 {
+  font-size: clamp(2rem, 4.2vw, 4rem);
+  max-width: 680px;
+}
+
+.opening-hours-card {
+  background: var(--white);
+  color: var(--ink);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 390px;
+  padding: clamp(26px, 4vw, 42px);
+}
+
+.hours-card-heading {
+  align-items: center;
+  color: var(--wood);
+  display: flex;
+  font-size: 0.68rem;
+  font-weight: 700;
+  gap: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hours-icon {
+  align-items: center;
+  border: 1px solid var(--line);
+  display: inline-flex;
+  height: 42px;
+  justify-content: center;
+  width: 42px;
+}
+
+.hours-icon svg {
+  height: 26px;
+  width: 26px;
+}
+
+.hours-icon circle,
+.hours-icon path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.hours-primary {
+  align-content: center;
+  display: grid;
+  padding: 36px 0;
+}
+
+.hours-primary strong,
+.hours-primary span {
+  display: block;
+}
+
+.hours-primary strong {
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.hours-primary span {
+  font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.appointment-note {
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+
+.appointment-note > span {
+  color: var(--wood);
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.booking-panel .appointment-note p {
+  color: var(--muted);
+  font-size: 0.84rem;
+  margin: 0;
+}
+
 .studio-preview-grid {
   align-items: center;
   display: grid;
@@ -1245,6 +1378,32 @@ figcaption {
   padding: clamp(20px, 4vw, 34px);
 }
 
+.travel-dates {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  margin: 2px 0;
+  padding: 22px 0;
+}
+
+.travel-dates legend {
+  color: var(--ink);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0 12px 0 0;
+  text-transform: uppercase;
+}
+
+.travel-dates > p {
+  font-size: 0.78rem;
+  margin: 0 0 16px;
+}
+
+.travel-dates input[type="date"] {
+  color-scheme: light;
+}
+
 label {
   color: var(--muted);
   display: grid;
@@ -1424,11 +1583,24 @@ textarea:focus {
     padding: 10px 0;
   }
 
+  .language-switcher {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    margin: 8px 0 0;
+    padding: 14px 0 0;
+    width: 100%;
+  }
+
   .hero-grid,
   .studio-preview-grid,
   .reviews-grid,
+  .booking-panel-grid,
   .contact-layout {
     grid-template-columns: 1fr;
+  }
+
+  .opening-hours-card {
+    min-height: 340px;
   }
 
   .hero {
@@ -1572,6 +1744,14 @@ textarea:focus {
   .reviews-footer {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .opening-hours-card {
+    min-height: 320px;
+  }
+
+  .hours-primary span {
+    font-size: clamp(2.5rem, 13vw, 3.7rem);
   }
 
   .form-row,
