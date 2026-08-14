@@ -16,6 +16,7 @@ const studioInstagram = "https://www.instagram.com/sixthsense.tattoo/";
 const whatsappUrl = "https://wa.me/306948087671";
 const whatsappWidgetUrl = `${whatsappUrl}?text=${encodeURIComponent("Hello Sixth Sense, I would like to discuss a tattoo idea.")}`;
 const googleBusinessUrl = "https://www.google.com/maps/search/?api=1&query=Sixth%20Sense%20Tattoo%20Kos%20Konstantinou%20Kanari%2042";
+const googleEmbedUrl = "https://www.google.com/maps?q=Sixth%20Sense%20Tattoo%20Kos%20Konstantinou%20Kanari%2042&output=embed";
 const portfolioBatchSize = 18;
 
 function artistPortfolioItems(folder, titlePrefix, category, artist) {
@@ -66,6 +67,7 @@ const translations = {
     },
     essentials: {
       find: "Find us in Kos Town", address: "Konstantinou Kanari 42", city: "Kos 853 00, Greece", maps: "Open in Google Maps",
+      mapEyebrow: "Our location", mapTitle: "See exactly where to find the studio.", mapHint: "Click the map to open Google Maps and start directions from your current location.", mapAria: "Open the Sixth Sense Tattoo location in Google Maps", mapFrameTitle: "Map showing the location of Sixth Sense Tattoo in Kos Town",
       customTitle: "Custom pieces", customText: "Work is adjusted around body flow, scale, detail level, and the final placement.",
       bookingTitle: "Easy booking", bookingText: "Send your idea, references, travel dates, and preferred placement through WhatsApp.",
     },
@@ -127,6 +129,7 @@ const translations = {
     },
     essentials: {
       find: "Hier findest du uns in Kos-Stadt", address: "Konstantinou Kanari 42", city: "Kos 853 00, Griechenland", maps: "In Google Maps öffnen",
+      mapEyebrow: "Unser Standort", mapTitle: "So findest du das Studio ganz einfach.", mapHint: "Klicke auf die Karte, um Google Maps zu öffnen und die Route von deinem Standort zu starten.", mapAria: "Standort von Sixth Sense Tattoo in Google Maps öffnen", mapFrameTitle: "Karte mit dem Standort von Sixth Sense Tattoo in Kos-Stadt",
       customTitle: "Individuelle Designs", customText: "Jedes Motiv wird an Körperform, Größe, Detailgrad und Platzierung angepasst.",
       bookingTitle: "Einfach buchen", bookingText: "Sende uns Idee, Referenzen, Reisedaten und gewünschte Platzierung per WhatsApp.",
     },
@@ -184,6 +187,7 @@ const translations = {
     },
     essentials: {
       find: "Vind ons in Kos-stad", address: "Konstantinou Kanari 42", city: "Kos 853 00, Griekenland", maps: "Openen in Google Maps",
+      mapEyebrow: "Onze locatie", mapTitle: "Bekijk precies waar je de studio vindt.", mapHint: "Klik op de kaart om Google Maps te openen en een route vanaf je huidige locatie te starten.", mapAria: "Locatie van Sixth Sense Tattoo openen in Google Maps", mapFrameTitle: "Kaart met de locatie van Sixth Sense Tattoo in Kos-stad",
       customTitle: "Persoonlijk ontwerp", customText: "Elk ontwerp wordt aangepast aan lichaamsvorm, formaat, detail en plaatsing.",
       bookingTitle: "Eenvoudig boeken", bookingText: "Stuur je idee, voorbeelden, reisdata en gewenste plaatsing via WhatsApp.",
     },
@@ -425,7 +429,7 @@ function Essentials() {
           <span className="location-kicker">{copy.essentials.find}</span>
           <h2>{copy.essentials.address}</h2>
           <address>{copy.essentials.city}</address>
-          <a className="location-directions" href={googleBusinessUrl} target="_blank" rel="noreferrer" aria-label="Open Sixth Sense Tattoo location in Google Maps">
+          <a className="location-directions" href={googleBusinessUrl} target="_blank" rel="noreferrer" aria-label={copy.essentials.mapAria}>
             <span>{copy.essentials.maps}</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5" /></svg>
           </a>
@@ -444,6 +448,37 @@ function Essentials() {
           <h2>{copy.essentials.bookingTitle}</h2>
           <p>{copy.essentials.bookingText}</p>
         </article>
+      </div>
+      <div className="container location-map-panel">
+        <a
+          className="map-frame"
+          href={googleBusinessUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={copy.essentials.mapAria}
+        >
+          <iframe
+            src={googleEmbedUrl}
+            title={copy.essentials.mapFrameTitle}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            tabIndex="-1"
+          ></iframe>
+          <span className="map-click-label">{copy.essentials.maps}</span>
+        </a>
+        <div className="map-location-copy">
+          <p className="eyebrow">{copy.essentials.mapEyebrow}</p>
+          <h2>{copy.essentials.mapTitle}</h2>
+          <address>
+            <strong>Sixth Sense Tattoo</strong>
+            <span>{copy.essentials.address}</span>
+            <span>{copy.essentials.city}</span>
+          </address>
+          <p>{copy.essentials.mapHint}</p>
+          <a className="button primary" href={googleBusinessUrl} target="_blank" rel="noreferrer">
+            {copy.essentials.maps}
+          </a>
+        </div>
       </div>
     </section>
   );

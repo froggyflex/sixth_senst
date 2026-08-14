@@ -562,6 +562,86 @@ p {
   transform: translateX(4px);
 }
 
+.location-map-panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+  margin-top: 42px;
+  overflow: hidden;
+}
+
+.map-frame {
+  min-height: 440px;
+  overflow: hidden;
+  position: relative;
+}
+
+.map-frame iframe {
+  border: 0;
+  height: 100%;
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+}
+
+.map-click-label {
+  background: var(--ink);
+  bottom: 18px;
+  color: var(--white);
+  font-size: 0.68rem;
+  font-weight: 700;
+  left: 18px;
+  letter-spacing: 0.1em;
+  padding: 12px 15px;
+  position: absolute;
+  text-transform: uppercase;
+  transition: background 180ms ease;
+  z-index: 1;
+}
+
+.map-frame:hover .map-click-label,
+.map-frame:focus-visible .map-click-label {
+  background: var(--wood);
+}
+
+.map-location-copy {
+  align-content: center;
+  border-left: 1px solid var(--line);
+  display: grid;
+  padding: clamp(30px, 5vw, 62px);
+}
+
+.map-location-copy h2 {
+  margin-bottom: 24px;
+}
+
+.map-location-copy address {
+  display: grid;
+  font-style: normal;
+  gap: 3px;
+  margin-bottom: 20px;
+}
+
+.map-location-copy address strong {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.map-location-copy address span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.map-location-copy > p:not(.eyebrow) {
+  margin-bottom: 26px;
+}
+
+.map-location-copy .button {
+  justify-self: start;
+}
+
 .section-heading {
   align-items: end;
   border-bottom: 1px solid var(--line);
@@ -1628,6 +1708,19 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 
+  .location-map-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .map-frame {
+    min-height: 380px;
+  }
+
+  .map-location-copy {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
   .essentials article,
   .essentials article + article,
   .category-strip article {
@@ -1719,6 +1812,10 @@ textarea:focus {
   .section-heading {
     align-items: start;
     grid-template-columns: 1fr;
+  }
+
+  .map-frame {
+    min-height: 320px;
   }
 
   .preview-grid,
