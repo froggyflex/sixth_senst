@@ -15,6 +15,7 @@ const introVideoModules = import.meta.glob("../intro_videos/*.mp4", {
 const studioInstagram = "https://www.instagram.com/sixthsense.tattoo/";
 const whatsappUrl = "https://wa.me/306948087671";
 const whatsappWidgetUrl = `${whatsappUrl}?text=${encodeURIComponent("Hello Sixth Sense, I would like to discuss a tattoo idea.")}`;
+const adsWhatsappUrl = `${whatsappUrl}?text=${encodeURIComponent("Hello Sixth Sense, I found you through Google and would like to check tattoo availability during my time in Kos.")}`;
 const googleBusinessUrl = "https://www.google.com/maps/search/?api=1&query=Sixth%20Sense%20Tattoo%20Kos%20Konstantinou%20Kanari%2042";
 const googleEmbedUrl = "https://www.google.com/maps?q=Sixth%20Sense%20Tattoo%20Kos%20Konstantinou%20Kanari%2042&output=embed";
 const portfolioBatchSize = 18;
@@ -52,6 +53,7 @@ const titles = {
   "/portfolio": "Portfolio | Sixth Sense Tattoo Studio",
   "/studio": "Studio | Sixth Sense Tattoo Studio",
   "/contact": "Contact | Sixth Sense Tattoo Studio",
+  "/tattoo-kos": "Tattoo Studio in Kos | Sixth Sense Tattoo",
 };
 
 const translations = {
@@ -64,6 +66,21 @@ const translations = {
       intro: "Sixth Sense Tattoo is a professional tattoo studio in Kos, Greece, specializing in Fine Line and Black & Grey Realism tattoos. Known as one of the leading Fine Line tattoo studios on the island, we create custom, high-quality artwork in a clean, safe, and welcoming environment for clients from around the world.",
       book: "Book consultation", portfolio: "View portfolio", highlights: "Booking highlights",
       steps: ["Send your idea", "Confirm placement", "Book your session"],
+    },
+    landing: {
+      eyebrow: "Tattoo studio in Kos, Greece", title: "Tattoo Studio in Kos",
+      intro: "Fine Line and Black & Grey tattoos, created in a clean, welcoming studio in the centre of Kos Town.",
+      rating: "4.9 on Google", ratingCount: "196 public reviews", headerCta: "WhatsApp",
+      styles: ["Fine Line", "Black & Grey", "Walk-ins & appointments"],
+      primary: "Check availability on WhatsApp", note: "Tell us your idea and your days in Kos. We will help you find the right appointment.",
+      hours: "Mon–Sat · 10:30–19:00", galleryEyebrow: "Selected work", galleryTitle: "Choose the style that feels like you.",
+      galleryIntro: "Delicate fine line, detailed realism, and custom pieces by Dominika and Kostas.",
+      trust: [["Google rating", "★★★★★ 4.9"], ["Specialties", "Fine Line + Black & Grey"], ["Availability", "Walk-ins + appointments"], ["Kos Town", "Easy central location"]],
+      midTitle: "Have an idea? Send it while your dates are still flexible.", midText: "Share the style, size, placement, and the days you are in Kos. Reference images can be added in WhatsApp.",
+      locationEyebrow: "Studio location", locationTitle: "Easy to find in Kos Town.", locationText: "Konstantinou Kanari 42, Kos 853 00. Click the map to open directions in Google Maps.",
+      directions: "Get directions", hoursLabel: "Opening hours", appointments: "Walk-ins are welcome when space is available. Appointments are recommended.",
+      finalEyebrow: "Plan your tattoo", finalTitle: "Ready to check your dates?", finalText: "Message the studio directly for availability, timing, pricing, and artist recommendations.",
+      homeLink: "Visit full website",
     },
     essentials: {
       find: "Find us in Kos Town", address: "Konstantinou Kanari 42", city: "Kos 853 00, Greece", maps: "Open in Google Maps",
@@ -127,6 +144,21 @@ const translations = {
       book: "Beratung buchen", portfolio: "Portfolio ansehen", highlights: "So funktioniert die Buchung",
       steps: ["Idee senden", "Platzierung klären", "Termin buchen"],
     },
+    landing: {
+      eyebrow: "Tattoo-Studio auf Kos, Griechenland", title: "Tattoo-Studio auf Kos",
+      intro: "Fine Line und Black & Grey Tattoos in einem sauberen, freundlichen Studio im Zentrum von Kos-Stadt.",
+      rating: "4,9 bei Google", ratingCount: "196 öffentliche Bewertungen", headerCta: "WhatsApp",
+      styles: ["Fine Line", "Black & Grey", "Walk-ins & Termine"],
+      primary: "Verfügbarkeit per WhatsApp prüfen", note: "Sag uns deine Idee und wann du auf Kos bist. Wir helfen dir, den passenden Termin zu finden.",
+      hours: "Mo–Sa · 10:30–19:00", galleryEyebrow: "Ausgewählte Arbeiten", galleryTitle: "Finde den Stil, der zu dir passt.",
+      galleryIntro: "Feine Linien, detailreicher Realism und individuelle Motive von Dominika und Kostas.",
+      trust: [["Google-Bewertung", "★★★★★ 4,9"], ["Stilrichtungen", "Fine Line + Black & Grey"], ["Verfügbarkeit", "Walk-ins + Termine"], ["Kos-Stadt", "Zentrale Lage"]],
+      midTitle: "Du hast eine Idee? Schreib uns, solange deine Reisedaten noch flexibel sind.", midText: "Sende Stil, Größe, Platzierung und deine Tage auf Kos. Referenzbilder kannst du in WhatsApp hinzufügen.",
+      locationEyebrow: "Studio-Standort", locationTitle: "Einfach zu finden in Kos-Stadt.", locationText: "Konstantinou Kanari 42, Kos 853 00. Klicke auf die Karte für die Route in Google Maps.",
+      directions: "Route öffnen", hoursLabel: "Öffnungszeiten", appointments: "Walk-ins sind bei freier Kapazität willkommen. Termine werden empfohlen.",
+      finalEyebrow: "Tattoo planen", finalTitle: "Möchtest du deine Reisedaten prüfen?", finalText: "Schreib dem Studio direkt zu Verfügbarkeit, Zeitplanung, Preisen und Artist-Empfehlungen.",
+      homeLink: "Zur vollständigen Website",
+    },
     essentials: {
       find: "Hier findest du uns in Kos-Stadt", address: "Konstantinou Kanari 42", city: "Kos 853 00, Griechenland", maps: "In Google Maps öffnen",
       mapEyebrow: "Unser Standort", mapTitle: "So findest du das Studio ganz einfach.", mapHint: "Klicke auf die Karte, um Google Maps zu öffnen und die Route von deinem Standort zu starten.", mapAria: "Standort von Sixth Sense Tattoo in Google Maps öffnen", mapFrameTitle: "Karte mit dem Standort von Sixth Sense Tattoo in Kos-Stadt",
@@ -184,6 +216,21 @@ const translations = {
       intro: "Sixth Sense Tattoo is een professionele tattoo studio op Kos, gespecialiseerd in Fine Line en Black & Grey Realism. We maken persoonlijk, hoogwaardig werk in een schone, veilige en gastvrije omgeving voor bezoekers uit de hele wereld.",
       book: "Consult boeken", portfolio: "Portfolio bekijken", highlights: "Zo werkt boeken",
       steps: ["Stuur je idee", "Bepaal de plaatsing", "Boek je sessie"],
+    },
+    landing: {
+      eyebrow: "Tattoo studio op Kos, Griekenland", title: "Tattoo Studio op Kos",
+      intro: "Fine line en black & grey tattoos in een schone, gastvrije studio in het centrum van Kos-stad.",
+      rating: "4,9 op Google", ratingCount: "196 openbare reviews", headerCta: "WhatsApp",
+      styles: ["Fine line", "Black & grey", "Walk-ins & afspraken"],
+      primary: "Bekijk beschikbaarheid via WhatsApp", note: "Vertel ons je idee en wanneer je op Kos bent. We helpen je de juiste afspraak te vinden.",
+      hours: "Ma–za · 10:30–19:00", galleryEyebrow: "Geselecteerd werk", galleryTitle: "Kies de stijl die bij jou past.",
+      galleryIntro: "Delicate fine line, gedetailleerd realisme en persoonlijke ontwerpen door Dominika en Kostas.",
+      trust: [["Google-score", "★★★★★ 4,9"], ["Specialiteiten", "Fine line + Black & grey"], ["Beschikbaarheid", "Walk-ins + afspraken"], ["Kos-stad", "Centrale locatie"]],
+      midTitle: "Heb je een idee? Stuur het terwijl je reisdata nog flexibel zijn.", midText: "Deel stijl, formaat, plaatsing en de dagen dat je op Kos bent. Referentiefoto's kun je via WhatsApp toevoegen.",
+      locationEyebrow: "Locatie studio", locationTitle: "Eenvoudig te vinden in Kos-stad.", locationText: "Konstantinou Kanari 42, Kos 853 00. Klik op de kaart voor de route in Google Maps.",
+      directions: "Route openen", hoursLabel: "Openingstijden", appointments: "Walk-ins zijn welkom wanneer er plaats is. Een afspraak wordt aanbevolen.",
+      finalEyebrow: "Plan je tattoo", finalTitle: "Klaar om je data te controleren?", finalText: "Stuur de studio direct een bericht over beschikbaarheid, timing, prijzen en een passende artiest.",
+      homeLink: "Bekijk volledige website",
     },
     essentials: {
       find: "Vind ons in Kos-stad", address: "Konstantinou Kanari 42", city: "Kos 853 00, Griekenland", maps: "Openen in Google Maps",
@@ -283,6 +330,12 @@ function App() {
 
   useEffect(() => {
     document.title = titles[route] || titles["/"];
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+      description.content = route === "/tattoo-kos"
+        ? "Tattoo studio in Kos for fine line and black and grey tattoos. View our work, Google reviews, location, and check availability on WhatsApp."
+        : "Sixth Sense Tattoo Studio in Kos. Fine line, black and grey, lettering, realism, and custom tattoo work.";
+    }
     setMenuOpen(false);
     window.scrollTo(0, 0);
   }, [route]);
@@ -302,14 +355,21 @@ function App() {
     "/portfolio": <PortfolioPage />,
     "/studio": <StudioPage />,
     "/contact": <ContactPage />,
+    "/tattoo-kos": <TattooKosLandingPage />,
   }[route] || <HomePage navigate={navigate} />;
+
+  const isAdsLanding = route === "/tattoo-kos";
 
   return (
     <CopyContext.Provider value={copy}>
-      <Header route={route} menuOpen={menuOpen} setMenuOpen={setMenuOpen} navigate={navigate} language={language} setLanguage={setLanguage} />
+      {isAdsLanding ? (
+        <AdsHeader navigate={navigate} language={language} setLanguage={setLanguage} />
+      ) : (
+        <Header route={route} menuOpen={menuOpen} setMenuOpen={setMenuOpen} navigate={navigate} language={language} setLanguage={setLanguage} />
+      )}
       {page}
-      <Footer route={route} navigate={navigate} />
-      <WhatsAppWidget />
+      {isAdsLanding ? <AdsFooter navigate={navigate} /> : <Footer route={route} navigate={navigate} />}
+      {!isAdsLanding && <WhatsAppWidget />}
     </CopyContext.Provider>
   );
 }
@@ -341,6 +401,27 @@ function Header({ route, menuOpen, setMenuOpen, navigate, language, setLanguage 
         <a href={studioInstagram} target="_blank" rel="noreferrer">{copy.nav.instagram}</a>
         <LanguageSwitcher language={language} setLanguage={setLanguage} label={copy.nav.language} />
       </nav>
+    </header>
+  );
+}
+
+function AdsHeader({ navigate, language, setLanguage }) {
+  const copy = useCopy();
+
+  return (
+    <header className="ads-header">
+      <div className="container ads-header-inner">
+        <a className="brand" href="/" aria-label="Sixth Sense home" onClick={(event) => routeClick(event, "/", navigate)}>
+          <BrandMark />
+          <span>Sixth Sense</span>
+        </a>
+        <div className="ads-header-actions">
+          <LanguageSwitcher language={language} setLanguage={setLanguage} label={copy.nav.language} />
+          <a className="ads-header-cta" href={adsWhatsappUrl} target="_blank" rel="noreferrer" data-cta="ads-header-whatsapp">
+            {copy.landing.headerCta}
+          </a>
+        </div>
+      </div>
     </header>
   );
 }
@@ -412,6 +493,124 @@ function HomePage({ navigate }) {
       <ClientReviewsSection />
       <StudioPreview navigate={navigate} />
       <BookingPanel navigate={navigate} />
+    </main>
+  );
+}
+
+function TattooKosLandingPage() {
+  const copy = useCopy();
+  const gallery = [
+    ["medusa-portrait.jpg", "Black and grey Medusa portrait tattoo", "Black & Grey"],
+    ["floral-fine-line.jpg", "Delicate fine line floral tattoo", "Fine Line"],
+    ["lion-family-sleeve.jpg", "Detailed black and grey lion family sleeve tattoo", "Realism"],
+    ["moth-lower-back.jpg", "Fine line ornamental moth tattoo", "Fine Line"],
+    ["large-back-piece.jpg", "Large scale black and grey back tattoo", "Black & Grey"],
+    ["cherub-archer-line.jpg", "Fine line cherub archer tattoo", "Fine Line"],
+  ];
+
+  return (
+    <main className="ads-landing">
+      <section className="ads-hero">
+        <div className="container ads-hero-grid">
+          <div className="ads-hero-copy">
+            <div className="ads-rating-line">
+              <span className="review-stars" aria-hidden="true">★★★★★</span>
+              <strong>{copy.landing.rating}</strong>
+              <span>{copy.landing.ratingCount}</span>
+            </div>
+            <p className="eyebrow">{copy.landing.eyebrow}</p>
+            <h1>{copy.landing.title}</h1>
+            <p className="ads-hero-intro">{copy.landing.intro}</p>
+            <ul className="ads-style-list" aria-label="Tattoo styles and booking options">
+              {copy.landing.styles.map((style) => <li key={style}>{style}</li>)}
+            </ul>
+            <a className="ads-whatsapp-button" href={adsWhatsappUrl} target="_blank" rel="noreferrer" data-cta="ads-hero-whatsapp">
+              <span aria-hidden="true">WA</span>
+              <strong>{copy.landing.primary}</strong>
+            </a>
+            <p className="ads-cta-note">{copy.landing.note}</p>
+            <div className="ads-hours"><span aria-hidden="true">●</span>{copy.landing.hours}</div>
+          </div>
+          <div className="ads-hero-art" aria-label="Featured tattoos by Sixth Sense Tattoo">
+            <img className="ads-hero-main-image" src={asset("medusa-portrait.jpg")} alt="Black and grey Medusa portrait tattoo by Sixth Sense Tattoo" fetchPriority="high" />
+            <figure className="ads-hero-inset">
+              <img src={asset("floral-fine-line.jpg")} alt="Fine line floral tattoo by Sixth Sense Tattoo" />
+              <figcaption>Fine Line</figcaption>
+            </figure>
+            <span className="ads-hero-art-label">Kos · Greece</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="ads-trust-strip" aria-label="Sixth Sense Tattoo highlights">
+        <div className="container ads-trust-grid">
+          {copy.landing.trust.map(([label, value]) => (
+            <div key={label}><span>{label}</span><strong>{value}</strong></div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section ads-work-section">
+        <div className="container ads-section-heading">
+          <div>
+            <p className="eyebrow">{copy.landing.galleryEyebrow}</p>
+            <h2>{copy.landing.galleryTitle}</h2>
+          </div>
+          <p>{copy.landing.galleryIntro}</p>
+        </div>
+        <div className="container ads-work-grid">
+          {gallery.map(([file, alt, label], index) => (
+            <figure className={`ads-work-item ads-work-item-${index + 1}`} key={file}>
+              <img src={asset(file)} alt={alt} loading="lazy" />
+              <figcaption><span>{label}</span><small>{String(index + 1).padStart(2, "0")}</small></figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section className="ads-inline-cta">
+        <div className="container ads-inline-cta-inner">
+          <div><h2>{copy.landing.midTitle}</h2><p>{copy.landing.midText}</p></div>
+          <a className="ads-whatsapp-button light" href={adsWhatsappUrl} target="_blank" rel="noreferrer" data-cta="ads-gallery-whatsapp">
+            <span aria-hidden="true">WA</span><strong>{copy.landing.primary}</strong>
+          </a>
+        </div>
+      </section>
+
+      <section className="section ads-location-section">
+        <div className="container ads-location-grid">
+          <a className="ads-map-link" href={googleBusinessUrl} target="_blank" rel="noreferrer" aria-label={copy.essentials.mapAria}>
+            <iframe src={googleEmbedUrl} title={copy.essentials.mapFrameTitle} loading="lazy" referrerPolicy="no-referrer-when-downgrade" tabIndex="-1"></iframe>
+            <span>{copy.landing.directions}</span>
+          </a>
+          <div className="ads-location-copy">
+            <p className="eyebrow">{copy.landing.locationEyebrow}</p>
+            <h2>{copy.landing.locationTitle}</h2>
+            <p>{copy.landing.locationText}</p>
+            <address><strong>Sixth Sense Tattoo</strong><span>Konstantinou Kanari 42</span><span>{copy.essentials.city}</span></address>
+            <div className="ads-location-hours">
+              <span>{copy.landing.hoursLabel}</span><strong>{copy.booking.days}</strong><b>10:30–19:00</b>
+            </div>
+            <p className="ads-appointment-note">{copy.landing.appointments}</p>
+            <a className="button primary" href={googleBusinessUrl} target="_blank" rel="noreferrer">{copy.landing.directions}</a>
+          </div>
+        </div>
+      </section>
+
+      <ClientReviewsSection />
+
+      <section className="section ads-final-cta">
+        <div className="container ads-final-grid">
+          <div>
+            <p className="eyebrow">{copy.landing.finalEyebrow}</p>
+            <h2>{copy.landing.finalTitle}</h2>
+            <p>{copy.landing.finalText}</p>
+          </div>
+          <a className="ads-whatsapp-button" href={adsWhatsappUrl} target="_blank" rel="noreferrer" data-cta="ads-final-whatsapp">
+            <span aria-hidden="true">WA</span><strong>{copy.landing.primary}</strong>
+          </a>
+        </div>
+      </section>
     </main>
   );
 }
@@ -973,6 +1172,20 @@ function ContactPage() {
         </form>
       </section>
     </main>
+  );
+}
+
+function AdsFooter({ navigate }) {
+  const copy = useCopy();
+
+  return (
+    <footer className="ads-footer">
+      <div className="container ads-footer-inner">
+        <span>© Sixth Sense Tattoo Studio</span>
+        <span>Konstantinou Kanari 42 · Kos</span>
+        <a href="/" onClick={(event) => routeClick(event, "/", navigate)}>{copy.landing.homeLink}</a>
+      </div>
+    </footer>
   );
 }
 
