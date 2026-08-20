@@ -22,7 +22,7 @@ const portfolioBatchSize = 18;
 
 function artistPortfolioItems(folder, titlePrefix, category, artist) {
   return Object.keys(assetModules)
-    .filter((path) => path.includes(`../assets/portfolio/${folder}/`))
+    .filter((path) => path.includes(`../assets/portfolio/${folder}/`) && !path.endsWith("/back.jpg"))
     .sort()
     .map((path, index) => ({
       file: path.replace("../assets/portfolio/", ""),
@@ -577,7 +577,7 @@ function TattooKosLandingPage() {
   const copy = useCopy();
   const gallery = [
     ["kostas/lion.jpg", "Black and grey lion tattoo by Kostas", "Black & Grey"],
-    ["kostas/back.jpg", "Black and grey back tattoo by Kostas", "Black & Grey"],
+    ["medusa-portrait.jpg", "Medusa tattoo on the arm by Kostas", "Black & Grey"],
     ["kostas/face.jpg", "Black and grey portrait tattoo by Kostas", "Black & Grey"],
     ["domka/bear.jpg", "Fine line bear tattoo by Dominika", "Fine Line"],
     ["domka/sharks.jpg", "Fine line shark tattoos by Dominika", "Fine Line"],
@@ -616,7 +616,8 @@ function TattooKosLandingPage() {
           <div className="ads-hero-art" aria-label="Featured tattoos by Sixth Sense Tattoo">
             <div className="ads-hero-image-split">
               <img src={asset("domka/bear.jpg")} alt="Fine line bear tattoo by Dominika" fetchPriority="high" />
-              <img src={asset("kostas/lion.jpg")} alt="Black and grey lion tattoo by Kostas" fetchPriority="high" />
+              <img src={asset("domka/eye.jpg")} alt="Fine line eye tattoo on the arm by Dominika" fetchPriority="high" />
+              <img src={asset("medusa-portrait.jpg")} alt="Medusa tattoo on the arm by Kostas" fetchPriority="high" />
             </div>
             <span className="ads-hero-art-label">Kos · Greece</span>
           </div>
@@ -838,7 +839,7 @@ function ArtistProfilesSection({ navigate }) {
           specialties={copy.artists.kostasSpecialties}
           works={[
             ["kostas/lion.jpg", "Lion tattoo by Kostas"],
-            ["kostas/back.jpg", "Back tattoo by Kostas"],
+            ["medusa-portrait.jpg", "Medusa tattoo on the arm by Kostas"],
             ["kostas/face.jpg", "Face tattoo by Kostas"],
           ]}
           navigate={navigate}

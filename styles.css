@@ -2545,13 +2545,26 @@ textarea:focus {
   line-height: 0.98;
 }
 
+.ads-hero-grid {
+  grid-template-columns: 1fr;
+  min-height: 0;
+}
+
+.ads-hero-copy {
+  max-width: 860px;
+  padding: clamp(50px, 7vw, 90px) 0;
+}
+
 .ads-hero-art {
   background: var(--ads-base);
+  min-height: clamp(420px, 48vw, 620px);
+  order: -1;
 }
 
 .ads-hero-image-split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   height: 100%;
   overflow: hidden;
 }
@@ -2564,15 +2577,15 @@ textarea:focus {
 }
 
 .ads-hero-image-split img:first-child {
-  clip-path: polygon(0 0, 100% 0, 84% 100%, 0 100%);
-  margin-right: -16%;
-  position: relative;
-  width: 116%;
-  z-index: 1;
+  object-position: center center;
 }
 
-.ads-hero-image-split img:last-child {
-  object-position: 52% center;
+.ads-hero-image-split img:nth-child(2) {
+  object-position: center 48%;
+}
+
+.ads-hero-image-split img:nth-child(3) {
+  object-position: center center;
 }
 
 .ads-style-list li,
@@ -2696,12 +2709,11 @@ textarea:focus {
 
 @media (max-width: 580px) {
   .ads-hero-art {
-    min-height: 410px;
-    order: -1;
+    min-height: 270px;
   }
 
   .ads-hero-image-split img:first-child {
-    object-position: 48% center;
+    object-position: center center;
   }
 
   .ads-hero h1 {
