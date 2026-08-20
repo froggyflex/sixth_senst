@@ -2508,3 +2508,207 @@ textarea:focus {
     padding-block: 22px;
   }
 }
+
+/* Google Ads page — F1F0F1 campaign theme */
+.ads-landing {
+  --ads-base: #f1f0f1;
+  --ads-accent: #a97f69;
+  background: var(--ads-base);
+}
+
+.ads-header {
+  --ads-accent: #a97f69;
+  background: rgba(241, 240, 241, 0.97);
+}
+
+.ads-landing .ads-hero,
+.ads-landing .ads-work-section,
+.ads-landing .ads-location-section,
+.ads-landing .ads-inline-cta,
+.ads-landing .ads-final-cta,
+.ads-trust-strip,
+.ads-footer {
+  background: var(--ads-base, #f1f0f1);
+  color: var(--ink);
+}
+
+.ads-landing h1,
+.ads-landing h2,
+.ads-landing .ads-location-hours b {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.ads-hero h1 {
+  font-size: clamp(3.15rem, 5.7vw, 6rem);
+  line-height: 0.98;
+}
+
+.ads-hero-art {
+  background: var(--ads-base);
+}
+
+.ads-hero-image-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  overflow: hidden;
+}
+
+.ads-hero-image-split img {
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  width: 100%;
+}
+
+.ads-hero-image-split img:first-child {
+  clip-path: polygon(0 0, 100% 0, 84% 100%, 0 100%);
+  margin-right: -16%;
+  position: relative;
+  width: 116%;
+  z-index: 1;
+}
+
+.ads-hero-image-split img:last-child {
+  object-position: 52% center;
+}
+
+.ads-style-list li,
+.ads-location-grid,
+.ads-location-copy {
+  background: var(--ads-base);
+}
+
+.ads-whatsapp-button,
+.ads-header-cta {
+  background: var(--ads-accent);
+  border-color: var(--ads-accent);
+  color: var(--white);
+}
+
+.ads-whatsapp-button:hover,
+.ads-header-cta:hover {
+  background: #916b57;
+}
+
+.ads-whatsapp-button:hover {
+  box-shadow: 0 14px 30px rgba(143, 117, 96, 0.22);
+}
+
+.ads-whatsapp-button span {
+  color: var(--ads-accent);
+}
+
+.ads-hours span,
+.ads-landing .eyebrow,
+.ads-location-hours span {
+  color: var(--ads-accent);
+}
+
+.ads-trust-grid > div,
+.ads-trust-grid > div:first-child {
+  border-color: var(--line);
+}
+
+.ads-trust-grid span,
+.ads-inline-cta p,
+.ads-final-cta p,
+.ads-footer {
+  color: var(--muted);
+}
+
+.ads-inline-cta,
+.ads-final-cta {
+  border-block: 1px solid var(--line);
+}
+
+.ads-inline-cta h2,
+.ads-final-cta h2,
+.ads-footer a {
+  color: var(--ink);
+}
+
+.ads-whatsapp-button.light {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+
+.ads-whatsapp-button.light span {
+  background: var(--white);
+  color: var(--ink);
+}
+
+.ads-work-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.ads-work-item {
+  background: #e9e7e8;
+}
+
+.ads-landing .client-reviews-section {
+  background: var(--white);
+  color: var(--ink);
+}
+
+.ads-landing .reviews-heading {
+  border-color: var(--line);
+}
+
+.ads-landing .reviews-copy h2,
+.ads-landing .google-rating-summary strong,
+.ads-landing .review-card blockquote,
+.ads-landing .review-button {
+  color: var(--ink);
+}
+
+.ads-landing .reviews-copy > p:last-child,
+.ads-landing .google-rating-summary > div span,
+.ads-landing .client-reviews-section .review-source,
+.ads-landing .google-rating-summary > p,
+.ads-landing .review-card footer span,
+.ads-landing .reviews-footer p,
+.ads-landing .review-card-top > span:last-child {
+  color: var(--muted);
+}
+
+.ads-landing .review-card {
+  background: var(--ads-base);
+  border-color: var(--line);
+}
+
+.ads-landing .review-stars {
+  color: var(--ads-accent);
+}
+
+.ads-landing .review-button {
+  border-color: var(--ink);
+}
+
+@media (max-width: 920px) {
+  .ads-work-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 580px) {
+  .ads-hero-art {
+    min-height: 410px;
+    order: -1;
+  }
+
+  .ads-hero-image-split img:first-child {
+    object-position: 48% center;
+  }
+
+  .ads-hero h1 {
+    font-size: clamp(3.1rem, 14.5vw, 4.65rem);
+  }
+
+  .ads-work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
