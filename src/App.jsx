@@ -280,6 +280,66 @@ const translations = {
     },
     footer: { booking: "Consult boeken", hours: "Ma–za · 10:30–19:00" },
   },
+  fr: {
+    languageName: "Français",
+    nav: { home: "Accueil", portfolio: "Portfolio", studio: "Studio", book: "Réserver", instagram: "Instagram", aria: "Navigation principale", language: "Choisir la langue" },
+    home: {
+      social: "Liens du studio sur les réseaux sociaux", follow: "Suivre et réserver", eyebrow: "Studio de tatouage à Kos",
+      title: "Tatouages fine line et réalistes à Kos.",
+      intro: "Sixth Sense Tattoo est un studio de tatouage professionnel situé à Kos, en Grèce, spécialisé dans les tatouages Fine Line et le réalisme Black & Grey. Reconnu comme l’un des studios Fine Line de référence de l’île, nous créons des pièces personnalisées et de grande qualité dans un environnement propre, sûr et accueillant pour une clientèle internationale.",
+      book: "Réserver une consultation", portfolio: "Voir le portfolio", highlights: "Étapes de réservation",
+      steps: ["Envoyez votre idée", "Confirmez l’emplacement", "Réservez votre séance"],
+    },
+    essentials: {
+      find: "Retrouvez-nous à Kos", address: "Konstantinou Kanari 42", city: "Kos 853 00, Grèce", maps: "Ouvrir dans Google Maps",
+      mapEyebrow: "Notre adresse", mapTitle: "Voyez exactement où se trouve le studio.", mapHint: "Cliquez sur la carte pour ouvrir Google Maps et lancer l’itinéraire depuis votre position actuelle.", mapAria: "Ouvrir l’adresse de Sixth Sense Tattoo dans Google Maps", mapFrameTitle: "Carte indiquant l’emplacement de Sixth Sense Tattoo à Kos",
+      customTitle: "Créations sur mesure", customText: "Chaque projet est adapté aux lignes du corps, à la taille, au niveau de détail et à l’emplacement final.",
+      bookingTitle: "Réservation facile", bookingText: "Envoyez-nous votre idée, vos références, vos dates de voyage et l’emplacement souhaité via WhatsApp.",
+    },
+    artists: {
+      eyebrow: "Artistes", title: "Deux artistes. Deux approches distinctes.", intro: "Découvrez les artistes derrière chaque création, leur façon de travailler et le style qui correspond à votre idée.", studioInstagram: "Instagram du studio",
+      kostasRole: "Fondateur · Réalisme Black & Grey", kostasVideo: "Présentation de Kostas, fondateur et tatoueur spécialisé en Black & Grey",
+      kostasDescription: "Kostas est le fondateur de Sixth Sense Tattoo et se spécialise dans le réalisme Black & Grey, le surréalisme et les grands projets personnalisés. Passionné par le détail, le contraste et la narration, il crée des tatouages pensés pour rester forts, lisibles et intemporels. Portraits, mythologie, dark fantasy ou concepts sur mesure : chaque pièce est adaptée au client et réalisée avec précision.",
+      kostasSpecialties: ["Réalisme", "Surréalisme", "Grandes pièces", "Créations sur mesure"],
+      dominikaRole: "Spécialiste Fine Line", dominikaVideo: "Présentation de Dominika, spécialiste du tatouage Fine Line",
+      dominikaDescription: "Dominika se spécialise dans les tatouages fins, délicats et élégants. Son travail met en valeur des lignes nettes, des compositions minimalistes, des motifs floraux, des détails ornementaux et des créations subtiles qui épousent les lignes naturelles du corps. Son sens du détail et son approche raffinée conviennent parfaitement aux personnes qui recherchent un tatouage Fine Line sophistiqué et intemporel.",
+      dominikaSpecialties: ["Fine Line", "Floral", "Ornemental", "Minimaliste"],
+      viewPortfolio: "Voir le portfolio du studio", openInstagram: "Ouvrir Instagram", specialties: "spécialités",
+    },
+    reviews: {
+      eyebrow: "Avis Google", title: "Apprécié par nos clients de Kos et d’ailleurs.", intro: "Conseils professionnels, travail précis et studio propre et accueillant : ce sont les qualités que nos clients mentionnent le plus souvent.",
+      rating: "Note Google", ratings: "196 avis publics", firstTattoo: "Premier tatouage · Fine Line", publicReview: "Avis public",
+      selected: "Une sélection d’avis publics. Consultez Google pour découvrir tous les avis.", readAll: "Lire tous les avis Google",
+    },
+    studioPreview: { eyebrow: "Le studio", title: "Un espace pensé pour des séances sereines.", text: "Un espace de travail minimaliste avec des postes privés, un éclairage précis et une atmosphère calme pour la consultation, le tatouage et les conseils de soins.", link: "Découvrir le studio" },
+    booking: {
+      eyebrow: "Planifiez votre visite", title: "Une séance de tatouage adaptée à votre séjour à Kos.",
+      intro: "Premier tatouage, idée spontanée pendant les vacances ou projet personnalisé préparé depuis des mois : dites-nous ce dont vous avez besoin. Nous vous conseillerons sur le moment, l’emplacement, la préparation et les soins.",
+      hoursLabel: "Horaires d’ouverture", days: "Lundi–samedi", hours: "10:30–19:00", appointmentLabel: "Rendez-vous", appointmentText: "Les rendez-vous sont disponibles et recommandés, surtout pendant la saison estivale.",
+      start: "Commencer la réservation", whatsapp: "Demander sur WhatsApp",
+    },
+    portfolio: {
+      eyebrow: "Portfolio tatouage", title: "Tatouages personnalisés par Sixth Sense.", intro: "Découvrez les créations Fine Line et le réalisme Black & Grey de Dominika et Kostas. Filtrez la collection ou ouvrez une pièce pour l’observer en détail.",
+      filters: { all: "Tout", realism: "Réalisme", fineline: "Fine Line", kostas: "Kostas", domka: "Dominika", featured: "Sélection" },
+      allWork: "Toutes les créations", featured: "Sélection de créations", showing: "affichage de", of: "sur", pieces: "pièces", more: "Plus de créations récentes sur Instagram @sixthsense.tattoo", load: "Afficher plus", close: "Fermer",
+    },
+    studioPage: {
+      eyebrow: "Studio", title: "Un studio propre et accueillant au cœur de Kos.", intro: "Des matériaux neutres, des postes privés et un éclairage fonctionnel pour garder toute l’attention sur le tatouage.",
+      items: [["Consultation", "Envoyez vos références, l’emplacement, la taille et vos dates à Kos avant la séance."], ["Création", "Le motif est adapté aux proportions, aux lignes du corps et à sa lisibilité dans le temps."], ["Soins", "Des instructions claires pour la première semaine, notamment concernant le soleil, la baignade et la cicatrisation."]],
+    },
+    contact: {
+      eyebrow: "Réservation et contact", title: "Parlez-nous de votre idée et de votre séjour à Kos.",
+      intro: "Partagez les informations dont vous disposez. Votre date de préférence ou votre dernier jour complet sur l’île nous aidera à vous proposer le rendez-vous le plus sûr et le plus pratique.",
+      pricing: "Tarifs", pricing1: "Chaque tatouage est unique et son prix varie selon le motif, la taille, l’emplacement et le niveau de détail.",
+      pricing2: "Que vous souhaitiez un délicat tatouage Fine Line, un souvenir de vacances symbolique ou une grande pièce réaliste sur mesure, nous serons ravis d’échanger sur votre idée et de vous proposer un devis gratuit et sans engagement.",
+      pricing3: "Envoyez-nous vos inspirations : nous vous aiderons à créer un tatouage qui correspond à votre vision et à votre budget.", minimum: "Tarif minimum par rendez-vous : 70 €.", map: "Carte",
+      name: "Nom", namePlaceholder: "Votre nom", idea: "Idée de tatouage", ideaPlaceholder: "Style, emplacement, taille, références…",
+      travelLegend: "Votre séjour à Kos", travelHelp: "Indiquez l’une des dates, ou les deux si vous les connaissez déjà.", preferredDay: "Jour souhaité pour le tatouage", lastDay: "Dernier jour complet à Kos",
+      contact: "Coordonnées", contactPlaceholder: "Téléphone ou e-mail", submit: "Préparer le message WhatsApp",
+      initialNote: "Ajoutez vos images de référence dans WhatsApp une fois le message ouvert.", openingNote: "Ouverture de WhatsApp. Ajoutez-y vos images de référence avant l’envoi.",
+    },
+    footer: { booking: "Réserver une consultation", hours: "Lun–sam · 10:30–19:00" },
+  },
 };
 
 const CopyContext = createContext(translations.en);
@@ -294,6 +354,7 @@ function initialLanguage() {
   const browserLanguage = window.navigator.language.toLowerCase();
   if (browserLanguage.startsWith("de")) return "de";
   if (browserLanguage.startsWith("nl")) return "nl";
+  if (browserLanguage.startsWith("fr")) return "fr";
   return "en";
 }
 
@@ -756,9 +817,9 @@ function ArtistProfilesSection({ navigate }) {
           description={copy.artists.kostasDescription}
           specialties={copy.artists.kostasSpecialties}
           works={[
-            ["medusa-portrait.jpg", "Medusa portrait tattoo by Kostas"],
-            ["lion-family-sleeve.jpg", "Lion family sleeve tattoo by Kostas"],
-            ["zeus-forearm.jpg", "Zeus forearm tattoo by Kostas"],
+            ["kostas/lion.jpg", "Lion tattoo by Kostas"],
+            ["kostas/back.jpg", "Back tattoo by Kostas"],
+            ["kostas/face.jpg", "Face tattoo by Kostas"],
           ]}
           navigate={navigate}
         />
@@ -775,9 +836,9 @@ function ArtistProfilesSection({ navigate }) {
           description={copy.artists.dominikaDescription}
           specialties={copy.artists.dominikaSpecialties}
           works={[
-            ["floral-fine-line.jpg", "Fine line floral tattoo by Dominika"],
-            ["moth-lower-back.jpg", "Moth lower back tattoo by Dominika"],
-            ["cherub-archer-line.jpg", "Fine line cherub tattoo by Dominika"],
+            ["domka/bear.jpg", "Bear tattoo by Dominika"],
+            ["domka/sharks.jpg", "Shark tattoos by Dominika"],
+            ["domka/eye.jpg", "Eye tattoo by Dominika"],
           ]}
           navigate={navigate}
         />
