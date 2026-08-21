@@ -2563,7 +2563,7 @@ textarea:focus {
 
 .ads-hero-image-split {
   display: grid;
-  gap: 3px;
+  gap: 0;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   height: 100%;
   overflow: hidden;
@@ -2577,15 +2577,25 @@ textarea:focus {
 }
 
 .ads-hero-image-split img:first-child {
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
   object-position: center center;
+  width: 112%;
 }
 
 .ads-hero-image-split img:nth-child(2) {
+  clip-path: polygon(11% 0, 100% 0, 89% 100%, 0 100%);
+  margin-left: -12%;
   object-position: center 48%;
+  position: relative;
+  width: 124%;
+  z-index: 2;
 }
 
 .ads-hero-image-split img:nth-child(3) {
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+  margin-left: -12%;
   object-position: center center;
+  width: 112%;
 }
 
 .ads-style-list li,

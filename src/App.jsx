@@ -576,9 +576,9 @@ function HomePage({ navigate }) {
 function TattooKosLandingPage() {
   const copy = useCopy();
   const gallery = [
-    ["kostas/lion.jpg", "Black and grey lion tattoo by Kostas", "Black & Grey"],
-    ["medusa-portrait.jpg", "Medusa tattoo on the arm by Kostas", "Black & Grey"],
-    ["kostas/face.jpg", "Black and grey portrait tattoo by Kostas", "Black & Grey"],
+    ["kostas/face.jpg", "Medusa tattoo on the hand by Kostas", "Black & Grey"],
+    ["kostas/viber_image_2026-08-21_02-43-57-028.jpg", "Winged horse tattoo by Kostas", "Black & Grey"],
+    ["kostas/viber_image_2026-08-21_02-43-57-283.jpg", "Realistic dagger tattoo by Kostas", "Black & Grey"],
     ["domka/bear.jpg", "Fine line bear tattoo by Dominika", "Fine Line"],
     ["domka/sharks.jpg", "Fine line shark tattoos by Dominika", "Fine Line"],
     ["domka/eye.jpg", "Fine line eye tattoo by Dominika", "Fine Line"],
@@ -617,7 +617,7 @@ function TattooKosLandingPage() {
             <div className="ads-hero-image-split">
               <img src={asset("domka/bear.jpg")} alt="Fine line bear tattoo by Dominika" fetchPriority="high" />
               <img src={asset("domka/eye.jpg")} alt="Fine line eye tattoo on the arm by Dominika" fetchPriority="high" />
-              <img src={asset("medusa-portrait.jpg")} alt="Medusa tattoo on the arm by Kostas" fetchPriority="high" />
+              <img src={asset("kostas/face.jpg")} alt="Medusa tattoo on the hand by Kostas" fetchPriority="high" />
             </div>
             <span className="ads-hero-art-label">Kos · Greece</span>
           </div>
@@ -777,7 +777,7 @@ function SelectedWork({ navigate }) {
       </div>
       <div className="container preview-grid">
         <PreviewImage file="large-back-piece.jpg" alt="Large black and grey back piece tattoo" label="Black and grey realism" />
-        <PreviewImage file="medusa-portrait.jpg" alt="Medusa portrait tattoo" label="Mythology" />
+        <PreviewImage file="kostas/face.jpg" alt="Medusa tattoo on the hand" label="Mythology" />
         <PreviewImage file="floral-fine-line.jpg" alt="Fine line floral tattoo" label="Fine line" />
       </div>
     </section>
@@ -839,8 +839,8 @@ function ArtistProfilesSection({ navigate }) {
           specialties={copy.artists.kostasSpecialties}
           works={[
             ["kostas/lion.jpg", "Lion tattoo by Kostas"],
-            ["medusa-portrait.jpg", "Medusa tattoo on the arm by Kostas"],
             ["kostas/face.jpg", "Face tattoo by Kostas"],
+            ["kostas/viber_image_2026-08-21_02-43-56-720.jpg", "Scorpion tattoo by Kostas"],
           ]}
           navigate={navigate}
         />
@@ -980,9 +980,9 @@ function ArtistsSection() {
           name="Kostas - Founder"
           description="Kostas is the founder of Sixth Sense Tattoo and specializes in black & grey realism, surrealism, and custom large-scale tattoo projects. With a passion for detail, contrast, and storytelling, he creates tattoos designed to remain bold, readable, and timeless for years to come. From portraits and mythology to dark fantasy and custom concepts, every piece is tailored to the client and crafted with precision."
           works={[
-            ["medusa-portrait.jpg", "Medusa portrait tattoo by Kostas"],
-            ["lion-family-sleeve.jpg", "Lion family sleeve tattoo by Kostas"],
-            ["zeus-forearm.jpg", "Zeus forearm tattoo by Kostas"],
+            ["kostas/face.jpg", "Medusa tattoo on the hand by Kostas"],
+            ["kostas/viber_image_2026-08-21_02-43-57-028.jpg", "Winged horse tattoo by Kostas"],
+            ["kostas/viber_image_2026-08-21_02-43-57-283.jpg", "Dagger tattoo by Kostas"],
           ]}
         />
         <ArtistCard
