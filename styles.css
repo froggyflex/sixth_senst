@@ -2599,16 +2599,30 @@ textarea:focus {
   position: relative;
 }
 
-.ads-hero-panel img {
+.ads-hero-shards {
+  background: var(--ads-base);
+  display: flex;
   height: 100%;
-  max-width: none;
-  object-fit: cover;
-  transition: transform 420ms ease;
-  width: 100%;
+  overflow: hidden;
 }
 
-.ads-hero-panel:hover img {
-  transform: scale(1.018);
+.ads-hero-shard {
+  flex: 0 0 62%;
+  height: calc(100% + 28px);
+  max-width: none;
+  object-fit: cover;
+  width: 62%;
+}
+
+.ads-hero-shard:first-child {
+  clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
+  transform: translateY(-14px);
+}
+
+.ads-hero-shard:nth-child(2) {
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+  margin-left: -14%;
+  transform: translateY(14px);
 }
 
 .ads-hero-panel:first-child {
@@ -2629,16 +2643,44 @@ textarea:focus {
   width: 112%;
 }
 
-.ads-hero-panel:first-child img {
-  object-position: center center;
+.ads-hero-panel:first-child .ads-hero-shard:first-child {
+  object-position: 34% center;
 }
 
-.ads-hero-panel:nth-child(2) img {
-  object-position: center 48%;
+.ads-hero-panel:first-child .ads-hero-shard:nth-child(2) {
+  object-position: 68% center;
 }
 
-.ads-hero-panel:nth-child(3) img {
-  object-position: center center;
+.ads-hero-panel:nth-child(2) .ads-hero-shard:first-child {
+  object-position: 30% 48%;
+}
+
+.ads-hero-panel:nth-child(2) .ads-hero-shard:nth-child(2) {
+  object-position: 72% 48%;
+}
+
+.ads-hero-panel:nth-child(3) .ads-hero-shard {
+  flex-basis: 45%;
+  width: 45%;
+}
+
+.ads-hero-panel:nth-child(3) .ads-hero-shard:first-child {
+  object-position: 18% center;
+}
+
+.ads-hero-panel:nth-child(3) .ads-hero-shard:nth-child(2) {
+  clip-path: polygon(17% 0, 100% 0, 83% 100%, 0 100%);
+  flex-basis: 48%;
+  margin-left: -8%;
+  object-position: 50% center;
+  width: 48%;
+}
+
+.ads-hero-panel:nth-child(3) .ads-hero-shard:nth-child(3) {
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+  margin-left: -8%;
+  object-position: 84% center;
+  transform: translateY(-14px);
 }
 
 .ads-hero-panel figcaption {
@@ -2814,8 +2856,8 @@ textarea:focus {
     inset: 13px;
   }
 
-  .ads-hero-panel:first-child img {
-    object-position: center center;
+  .ads-hero-panel:first-child .ads-hero-shard:first-child {
+    object-position: 34% center;
   }
 
   .ads-hero-panel figcaption {
