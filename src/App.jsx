@@ -615,9 +615,18 @@ function TattooKosLandingPage() {
           </div>
           <div className="ads-hero-art" aria-label="Featured tattoos by Sixth Sense Tattoo">
             <div className="ads-hero-image-split">
-              <img src={asset("domka/bear.jpg")} alt="Fine line bear tattoo by Dominika" fetchPriority="high" />
-              <img src={asset("domka/eye.jpg")} alt="Fine line eye tattoo on the arm by Dominika" fetchPriority="high" />
-              <img src={asset("kostas/face.jpg")} alt="Medusa tattoo on the hand by Kostas" fetchPriority="high" />
+              <figure className="ads-hero-panel">
+                <img src={asset("domka/bear.jpg")} alt="Fine line bear tattoo by Dominika" fetchPriority="high" />
+                <figcaption><b>01</b><span>Fine Line</span></figcaption>
+              </figure>
+              <figure className="ads-hero-panel">
+                <img src={asset("domka/eye.jpg")} alt="Fine line eye tattoo on the arm by Dominika" fetchPriority="high" />
+                <figcaption><b>02</b><span>Fine Line</span></figcaption>
+              </figure>
+              <figure className="ads-hero-panel">
+                <img src={asset("kostas/face.jpg")} alt="Medusa tattoo on the hand by Kostas" fetchPriority="high" />
+                <figcaption><b>03</b><span>Black & Grey</span></figcaption>
+              </figure>
             </div>
             <span className="ads-hero-art-label">Kos · Greece</span>
           </div>
