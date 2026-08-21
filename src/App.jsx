@@ -616,25 +616,15 @@ function TattooKosLandingPage() {
           <div className="ads-hero-art" aria-label="Featured tattoos by Sixth Sense Tattoo">
             <div className="ads-hero-image-split">
               <figure className="ads-hero-panel">
-                <div className="ads-hero-shards" role="img" aria-label="Fine line bear tattoo by Dominika">
-                  <img className="ads-hero-shard" src={asset("domka/bear.jpg")} alt="" fetchPriority="high" />
-                  <img className="ads-hero-shard" src={asset("domka/bear.jpg")} alt="" aria-hidden="true" />
-                </div>
+                <img src={asset("domka/bear.jpg")} alt="Fine line bear tattoo by Dominika" fetchPriority="high" />
                 <figcaption><b>01</b><span>Fine Line</span></figcaption>
               </figure>
               <figure className="ads-hero-panel">
-                <div className="ads-hero-shards" role="img" aria-label="Fine line eye tattoo on the arm by Dominika">
-                  <img className="ads-hero-shard" src={asset("domka/eye.jpg")} alt="" fetchPriority="high" />
-                  <img className="ads-hero-shard" src={asset("domka/eye.jpg")} alt="" aria-hidden="true" />
-                </div>
+                <img src={asset("domka/eye.jpg")} alt="Fine line eye tattoo on the arm by Dominika" fetchPriority="high" />
                 <figcaption><b>02</b><span>Fine Line</span></figcaption>
               </figure>
               <figure className="ads-hero-panel">
-                <div className="ads-hero-shards" role="img" aria-label="Medusa tattoo on the hand by Kostas">
-                  <img className="ads-hero-shard" src={asset("kostas/face.jpg")} alt="" fetchPriority="high" />
-                  <img className="ads-hero-shard" src={asset("kostas/face.jpg")} alt="" aria-hidden="true" />
-                  <img className="ads-hero-shard" src={asset("kostas/face.jpg")} alt="" aria-hidden="true" />
-                </div>
+                <img src={asset("kostas/face.jpg")} alt="Medusa tattoo on the hand by Kostas" fetchPriority="high" />
                 <figcaption><b>03</b><span>Black & Grey</span></figcaption>
               </figure>
             </div>
