@@ -22,7 +22,7 @@ const portfolioBatchSize = 18;
 
 function artistPortfolioItems(folder, titlePrefix, category, artist) {
   return Object.keys(assetModules)
-    .filter((path) => path.includes(`../assets/portfolio/${folder}/`))
+    .filter((path) => path.includes(`../assets/portfolio/${folder}/`) && !path.endsWith("/back.jpg"))
     .sort()
     .map((path, index) => ({
       file: path.replace("../assets/portfolio/", ""),
@@ -68,13 +68,13 @@ const translations = {
       steps: ["Send your idea", "Confirm placement", "Book your session"],
     },
     landing: {
-      eyebrow: "Tattoo studio in Kos, Greece", title: "Tattoo Studio in Kos",
-      intro: "Fine Line and Black & Grey tattoos, created in a clean, welcoming studio in the centre of Kos Town.",
+      eyebrow: "Tattoo studio in Kos Town", title: "Fine Line & Black / Grey Tattoos in Kos",
+      intro: "Send us your tattoo idea, size, placement and dates. We’ll check availability and guide you through the booking.",
       rating: "4.9 on Google", ratingCount: "196 public reviews", headerCta: "WhatsApp",
       styles: ["Fine Line", "Black & Grey", "Walk-ins & appointments"],
       primary: "Check availability on WhatsApp", note: "Tell us your idea and your days in Kos. We will help you find the right appointment.",
-      hours: "Mon–Sat · 10:30–19:00", galleryEyebrow: "Selected work", galleryTitle: "Choose the style that feels like you.",
-      galleryIntro: "Delicate fine line, detailed realism, and custom pieces by Dominika and Kostas.",
+      hours: "Mon–Sat · 10:30–19:00", galleryEyebrow: "Selected work", galleryTitle: "Fine lines, with a touch of realism.",
+      galleryIntro: "A fine-line-led collection by Dominika, with three selected black and grey realism pieces by Kostas.",
       trust: [["Google rating", "★★★★★ 4.9"], ["Specialties", "Fine Line + Black & Grey"], ["Availability", "Walk-ins + appointments"], ["Kos Town", "Easy central location"]],
       midTitle: "Have an idea? Send it while your dates are still flexible.", midText: "Share the style, size, placement, and the days you are in Kos. Reference images can be added in WhatsApp.",
       locationEyebrow: "Studio location", locationTitle: "Easy to find in Kos Town.", locationText: "Konstantinou Kanari 42, Kos 853 00. Click the map to open directions in Google Maps.",
@@ -145,13 +145,13 @@ const translations = {
       steps: ["Idee senden", "Platzierung klären", "Termin buchen"],
     },
     landing: {
-      eyebrow: "Tattoo-Studio auf Kos, Griechenland", title: "Tattoo-Studio auf Kos",
-      intro: "Fine Line und Black & Grey Tattoos in einem sauberen, freundlichen Studio im Zentrum von Kos-Stadt.",
+      eyebrow: "Tattoo-Studio in Kos-Stadt", title: "Fine Line & Black / Grey Tattoos auf Kos",
+      intro: "Sende uns deine Tattoo-Idee, Größe, Platzierung und Reisedaten. Wir prüfen die Verfügbarkeit und begleiten dich bei der Buchung.",
       rating: "4,9 bei Google", ratingCount: "196 öffentliche Bewertungen", headerCta: "WhatsApp",
       styles: ["Fine Line", "Black & Grey", "Walk-ins & Termine"],
       primary: "Verfügbarkeit per WhatsApp prüfen", note: "Sag uns deine Idee und wann du auf Kos bist. Wir helfen dir, den passenden Termin zu finden.",
-      hours: "Mo–Sa · 10:30–19:00", galleryEyebrow: "Ausgewählte Arbeiten", galleryTitle: "Finde den Stil, der zu dir passt.",
-      galleryIntro: "Feine Linien, detailreicher Realism und individuelle Motive von Dominika und Kostas.",
+      hours: "Mo–Sa · 10:30–19:00", galleryEyebrow: "Ausgewählte Arbeiten", galleryTitle: "Fine Line, ergänzt durch Realism.",
+      galleryIntro: "Fine-Line-Arbeiten von Dominika, ergänzt durch drei ausgewählte Black-and-Grey-Realism-Motive von Kostas.",
       trust: [["Google-Bewertung", "★★★★★ 4,9"], ["Stilrichtungen", "Fine Line + Black & Grey"], ["Verfügbarkeit", "Walk-ins + Termine"], ["Kos-Stadt", "Zentrale Lage"]],
       midTitle: "Du hast eine Idee? Schreib uns, solange deine Reisedaten noch flexibel sind.", midText: "Sende Stil, Größe, Platzierung und deine Tage auf Kos. Referenzbilder kannst du in WhatsApp hinzufügen.",
       locationEyebrow: "Studio-Standort", locationTitle: "Einfach zu finden in Kos-Stadt.", locationText: "Konstantinou Kanari 42, Kos 853 00. Klicke auf die Karte für die Route in Google Maps.",
@@ -218,13 +218,13 @@ const translations = {
       steps: ["Stuur je idee", "Bepaal de plaatsing", "Boek je sessie"],
     },
     landing: {
-      eyebrow: "Tattoo studio op Kos, Griekenland", title: "Tattoo Studio op Kos",
-      intro: "Fine line en black & grey tattoos in een schone, gastvrije studio in het centrum van Kos-stad.",
+      eyebrow: "Tattoo studio in Kos-stad", title: "Fine Line & Black / Grey Tattoos op Kos",
+      intro: "Stuur ons je tattoo-idee, formaat, plaatsing en reisdata. We controleren de beschikbaarheid en begeleiden je bij de boeking.",
       rating: "4,9 op Google", ratingCount: "196 openbare reviews", headerCta: "WhatsApp",
       styles: ["Fine line", "Black & grey", "Walk-ins & afspraken"],
       primary: "Bekijk beschikbaarheid via WhatsApp", note: "Vertel ons je idee en wanneer je op Kos bent. We helpen je de juiste afspraak te vinden.",
-      hours: "Ma–za · 10:30–19:00", galleryEyebrow: "Geselecteerd werk", galleryTitle: "Kies de stijl die bij jou past.",
-      galleryIntro: "Delicate fine line, gedetailleerd realisme en persoonlijke ontwerpen door Dominika en Kostas.",
+      hours: "Ma–za · 10:30–19:00", galleryEyebrow: "Geselecteerd werk", galleryTitle: "Fine line, aangevuld met realisme.",
+      galleryIntro: "Fine-line werk van Dominika, aangevuld met drie geselecteerde black-and-grey realism stukken van Kostas.",
       trust: [["Google-score", "★★★★★ 4,9"], ["Specialiteiten", "Fine line + Black & grey"], ["Beschikbaarheid", "Walk-ins + afspraken"], ["Kos-stad", "Centrale locatie"]],
       midTitle: "Heb je een idee? Stuur het terwijl je reisdata nog flexibel zijn.", midText: "Deel stijl, formaat, plaatsing en de dagen dat je op Kos bent. Referentiefoto's kun je via WhatsApp toevoegen.",
       locationEyebrow: "Locatie studio", locationTitle: "Eenvoudig te vinden in Kos-stad.", locationText: "Konstantinou Kanari 42, Kos 853 00. Klik op de kaart voor de route in Google Maps.",
@@ -289,6 +289,21 @@ const translations = {
       intro: "Sixth Sense Tattoo est un studio de tatouage professionnel situé à Kos, en Grèce, spécialisé dans les tatouages Fine Line et le réalisme Black & Grey. Reconnu comme l’un des studios Fine Line de référence de l’île, nous créons des pièces personnalisées et de grande qualité dans un environnement propre, sûr et accueillant pour une clientèle internationale.",
       book: "Réserver une consultation", portfolio: "Voir le portfolio", highlights: "Étapes de réservation",
       steps: ["Envoyez votre idée", "Confirmez l’emplacement", "Réservez votre séance"],
+    },
+    landing: {
+      eyebrow: "Studio de tatouage à Kos", title: "Tatouages Fine Line & Black / Grey à Kos",
+      intro: "Envoyez-nous votre idée de tatouage, la taille, l’emplacement et vos dates. Nous vérifierons nos disponibilités et vous guiderons dans la réservation.",
+      rating: "4,9 sur Google", ratingCount: "196 avis publics", headerCta: "WhatsApp",
+      styles: ["Fine Line", "Black & Grey", "Sans rendez-vous & réservations"],
+      primary: "Vérifier les disponibilités sur WhatsApp", note: "Parlez-nous de votre idée et de vos dates à Kos. Nous vous aiderons à trouver le bon rendez-vous.",
+      hours: "Lun–sam · 10:30–19:00", galleryEyebrow: "Sélection", galleryTitle: "Fine Line, avec une touche de réalisme.",
+      galleryIntro: "Une sélection principalement Fine Line par Dominika, complétée par trois pièces réalistes Black & Grey de Kostas.",
+      trust: [["Note Google", "★★★★★ 4,9"], ["Spécialités", "Fine Line + Black & Grey"], ["Disponibilités", "Sans rendez-vous + réservations"], ["Ville de Kos", "Emplacement central"]],
+      midTitle: "Vous avez une idée ? Envoyez-la tant que vos dates restent flexibles.", midText: "Indiquez le style, la taille, l’emplacement et vos dates à Kos. Vous pourrez ajouter vos images de référence dans WhatsApp.",
+      locationEyebrow: "Adresse du studio", locationTitle: "Facile à trouver au centre de Kos.", locationText: "Konstantinou Kanari 42, Kos 853 00. Cliquez sur la carte pour ouvrir l’itinéraire dans Google Maps.",
+      directions: "Ouvrir l’itinéraire", hoursLabel: "Horaires d’ouverture", appointments: "Les visites sans rendez-vous sont possibles selon les disponibilités. La réservation est recommandée.",
+      finalEyebrow: "Planifiez votre tatouage", finalTitle: "Prêt à vérifier vos dates ?", finalText: "Écrivez directement au studio pour connaître les disponibilités, les horaires, les tarifs et l’artiste recommandé.",
+      homeLink: "Voir le site complet",
     },
     essentials: {
       find: "Retrouvez-nous à Kos", address: "Konstantinou Kanari 42", city: "Kos 853 00, Grèce", maps: "Ouvrir dans Google Maps",
@@ -561,12 +576,18 @@ function HomePage({ navigate }) {
 function TattooKosLandingPage() {
   const copy = useCopy();
   const gallery = [
-    ["medusa-portrait.jpg", "Black and grey Medusa portrait tattoo", "Black & Grey"],
-    ["floral-fine-line.jpg", "Delicate fine line floral tattoo", "Fine Line"],
-    ["lion-family-sleeve.jpg", "Detailed black and grey lion family sleeve tattoo", "Realism"],
-    ["moth-lower-back.jpg", "Fine line ornamental moth tattoo", "Fine Line"],
-    ["large-back-piece.jpg", "Large scale black and grey back tattoo", "Black & Grey"],
-    ["cherub-archer-line.jpg", "Fine line cherub archer tattoo", "Fine Line"],
+    ["kostas/face.jpg", "Medusa tattoo on the hand by Kostas", "Black & Grey"],
+    ["kostas/viber_image_2026-08-21_02-43-57-028.jpg", "Winged horse tattoo by Kostas", "Black & Grey"],
+    ["kostas/viber_image_2026-08-21_02-43-57-283.jpg", "Realistic dagger tattoo by Kostas", "Black & Grey"],
+    ["domka/bear.jpg", "Fine line bear tattoo by Dominika", "Fine Line"],
+    ["domka/sharks.jpg", "Fine line shark tattoos by Dominika", "Fine Line"],
+    ["domka/eye.jpg", "Fine line eye tattoo by Dominika", "Fine Line"],
+    ["domka/viber_image_2026-06-08_21-28-57-439.jpg", "Fine line tattoo by Dominika", "Fine Line"],
+    ["domka/viber_image_2026-06-08_21-28-59-261.jpg", "Delicate tattoo by Dominika", "Fine Line"],
+    ["domka/viber_image_2026-06-08_21-28-59-611.jpg", "Minimal fine line tattoo by Dominika", "Fine Line"],
+    ["domka/viber_image_2026-06-08_21-28-59-970.jpg", "Fine line tattoo composition by Dominika", "Fine Line"],
+    ["domka/viber_image_2026-06-08_21-29-00-379.jpg", "Delicate linework tattoo by Dominika", "Fine Line"],
+    ["domka/viber_image_2026-06-08_21-29-01-005.jpg", "Custom fine line tattoo by Dominika", "Fine Line"],
   ];
 
   return (
@@ -593,11 +614,20 @@ function TattooKosLandingPage() {
             <div className="ads-hours"><span aria-hidden="true">●</span>{copy.landing.hours}</div>
           </div>
           <div className="ads-hero-art" aria-label="Featured tattoos by Sixth Sense Tattoo">
-            <img className="ads-hero-main-image" src={asset("medusa-portrait.jpg")} alt="Black and grey Medusa portrait tattoo by Sixth Sense Tattoo" fetchPriority="high" />
-            <figure className="ads-hero-inset">
-              <img src={asset("floral-fine-line.jpg")} alt="Fine line floral tattoo by Sixth Sense Tattoo" />
-              <figcaption>Fine Line</figcaption>
-            </figure>
+            <div className="ads-hero-image-split">
+              <figure className="ads-hero-panel">
+                <img src={asset("domka/bear.jpg")} alt="Fine line bear tattoo by Dominika" fetchPriority="high" />
+                <figcaption><b>01</b><span>Fine Line</span></figcaption>
+              </figure>
+              <figure className="ads-hero-panel">
+                <img src={asset("domka/eye.jpg")} alt="Fine line eye tattoo on the arm by Dominika" fetchPriority="high" />
+                <figcaption><b>02</b><span>Fine Line</span></figcaption>
+              </figure>
+              <figure className="ads-hero-panel">
+                <img src={asset("kostas/face.jpg")} alt="Medusa tattoo on the hand by Kostas" fetchPriority="high" />
+                <figcaption><b>03</b><span>Black & Grey</span></figcaption>
+              </figure>
+            </div>
             <span className="ads-hero-art-label">Kos · Greece</span>
           </div>
         </div>
@@ -756,7 +786,7 @@ function SelectedWork({ navigate }) {
       </div>
       <div className="container preview-grid">
         <PreviewImage file="large-back-piece.jpg" alt="Large black and grey back piece tattoo" label="Black and grey realism" />
-        <PreviewImage file="medusa-portrait.jpg" alt="Medusa portrait tattoo" label="Mythology" />
+        <PreviewImage file="kostas/face.jpg" alt="Medusa tattoo on the hand" label="Mythology" />
         <PreviewImage file="floral-fine-line.jpg" alt="Fine line floral tattoo" label="Fine line" />
       </div>
     </section>
@@ -818,8 +848,8 @@ function ArtistProfilesSection({ navigate }) {
           specialties={copy.artists.kostasSpecialties}
           works={[
             ["kostas/lion.jpg", "Lion tattoo by Kostas"],
-            ["kostas/back.jpg", "Back tattoo by Kostas"],
             ["kostas/face.jpg", "Face tattoo by Kostas"],
+            ["kostas/viber_image_2026-08-21_02-43-56-720.jpg", "Scorpion tattoo by Kostas"],
           ]}
           navigate={navigate}
         />
@@ -959,9 +989,9 @@ function ArtistsSection() {
           name="Kostas - Founder"
           description="Kostas is the founder of Sixth Sense Tattoo and specializes in black & grey realism, surrealism, and custom large-scale tattoo projects. With a passion for detail, contrast, and storytelling, he creates tattoos designed to remain bold, readable, and timeless for years to come. From portraits and mythology to dark fantasy and custom concepts, every piece is tailored to the client and crafted with precision."
           works={[
-            ["medusa-portrait.jpg", "Medusa portrait tattoo by Kostas"],
-            ["lion-family-sleeve.jpg", "Lion family sleeve tattoo by Kostas"],
-            ["zeus-forearm.jpg", "Zeus forearm tattoo by Kostas"],
+            ["kostas/face.jpg", "Medusa tattoo on the hand by Kostas"],
+            ["kostas/viber_image_2026-08-21_02-43-57-028.jpg", "Winged horse tattoo by Kostas"],
+            ["kostas/viber_image_2026-08-21_02-43-57-283.jpg", "Dagger tattoo by Kostas"],
           ]}
         />
         <ArtistCard
