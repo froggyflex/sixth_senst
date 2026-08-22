@@ -430,7 +430,7 @@ function App() {
       )}
       {page}
       {isAdsLanding ? <AdsFooter navigate={navigate} /> : <Footer route={route} navigate={navigate} />}
-      {!isAdsLanding && <WhatsAppWidget />}
+      <WhatsAppWidget href={isAdsLanding ? adsWhatsappUrl : whatsappWidgetUrl} />
     </CopyContext.Provider>
   );
 }
@@ -1268,9 +1268,9 @@ function Footer({ route, navigate }) {
   );
 }
 
-function WhatsAppWidget() {
+function WhatsAppWidget({ href = whatsappWidgetUrl }) {
   return (
-    <a className="whatsapp-widget" href={whatsappWidgetUrl} target="_blank" rel="noreferrer" aria-label="Chat with Sixth Sense on WhatsApp">
+    <a className="whatsapp-widget" href={href} target="_blank" rel="noreferrer" aria-label="Chat with Sixth Sense on WhatsApp">
       <span aria-hidden="true">WA</span>
       <strong>WhatsApp</strong>
     </a>
