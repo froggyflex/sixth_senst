@@ -19,6 +19,54 @@ const adsWhatsappUrl = `${whatsappUrl}?text=${encodeURIComponent("Hello Sixth Se
 const googleBusinessUrl = "https://www.google.com/maps/search/?api=1&query=Sixth%20Sense%20Tattoo%20Kos%20Konstantinou%20Kanari%2042";
 const googleEmbedUrl = "https://www.google.com/maps?q=Sixth%20Sense%20Tattoo%20Kos%20Konstantinou%20Kanari%2042&output=embed";
 const portfolioBatchSize = 18;
+const metaPixelId = import.meta.env.VITE_META_PIXEL_ID?.trim();
+
+function initializeMetaPixel() {
+  if (!/^\d+$/.test(metaPixelId || "")) return false;
+
+  if (!window.fbq) {
+    const fbq = function (...args) {
+      if (fbq.callMethod) fbq.callMethod(...args);
+      else fbq.queue.push(args);
+    };
+
+    fbq.push = fbq;
+    fbq.loaded = true;
+    fbq.version = "2.0";
+    fbq.queue = [];
+    window.fbq = fbq;
+    window._fbq = fbq;
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://connect.facebook.net/en_US/fbevents.js";
+    document.head.appendChild(script);
+  }
+
+  if (!window.__sixthSenseMetaPixelInitialized) {
+    window.fbq("init", metaPixelId);
+    window.__sixthSenseMetaPixelInitialized = true;
+  }
+
+  return true;
+}
+
+function trackMetaEvent(name, parameters) {
+  if (!initializeMetaPixel()) return;
+  window.fbq("track", name, parameters);
+}
+
+function trackMetaPageView(route) {
+  if (!initializeMetaPixel()) return;
+
+  const now = Date.now();
+  const pageKey = `${route}${window.location.search}`;
+  const previous = window.__sixthSenseLastMetaPageView;
+  if (previous?.pageKey === pageKey && now - previous.time < 1000) return;
+
+  window.__sixthSenseLastMetaPageView = { pageKey, time: now };
+  window.fbq("track", "PageView");
+}
 
 function artistPortfolioItems(folder, titlePrefix, category, artist) {
   return Object.keys(assetModules)
@@ -89,7 +137,7 @@ const translations = {
       bookingTitle: "Easy booking", bookingText: "Send your idea, references, travel dates, and preferred placement through WhatsApp.",
     },
     artists: {
-      eyebrow: "Artists", title: "Two artists. Two distinct approaches.",
+      eyebrow: "Artists", title: "Three artists. Three distinct approaches.",
       intro: "Meet the people behind the work, see how each artist thinks, and find the style that feels right for your idea.", studioInstagram: "Studio Instagram",
       kostasRole: "Founder · Black & grey realism", kostasVideo: "Introduction to Kostas, founder and black and grey tattoo artist",
       kostasDescription: "Kostas is the founder of Sixth Sense Tattoo and specializes in black & grey realism, surrealism, and custom large-scale tattoo projects. With a passion for detail, contrast, and storytelling, he creates tattoos designed to remain bold, readable, and timeless for years to come. From portraits and mythology to dark fantasy and custom concepts, every piece is tailored to the client and crafted with precision.",
@@ -97,6 +145,9 @@ const translations = {
       dominikaRole: "Fine line specialist", dominikaVideo: "Introduction to Dominika, fine line tattoo specialist",
       dominikaDescription: "Dominika specializes in fine line, delicate, and elegant tattoo designs. Her work focuses on clean lines, minimalistic compositions, floral elements, ornamental details, and subtle custom pieces that complement the body's natural flow. Her attention to detail and refined approach make her the perfect choice for clients seeking sophisticated and timeless fine line tattoos.",
       dominikaSpecialties: ["Fine line", "Floral", "Ornamental", "Minimal"],
+      ioannaRole: "Tattoo artist", ioannaVideo: "Introduction to Ioanna, tattoo artist at Sixth Sense Tattoo",
+      ioannaDescription: "Ioanna brings a thoughtful, detail-led approach to every tattoo, developing personal designs around the client's idea, placement, and natural body flow.",
+      ioannaSpecialties: ["Custom tattoos", "Personal concepts", "Detail", "Body flow"],
       viewPortfolio: "View studio portfolio", openInstagram: "Open Instagram", specialties: "specialties",
     },
     reviews: {
@@ -166,13 +217,16 @@ const translations = {
       bookingTitle: "Einfach buchen", bookingText: "Sende uns Idee, Referenzen, Reisedaten und gewünschte Platzierung per WhatsApp.",
     },
     artists: {
-      eyebrow: "Artists", title: "Zwei Artists. Zwei eigene Handschriften.", intro: "Lerne die Menschen hinter den Arbeiten kennen und finde den Stil, der zu deiner Idee passt.", studioInstagram: "Studio auf Instagram",
+      eyebrow: "Artists", title: "Drei Artists. Drei eigene Handschriften.", intro: "Lerne die Menschen hinter den Arbeiten kennen und finde den Stil, der zu deiner Idee passt.", studioInstagram: "Studio auf Instagram",
       kostasRole: "Gründer · Black & Grey Realism", kostasVideo: "Vorstellung von Kostas, Gründer und Black-and-Grey-Tattoo-Artist",
       kostasDescription: "Kostas ist Gründer von Sixth Sense Tattoo und spezialisiert auf Black & Grey Realism, Surrealismus und großflächige, individuelle Projekte. Detail, Kontrast und Storytelling stehen im Mittelpunkt; jedes Motiv wird präzise auf die Person abgestimmt.",
       kostasSpecialties: ["Realism", "Surrealismus", "Großprojekte", "Custom Designs"],
       dominikaRole: "Fine-Line-Spezialistin", dominikaVideo: "Vorstellung von Dominika, Spezialistin für Fine-Line-Tattoos",
       dominikaDescription: "Dominika spezialisiert sich auf feine, elegante Tattoos mit klaren Linien. Ihre Arbeiten umfassen minimalistische Kompositionen, florale Elemente, Ornamente und dezente Custom Pieces, die dem natürlichen Körperverlauf folgen.",
       dominikaSpecialties: ["Fine Line", "Floral", "Ornamental", "Minimal"],
+      ioannaRole: "Tattoo-Artist", ioannaVideo: "Vorstellung von Ioanna, Tattoo-Artist bei Sixth Sense Tattoo",
+      ioannaDescription: "Ioanna entwickelt jedes Tattoo mit einem aufmerksamen Blick für Details und stimmt persönliche Motive auf die Idee, die Platzierung und den natürlichen Körperverlauf ab.",
+      ioannaSpecialties: ["Custom Tattoos", "Persönliche Motive", "Details", "Körperverlauf"],
       viewPortfolio: "Studio-Portfolio ansehen", openInstagram: "Instagram öffnen", specialties: "Stilrichtungen",
     },
     reviews: {
@@ -239,13 +293,16 @@ const translations = {
       bookingTitle: "Eenvoudig boeken", bookingText: "Stuur je idee, voorbeelden, reisdata en gewenste plaatsing via WhatsApp.",
     },
     artists: {
-      eyebrow: "Artiesten", title: "Twee artiesten. Twee eigen stijlen.", intro: "Maak kennis met de mensen achter het werk en ontdek welke stijl bij jouw idee past.", studioInstagram: "Studio Instagram",
+      eyebrow: "Artiesten", title: "Drie artiesten. Drie eigen stijlen.", intro: "Maak kennis met de mensen achter het werk en ontdek welke stijl bij jouw idee past.", studioInstagram: "Studio Instagram",
       kostasRole: "Oprichter · Black & grey realism", kostasVideo: "Introductie van Kostas, oprichter en black-and-grey tattoo-artiest",
       kostasDescription: "Kostas is de oprichter van Sixth Sense Tattoo en specialiseert zich in black & grey realism, surrealisme en grote persoonlijke projecten. Detail, contrast en storytelling staan centraal; ieder ontwerp wordt nauwkeurig op de klant afgestemd.",
       kostasSpecialties: ["Realism", "Surrealisme", "Grote projecten", "Persoonlijk ontwerp"],
       dominikaRole: "Fine-line-specialist", dominikaVideo: "Introductie van Dominika, specialist in fine-line tattoos",
       dominikaDescription: "Dominika specialiseert zich in fijne, elegante tattoos met strakke lijnen. Haar werk omvat minimalistische composities, bloemen, ornamenten en subtiele ontwerpen die de natuurlijke lijnen van het lichaam volgen.",
       dominikaSpecialties: ["Fine line", "Bloemen", "Ornamental", "Minimal"],
+      ioannaRole: "Tattoo-artiest", ioannaVideo: "Introductie van Ioanna, tattoo-artiest bij Sixth Sense Tattoo",
+      ioannaDescription: "Ioanna benadert iedere tattoo met aandacht voor detail en ontwikkelt persoonlijke ontwerpen rond het idee, de plaatsing en de natuurlijke lijnen van het lichaam.",
+      ioannaSpecialties: ["Persoonlijke tattoos", "Eigen concepten", "Detail", "Lichaamslijnen"],
       viewPortfolio: "Studioportfolio bekijken", openInstagram: "Instagram openen", specialties: "specialismen",
     },
     reviews: {
@@ -312,13 +369,16 @@ const translations = {
       bookingTitle: "Réservation facile", bookingText: "Envoyez-nous votre idée, vos références, vos dates de voyage et l’emplacement souhaité via WhatsApp.",
     },
     artists: {
-      eyebrow: "Artistes", title: "Deux artistes. Deux approches distinctes.", intro: "Découvrez les artistes derrière chaque création, leur façon de travailler et le style qui correspond à votre idée.", studioInstagram: "Instagram du studio",
+      eyebrow: "Artistes", title: "Trois artistes. Trois approches distinctes.", intro: "Découvrez les artistes derrière chaque création, leur façon de travailler et le style qui correspond à votre idée.", studioInstagram: "Instagram du studio",
       kostasRole: "Fondateur · Réalisme Black & Grey", kostasVideo: "Présentation de Kostas, fondateur et tatoueur spécialisé en Black & Grey",
       kostasDescription: "Kostas est le fondateur de Sixth Sense Tattoo et se spécialise dans le réalisme Black & Grey, le surréalisme et les grands projets personnalisés. Passionné par le détail, le contraste et la narration, il crée des tatouages pensés pour rester forts, lisibles et intemporels. Portraits, mythologie, dark fantasy ou concepts sur mesure : chaque pièce est adaptée au client et réalisée avec précision.",
       kostasSpecialties: ["Réalisme", "Surréalisme", "Grandes pièces", "Créations sur mesure"],
       dominikaRole: "Spécialiste Fine Line", dominikaVideo: "Présentation de Dominika, spécialiste du tatouage Fine Line",
       dominikaDescription: "Dominika se spécialise dans les tatouages fins, délicats et élégants. Son travail met en valeur des lignes nettes, des compositions minimalistes, des motifs floraux, des détails ornementaux et des créations subtiles qui épousent les lignes naturelles du corps. Son sens du détail et son approche raffinée conviennent parfaitement aux personnes qui recherchent un tatouage Fine Line sophistiqué et intemporel.",
       dominikaSpecialties: ["Fine Line", "Floral", "Ornemental", "Minimaliste"],
+      ioannaRole: "Tatoueuse", ioannaVideo: "Présentation d’Ioanna, tatoueuse chez Sixth Sense Tattoo",
+      ioannaDescription: "Ioanna aborde chaque tatouage avec une grande attention aux détails et développe des créations personnelles autour de l’idée, de l’emplacement et des lignes naturelles du corps.",
+      ioannaSpecialties: ["Tatouages sur mesure", "Concepts personnels", "Détail", "Lignes du corps"],
       viewPortfolio: "Voir le portfolio du studio", openInstagram: "Ouvrir Instagram", specialties: "spécialités",
     },
     reviews: {
@@ -420,6 +480,21 @@ function App() {
     document.documentElement.lang = language;
     window.localStorage.setItem("sixth-sense-language", language);
   }, [language]);
+
+  useEffect(() => {
+    trackMetaPageView(route);
+  }, [route]);
+
+  useEffect(() => {
+    const trackContactClick = (event) => {
+      const callToAction = event.target.closest?.("[data-cta]");
+      if (!callToAction) return;
+      trackMetaEvent("Contact", { content_name: callToAction.dataset.cta });
+    };
+
+    document.addEventListener("click", trackContactClick);
+    return () => document.removeEventListener("click", trackContactClick);
+  }, []);
 
   const navigate = (path) => {
     const next = normalizePath(path);
@@ -838,7 +913,7 @@ function ArtistProfilesSection({ navigate }) {
         <ArtistProfile
           number="01"
           href="https://www.instagram.com/constantine.tatt/"
-          video="goddointro.mp4"
+          videoSource={introVideo("goddointro.mp4")}
           poster="Screenshot_2.png"
           videoLabel={copy.artists.kostasVideo}
           handle="@constantine.tatt"
@@ -857,7 +932,7 @@ function ArtistProfilesSection({ navigate }) {
           number="02"
           reverse
           href="https://www.instagram.com/domka_tattoo/"
-          video="domkaintro.mp4"
+          videoSource={introVideo("domkaintro.mp4")}
           poster="Screenshot_1.png"
           videoLabel={copy.artists.dominikaVideo}
           handle="@domka_tattoo"
@@ -872,19 +947,31 @@ function ArtistProfilesSection({ navigate }) {
           ]}
           navigate={navigate}
         />
+        <ArtistProfile
+          number="03"
+          href={studioInstagram}
+          videoSource={asset("johanna/0-02-05-5e9b73aa62c571d10f68aaef8ba3ca485528a59c1429a36a371d17ab22fe5088_20b26a87463496fa.mp4")}
+          videoLabel={copy.artists.ioannaVideo}
+          handle="@sixthsense.tattoo"
+          name="Ioanna"
+          role={copy.artists.ioannaRole}
+          description={copy.artists.ioannaDescription}
+          specialties={copy.artists.ioannaSpecialties}
+          navigate={navigate}
+        />
       </div>
     </section>
   );
 }
 
-function ArtistProfile({ number, href, video, poster, videoLabel, handle, name, role, description, specialties, works, reverse = false, navigate }) {
+function ArtistProfile({ number, href, videoSource, poster, videoLabel, handle, name, role, description, specialties, works = [], reverse = false, navigate }) {
   const copy = useCopy();
 
   return (
     <article className={`artist-profile${reverse ? " is-reversed" : ""}`}>
       <div className="artist-media">
-        <video autoPlay muted loop playsInline controls preload="metadata" poster={asset(poster)} aria-label={videoLabel}>
-          <source src={introVideo(video)} type="video/mp4" />
+        <video autoPlay muted loop playsInline controls preload="metadata" poster={poster ? asset(poster) : undefined} aria-label={videoLabel}>
+          <source src={videoSource} type="video/mp4" />
         </video>
         <span className="artist-index">{number}</span>
       </div>
@@ -900,9 +987,11 @@ function ArtistProfile({ number, href, video, poster, videoLabel, handle, name, 
         <ul className="artist-specialties" aria-label={`${name} ${copy.artists.specialties}`}>
           {specialties.map((specialty) => <li key={specialty}>{specialty}</li>)}
         </ul>
-        <div className="top-works" aria-label={`${name} top works`}>
-          {works.map(([file, imageAlt]) => <img key={file} src={asset(file)} alt={imageAlt} />)}
-        </div>
+        {works.length > 0 && (
+          <div className="top-works" aria-label={`${name} top works`}>
+            {works.map(([file, imageAlt]) => <img key={file} src={asset(file)} alt={imageAlt} />)}
+          </div>
+        )}
         <div className="artist-actions">
           <a className="portfolio-link" href="/portfolio" onClick={(event) => routeClick(event, "/portfolio", navigate)}>{copy.artists.viewPortfolio}</a>
           <a className="portfolio-link muted-link" href={href} target="_blank" rel="noreferrer">{copy.artists.openInstagram}</a>
@@ -1223,6 +1312,7 @@ function ContactPage() {
       data.get("contact")?.toString().trim() ? `My contact: ${data.get("contact").toString().trim()}` : "",
     ].filter(Boolean);
     setNote(copy.contact.openingNote);
+    trackMetaEvent("Contact", { content_name: "contact-form-whatsapp" });
     window.open(`${whatsappUrl}?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener,noreferrer");
   };
 
@@ -1300,7 +1390,7 @@ function Footer({ route, navigate }) {
 
 function WhatsAppWidget({ href = whatsappWidgetUrl }) {
   return (
-    <a className="whatsapp-widget" href={href} target="_blank" rel="noreferrer" aria-label="Chat with Sixth Sense on WhatsApp">
+    <a className="whatsapp-widget" href={href} target="_blank" rel="noreferrer" aria-label="Chat with Sixth Sense on WhatsApp" data-cta="whatsapp-widget">
       <span aria-hidden="true">WA</span>
       <strong>WhatsApp</strong>
     </a>
