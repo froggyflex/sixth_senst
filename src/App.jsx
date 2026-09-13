@@ -615,7 +615,7 @@ function HomePage({ navigate }) {
     <main>
       <section className="hero section">
         <video className="hero-video" autoPlay muted loop playsInline poster={asset("studio-workroom-02.jpg")} aria-hidden="true">
-          <source src={asset("video.mp4")} type="video/mp4" />
+          <source src={introVideo("mainintro.mp4")} type="video/mp4" />
         </video>
         <div className="hero-shade" aria-hidden="true"></div>
         <div className="container hero-grid">
