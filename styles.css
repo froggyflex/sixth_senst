@@ -226,7 +226,9 @@ textarea {
 }
 
 .hero-video {
-  object-fit: cover;
+  background: var(--ink);
+  object-fit: contain;
+  object-position: right center;
 }
 
 .hero-shade {
@@ -2104,6 +2106,10 @@ textarea:focus {
 }
 
 @media (max-width: 920px) {
+  .hero-video {
+    object-position: center;
+  }
+
   .ads-hero-grid,
   .ads-section-heading,
   .ads-location-grid,

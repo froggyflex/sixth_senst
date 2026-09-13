@@ -614,7 +614,16 @@ function HomePage({ navigate }) {
   return (
     <main>
       <section className="hero section">
-        <video className="hero-video" autoPlay muted loop playsInline poster={asset("studio-workroom-02.jpg")} aria-hidden="true">
+        <video
+          className="hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={asset("studio-workroom-02.jpg")}
+          onLoadedMetadata={(event) => { event.currentTarget.playbackRate = 0.75; }}
+          aria-hidden="true"
+        >
           <source src={introVideo("mainintro.mp4")} type="video/mp4" />
         </video>
         <div className="hero-shade" aria-hidden="true"></div>
