@@ -140,7 +140,7 @@ const translations = {
       eyebrow: "Artists", title: "Three artists. Three distinct approaches.",
       intro: "Meet the people behind the work, see how each artist thinks, and find the style that feels right for your idea.", studioInstagram: "Studio Instagram",
       kostasRole: "Founder · Black & grey realism", kostasVideo: "Introduction to Kostas, founder and black and grey tattoo artist",
-      kostasDescription: "Kostas is the founder of Sixth Sense Tattoo and specializes in black & grey realism, surrealism, and custom large-scale tattoo projects. With a passion for detail, contrast, and storytelling, he creates tattoos designed to remain bold, readable, and timeless for years to come. From portraits and mythology to dark fantasy and custom concepts, every piece is tailored to the client and crafted with precision.",
+      kostasDescription: "Kostas is the founder of Sixth Sense Tattoo and a versatile tattoo artist with over 8 years of experience. With a strong foundation in Black & Grey Realism and Fine Line tattooing, his work combines precision, detail, and clean execution. His versatility allows him to work across a wide range of styles, from delicate minimal pieces to detailed realism and larger custom projects. Every tattoo is approached individually, with careful attention to the design, placement, and the client’s vision.",
       kostasSpecialties: ["Realism", "Surrealism", "Large-scale", "Custom concepts"],
       dominikaRole: "Fine line specialist", dominikaVideo: "Introduction to Dominika, fine line tattoo specialist",
       dominikaDescription: "Dominika specializes in fine line, delicate, and elegant tattoo designs. Her work focuses on clean lines, minimalistic compositions, floral elements, ornamental details, and subtle custom pieces that complement the body's natural flow. Her attention to detail and refined approach make her the perfect choice for clients seeking sophisticated and timeless fine line tattoos.",
@@ -219,7 +219,7 @@ const translations = {
     artists: {
       eyebrow: "Artists", title: "Drei Artists. Drei eigene Handschriften.", intro: "Lerne die Menschen hinter den Arbeiten kennen und finde den Stil, der zu deiner Idee passt.", studioInstagram: "Studio auf Instagram",
       kostasRole: "Gründer · Black & Grey Realism", kostasVideo: "Vorstellung von Kostas, Gründer und Black-and-Grey-Tattoo-Artist",
-      kostasDescription: "Kostas ist Gründer von Sixth Sense Tattoo und spezialisiert auf Black & Grey Realism, Surrealismus und großflächige, individuelle Projekte. Detail, Kontrast und Storytelling stehen im Mittelpunkt; jedes Motiv wird präzise auf die Person abgestimmt.",
+      kostasDescription: "Kostas ist der Gründer von Sixth Sense Tattoo und ein vielseitiger Tattoo-Artist mit über 8 Jahren Erfahrung. Mit einer starken Basis in Black & Grey Realism und Fine Line verbindet seine Arbeit Präzision, Detailtreue und eine saubere Ausführung. Seine Vielseitigkeit erlaubt ihm, in unterschiedlichsten Stilrichtungen zu arbeiten – von feinen, minimalistischen Motiven bis zu detailreichem Realismus und größeren Custom-Projekten. Jedes Tattoo wird individuell entwickelt, mit besonderer Aufmerksamkeit für Design, Platzierung und die Vorstellung des Kunden.",
       kostasSpecialties: ["Realism", "Surrealismus", "Großprojekte", "Custom Designs"],
       dominikaRole: "Fine-Line-Spezialistin", dominikaVideo: "Vorstellung von Dominika, Spezialistin für Fine-Line-Tattoos",
       dominikaDescription: "Dominika spezialisiert sich auf feine, elegante Tattoos mit klaren Linien. Ihre Arbeiten umfassen minimalistische Kompositionen, florale Elemente, Ornamente und dezente Custom Pieces, die dem natürlichen Körperverlauf folgen.",
@@ -295,7 +295,7 @@ const translations = {
     artists: {
       eyebrow: "Artiesten", title: "Drie artiesten. Drie eigen stijlen.", intro: "Maak kennis met de mensen achter het werk en ontdek welke stijl bij jouw idee past.", studioInstagram: "Studio Instagram",
       kostasRole: "Oprichter · Black & grey realism", kostasVideo: "Introductie van Kostas, oprichter en black-and-grey tattoo-artiest",
-      kostasDescription: "Kostas is de oprichter van Sixth Sense Tattoo en specialiseert zich in black & grey realism, surrealisme en grote persoonlijke projecten. Detail, contrast en storytelling staan centraal; ieder ontwerp wordt nauwkeurig op de klant afgestemd.",
+      kostasDescription: "Kostas is de oprichter van Sixth Sense Tattoo en een veelzijdige tattoo-artiest met meer dan 8 jaar ervaring. Met een sterke basis in Black & Grey Realism en Fine Line combineert zijn werk precisie, detail en een strakke uitvoering. Dankzij zijn veelzijdigheid werkt hij in uiteenlopende stijlen, van delicate minimalistische tattoos tot gedetailleerd realisme en grotere ontwerpen op maat. Elke tattoo wordt individueel benaderd, met zorgvuldige aandacht voor het ontwerp, de plaatsing en de visie van de klant.",
       kostasSpecialties: ["Realism", "Surrealisme", "Grote projecten", "Persoonlijk ontwerp"],
       dominikaRole: "Fine-line-specialist", dominikaVideo: "Introductie van Dominika, specialist in fine-line tattoos",
       dominikaDescription: "Dominika specialiseert zich in fijne, elegante tattoos met strakke lijnen. Haar werk omvat minimalistische composities, bloemen, ornamenten en subtiele ontwerpen die de natuurlijke lijnen van het lichaam volgen.",
@@ -371,7 +371,7 @@ const translations = {
     artists: {
       eyebrow: "Artistes", title: "Trois artistes. Trois approches distinctes.", intro: "Découvrez les artistes derrière chaque création, leur façon de travailler et le style qui correspond à votre idée.", studioInstagram: "Instagram du studio",
       kostasRole: "Fondateur · Réalisme Black & Grey", kostasVideo: "Présentation de Kostas, fondateur et tatoueur spécialisé en Black & Grey",
-      kostasDescription: "Kostas est le fondateur de Sixth Sense Tattoo et se spécialise dans le réalisme Black & Grey, le surréalisme et les grands projets personnalisés. Passionné par le détail, le contraste et la narration, il crée des tatouages pensés pour rester forts, lisibles et intemporels. Portraits, mythologie, dark fantasy ou concepts sur mesure : chaque pièce est adaptée au client et réalisée avec précision.",
+      kostasDescription: "Kostas est le fondateur de Sixth Sense Tattoo et un tatoueur polyvalent avec plus de 8 ans d’expérience. Fort d’une solide maîtrise du réalisme Black & Grey et du Fine Line, son travail associe précision, détail et exécution soignée. Sa polyvalence lui permet d’explorer de nombreux styles, des pièces minimalistes délicates au réalisme détaillé et aux grands projets personnalisés. Chaque tatouage est abordé individuellement, avec une attention particulière portée au dessin, à l’emplacement et à la vision du client.",
       kostasSpecialties: ["Réalisme", "Surréalisme", "Grandes pièces", "Créations sur mesure"],
       dominikaRole: "Spécialiste Fine Line", dominikaVideo: "Présentation de Dominika, spécialiste du tatouage Fine Line",
       dominikaDescription: "Dominika se spécialise dans les tatouages fins, délicats et élégants. Son travail met en valeur des lignes nettes, des compositions minimalistes, des motifs floraux, des détails ornementaux et des créations subtiles qui épousent les lignes naturelles du corps. Son sens du détail et son approche raffinée conviennent parfaitement aux personnes qui recherchent un tatouage Fine Line sophistiqué et intemporel.",
@@ -1085,7 +1085,7 @@ function ArtistsSection() {
           alt="Kostas tattoo artist portrait"
           handle="@constantine.tatt"
           name="Kostas - Founder"
-          description="Kostas is the founder of Sixth Sense Tattoo and specializes in black & grey realism, surrealism, and custom large-scale tattoo projects. With a passion for detail, contrast, and storytelling, he creates tattoos designed to remain bold, readable, and timeless for years to come. From portraits and mythology to dark fantasy and custom concepts, every piece is tailored to the client and crafted with precision."
+          description="Kostas is the founder of Sixth Sense Tattoo and a versatile tattoo artist with over 8 years of experience. With a strong foundation in Black & Grey Realism and Fine Line tattooing, his work combines precision, detail, and clean execution. His versatility allows him to work across a wide range of styles, from delicate minimal pieces to detailed realism and larger custom projects. Every tattoo is approached individually, with careful attention to the design, placement, and the client’s vision."
           works={[
             ["kostas/face.jpg", "Medusa tattoo on the hand by Kostas"],
             ["kostas/viber_image_2026-08-21_02-43-57-028.jpg", "Winged horse tattoo by Kostas"],
