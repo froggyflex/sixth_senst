@@ -1141,7 +1141,7 @@ function GoogleReviewsSection() {
           <span className="review-source">Google</span>
           <strong>4.9</strong>
           <span className="review-stars" aria-label="4.9 out of 5 stars">★★★★★</span>
-          <p>Based on 194 Google reviews</p>
+          <p>Based on 196 Google reviews</p>
           <small>Sixth Sense Tattoo Kos</small>
         </div>
       </div>
